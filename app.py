@@ -119,4 +119,6 @@ def jsonvalidate():
         extra_keys = set(testjson.keys()) - keys_in_both
         return(jsonify({'valid':True,'non schema properties':list(extra_keys)}))
     return(jsonify({'valid':False,'error':result['full_report']}))
+if __name__=="__main__":
+    app.run()
     
