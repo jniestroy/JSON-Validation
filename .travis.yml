@@ -16,7 +16,7 @@ install:
    - pip3 install mock nose parameterized
 
 script:
-  - python3 app.py&
+  - python3 app.py &
   - python3 test/
 
 after_success:
