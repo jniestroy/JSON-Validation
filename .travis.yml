@@ -16,7 +16,7 @@ install:
    - pip3 install mock nose parameterized
 
 script:
-  - python -m pytest -v app/test/prac_test.py
+  - python3 -m pytest -v app/test/prac_test.py
 
 after_success:
    - set -e
