@@ -101,6 +101,7 @@ def validate_item(item):
 @app.route('/validatejson', methods=['POST'])
 def jsonvalidate():
     testjson = request.get_json()
+    print(testjson)
     if testjson is None:
         return(jsonify({'error':"Please POST JSON file",'valid':False}))
     if '@type' not in testjson:
