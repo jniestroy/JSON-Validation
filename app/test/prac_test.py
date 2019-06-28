@@ -9,13 +9,13 @@ class Testflaskapp(unittest.TestCase):
         testjson = {'@context': "http://json-schema.org/draft-07/schema","@type":"Dataset","name":"Justin"}
         URL = " http://127.0.0.1:5000/validatejson"
         r = self.app.post('/validatejson',json = testjson)
-        self.assertEqual(r.json, {'valid':True,'non schema properties':[]})
+        self.assertEqual(r.json, {'error': '', 'extra_elements': [], 'valid': True})
     
     def test_extra_property(self):
         testjson = {'@context': "http://json-schema.org/draft-07/schema","@type":"Dataset","name":"Justin","randomname":"test"}
         URL = " http://127.0.0.1:5000/validatejson"
         r = self.app.post('/validatejson',json = testjson)
-        self.assertEqual(r.json, {'valid':True,'non schema properties':["randomname"]})
+        self.assertEqual(r.json, {'error': '', 'extra_elements': ["randomname"], 'valid': True})
     def test_no_json(self):
         testjson = 'randomstring'
         URL = " http://127.0.0.1:5000/validatejson"

@@ -9,6 +9,127 @@ import requests
 
 app = Flask(__name__)
 
+def validate_json(testjson,context,response = {'error': '','extra_elements':[]}):
+    if '@type' not in testjson.keys():
+        return(response['error'] + " json missing type label")
+    schema = get_schema(context,testjson['@type'])
+    error = response['error']
+    extra_elements = response['extra_elements']
+    for element in testjson.keys():
+        element_valid = 0
+        element_seen = 0
+        for prop in schema['@graph']:
+            if element_seen:
+                break
+            if prop['@id'] == "schema:" +element:
+                element_seen = True
+                if isinstance(testjson[element],dict):
+                    if valid_type(testjson[element],prop['schema:rangeIncludes']):
+                        result = validate_json(testjson[element],context,response)
+                        error = error + result['error']
+                        extra_elements = extra_elements + result['extra_elements']
+                    else:
+                        error = error + element + ' is missing type or has type outside of range of ' + str(prop['schema:rangeIncludes']) + ', '
+                elif isinstance(testjson[element],list):
+                    if validate_list(testjson[element],prop['schema:rangeIncludes'],context):
+                        element_valid = True
+                    else:
+                        error = error + element + " in "+ testjson['@type'] +' at least an element in list is on improper type, ' 
+                else:
+                    if validate_element(testjson[element],prop['schema:rangeIncludes']):
+                        element_valid = True
+                    else:
+                        error = error + element + " in "+ testjson['@type'] + " is of wrong typeshould be in " + str(prop['schema:rangeIncludes']) + ', '
+        if not element_seen:
+                extra_elements.append(element)
+    extra_elements = set(extra_elements)
+    extra_elements = list(extra_elements)
+    if '@context' in extra_elements:
+        extra_elements.remove('@context')
+    if '@type' in extra_elements:
+        extra_elements.remove('@type')
+    return({'error':error,'extra_elements':extra_elements})
+def valid_type(testjson,types):
+    if '@type' not in testjson.keys():
+        return False
+    if isinstance(types,list):
+        possible_types = []
+        for element in types:
+            possible_types.append(element['@id'])
+    else:
+        possible_types = [types['@id']]
+    if 'schema:' + testjson['@type'] in possible_types:
+        return True
+    return False
+def validate_list(test_list,types,context):
+    valid_list = True
+    if isinstance(types,list):
+        possible_types = []
+        for element in types:
+            possible_types.append(element['@id'])
+    else:
+        possible_types = [types['@id']]
+    for allowed_type in possible_types:
+        for element in test_list:
+            if isinstance(element,dict):
+                dict_type = {'@id':allowed_type}
+                if valid_type(element,dict_type):
+                    if validate_json(element,context)['error'] == '':
+                        test = 1
+                    else:
+                        valid_list = 0
+                else:
+                    valid_list = 0
+            else:
+                dict_type = {'@id':allowed_type}
+                if not validate_element(element,dict_type):
+                    valid_list = 0
+        if valid_list:
+            return True
+    return False
+def validate_element(element,types):
+    if isinstance(types,list):
+        for valid_option in types:
+            if isinstance(element,str):
+                return True
+            elif isinstance(element,list) and valid_option['@id'] == 'schema:Text':
+                return True
+            elif isinstance(element,str) and valid_option['@id'] == 'schema:URL':
+                return True
+            elif isinstance(element,str) and valid_option['@id'] == 'schema:Date':
+                return True
+            elif isinstance(element,str) and valid_option['@id'] == 'schema:Description':
+                return True
+            elif isinstance(element,str) and valid_option['@id'] == 'schema:Country':
+                return True
+            elif valid_option['@id'] == 'schema:Literal':
+                return True
+        return False
+    else:
+        if isinstance(element,str):
+                return True
+        elif isinstance(element,str) and types['@id'] == 'schema:URL':
+                return True
+        elif isinstance(element,str) and types['@id'] == 'schema:Date':
+                return True
+        elif isinstance(element,str) and types['@id'] == 'schema:Description':
+                return True
+        elif isinstance(element,str) and types['@id'] == 'schema:Country':
+                return True
+        elif isinstance(element,list):
+                return True
+        elif types['@id'] == 'schema:Literal':
+                return True
+        elif types['@id'] == 'schema:DataDownload':
+                return True
+        else:
+            return False
+def get_schema(context,prop_type):
+    url = context + prop_type + ".jsonld"
+    r = requests.get(url)
+    schema = r.json()
+    return(schema)
+
 def get_property(message):
     result = re.search("u''", message)
     return result.group(1)
@@ -98,8 +219,8 @@ def validate_item(item):
     return validation
 
 
-@app.route('/validatejson', methods=['POST'])
-def jsonvalidate():
+@app.route('/validatejson1', methods=['POST'])
+def jsonvalidate1():
     testjson = request.get_json()
     if testjson is None:
         return(jsonify({'error':"Please POST JSON file",'valid':False}))
@@ -119,6 +240,18 @@ def jsonvalidate():
         extra_keys = set(testjson.keys()) - keys_in_both
         return(jsonify({'valid':True,'non schema properties':list(extra_keys)}))
     return(jsonify({'valid':False,'error':result['full_report']}))
+
+@app.route('/validatejson', methods=['POST'])
+def jsonvalidate():
+    testjson = request.get_json()
+    if testjson is None:
+        return(jsonify({'error':"Please POST JSON file",'valid':False}))
+    result = validate_json(testjson,"http://schema.org/")
+    if result['error'] == '':
+        result['valid'] = True
+        return(jsonify(result))
+    result['valid'] = False
+    return(jsonify(result))
 if __name__=="__main__":
     app.run()
     
