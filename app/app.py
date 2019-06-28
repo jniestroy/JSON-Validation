@@ -246,7 +246,7 @@ def jsonvalidate():
     testjson = request.get_json()
     if testjson is None:
         return(jsonify({'error':"Please POST JSON file",'valid':False}))
-    result = validate_json(testjson,"http://schema.org/")
+    result = validate_json(testjson,"http://schema.org/",{'error': '','extra_elements':[]})
     if result['error'] == '':
         result['valid'] = True
         return(jsonify(result))
