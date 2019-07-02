@@ -11,11 +11,12 @@ import requests
 app = Flask(__name__)
 
 def validate_json(testjson,context,response = {'error': '','extra_elements':[]}):
-    if '@type' not in testjson.keys():
-        return(response['error'] + " json missing type label")
-    schema = get_schema(context,testjson['@type'])
     error = response['error']
     extra_elements = response['extra_elements']
+    if '@type' not in testjson.keys():
+        error = error +  " json missing type label"
+        return({'error':error,'extra_elements':extra_elements})
+    schema = get_schema(context,testjson['@type'])
     if schema == "Non-Valid Type":
         error = error + "Type not found on schema.org, "
         return({'error':error,'extra_elements':extra_elements})
@@ -322,6 +323,7 @@ def jsonvalidate():
     if testjson is None:
         return(jsonify({'error':"Please POST JSON file",'valid':False}))
     result = validate_json(testjson,"http://schema.org/",{'error': '','extra_elements':[]})
+    print(result)
     if result['error'] == '':
         shacl_result = validate_shacl_min(testjson)
         if shacl_result[0]:

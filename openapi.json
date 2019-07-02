@@ -1,0 +1,202 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Json Validator",
+    "description" : "Takes json-ld as input validates against schema.org",
+    "version" : "0.1"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:5000"
+  } ],
+  "paths" : {
+    "/validatejson" : {
+      "post" : {
+        "description" : "Validates json",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/body"
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "{\n    \"test\":\"Hello\"\n}"
+                },
+                "1" : {
+                  "value" : "{\r\n  \"@context\":{ \"@vocab\": \"http://schema.org/\" },\r\n  \"@type\":\"Dataset\",\r\n  \"dateCreated\":\"19/9/1995\",\r\n  \"name\":\"Test\",\r\n  \"description\":\"Storm Data is provided by the National Weather Service (NWS) and contain statistics on...\",\r\n  \"url\":\"https://catalog.data.gov/dataset/ncdc-storm-events-database\",\r\n  \"sameAs\":\"https://gis.ncdc.noaa.gov/geoportal/catalog/search/resource/details.page?id=gov.noaa.ncdc:C00510\",\r\n  \"identifier\": [\"https://doi.org/10.1000/182\",\r\n                 \"https://identifiers.org/ark:/12345/fk1234\"],\r\n  \"keywords\":[\r\n     \"ATMOSPHERE > ATMOSPHERIC PHENOMENA > DROUGHT\",\r\n     \"ATMOSPHERE > ATMOSPHERIC PHENOMENA > FOG\",\r\n     \"ATMOSPHERE > ATMOSPHERIC PHENOMENA > FREEZE\"\r\n  ],\r\n  \"author\":{\r\n     \"@type\":\"Organization\",\r\n     \"url\": \"test\",\r\n     \"name\":\"OC/NOAA/NESDIS/NCEI > National Centers for Environmental Information, NESDIS, NOAA, U.S. Department of Commerce\",\r\n     \"contactPoint\":{\r\n        \"@type\":\"ContactPoint\",\r\n        \"contactType\": \"customer service\",\r\n        \"telephone\":\"+1-828-271-4800\",\r\n        \"email\":\"ncei.orders@noaa.gov\"\r\n     }\r\n  },\r\n  \"includedInDataCatalog\":{\r\n     \"@type\":\"DataCatalog\",\r\n     \"name\":\"data.gov\"\r\n  },\r\n  \"distribution\":[\r\n     {\r\n        \"@type\":\"DataDownload\",\r\n        \"encodingFormat\":\"XML\",\r\n        \"contentUrl\":\"http://www.ncdc.noaa.gov/stormevents/ftp.jsp\"\r\n     },\r\n     {\r\n        \"@type\":\"DataDownload\",\r\n        \"encodingFormat\":\"XML\",\r\n        \"contentUrl\":\"http://gis.ncdc.noaa.gov/all-records/catalog/search/resource/details.page?id=gov.noaa.ncdc:C00510\"\r\n     }\r\n  ]\r\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/inline_response_200"
+                },
+                "examples" : {
+                  "0" : {
+                    "value" : "{\"error\":\" json missing type label\",\"extra_elements\":[],\"valid\":false}\n"
+                  },
+                  "1" : {
+                    "value" : "{\"error\":\"\",\"extra_elements\":[],\"valid\":true}\n"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:5000"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:5000"
+      } ]
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "validatejson_author_contactPoint" : {
+        "type" : "object",
+        "properties" : {
+          "@type" : {
+            "type" : "string"
+          },
+          "contactType" : {
+            "type" : "string"
+          },
+          "telephone" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string"
+          }
+        }
+      },
+      "validatejson_author" : {
+        "type" : "object",
+        "properties" : {
+          "contactPoint" : {
+            "$ref" : "#/components/schemas/validatejson_author_contactPoint"
+          },
+          "@type" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "url" : {
+            "type" : "string"
+          }
+        }
+      },
+      "validatejson_distribution" : {
+        "type" : "object",
+        "properties" : {
+          "contentUrl" : {
+            "type" : "string"
+          },
+          "@type" : {
+            "type" : "string"
+          },
+          "encodingFormat" : {
+            "type" : "string"
+          }
+        }
+      },
+      "validatejson_context" : {
+        "type" : "object",
+        "properties" : {
+          "@vocab" : {
+            "type" : "string"
+          }
+        }
+      },
+      "validatejson_includedInDataCatalog" : {
+        "type" : "object",
+        "properties" : {
+          "@type" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "body" : {
+        "type" : "object",
+        "properties" : {
+          "identifier" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "test" : {
+            "type" : "string"
+          },
+          "keywords" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "@type" : {
+            "type" : "string"
+          },
+          "author" : {
+            "$ref" : "#/components/schemas/validatejson_author"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "distribution" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/validatejson_distribution"
+            }
+          },
+          "@context" : {
+            "$ref" : "#/components/schemas/validatejson_context"
+          },
+          "url" : {
+            "type" : "string"
+          },
+          "dateCreated" : {
+            "type" : "string"
+          },
+          "includedInDataCatalog" : {
+            "$ref" : "#/components/schemas/validatejson_includedInDataCatalog"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "sameAs" : {
+            "type" : "string"
+          }
+        }
+      },
+      "inline_response_200" : {
+        "type" : "object",
+        "properties" : {
+          "valid" : {
+            "type" : "boolean"
+          },
+          "error" : {
+            "type" : "string"
+          },
+          "extra_elements" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
