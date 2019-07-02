@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, send_from_directory, jsonify
 from jsonschema.validators import extend
 from pyshacl import validate
 from jsonschema.validators import Draft4Validator
@@ -6,6 +6,7 @@ from jsonschema.exceptions import ValidationError
 from jsonschema._utils import format_as_index
 import json
 import re
+import codecs
 import requests 
 
 app = Flask(__name__)
@@ -358,6 +359,14 @@ def jsonvalidate():
     result['valid'] = False
     
     return(jsonify(result))
+
+@app.route('/help',methods = ['GET'])
+def print_documentation():
+    print("hi")
+    return "hi"
+    return send_from_directory('','index.html')
+    #return(index.html)
+
 if __name__=="__main__":
     app.run()
     
