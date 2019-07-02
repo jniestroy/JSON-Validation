@@ -257,7 +257,6 @@ def validate_shacl_min(testjson):
         sh:targetClass schema:Author ;
         sh:property [
             sh:path schema:url ;
-            sh:datatype xsd:string ;
             sh:minCount 1;
         ] ;
         sh:property [

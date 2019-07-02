@@ -6,13 +6,13 @@ class Testflaskapp(unittest.TestCase):
     def setUp(self):
         self.app = app.app.test_client()
     def test_valid_json(self):
-        testjson = {'@context': "http://json-schema.org/draft-07/schema","@type":"Dataset","name":"Justin","description":"Test dataset","dataCreated":"5/12/1990",author:{"name":"check",url:"test"}}
+        testjson = {'@context': "http://json-schema.org/draft-07/schema","@type":"Dataset","name":"Justin","description":"Test dataset","dataCreated":"5/12/1990","author":{"name":"check","url":"test"}}
         URL = " http://127.0.0.1:5000/validatejson"
         r = self.app.post('/validatejson',json = testjson)
         self.assertEqual(r.json, {'error': '', 'extra_elements': [], 'valid': True})
     
     def test_extra_property(self):
-        testjson = {'@context': "http://json-schema.org/draft-07/schema","@type":"Dataset","name":"Justin","description":"Test dataset","dataCreated":"5/12/1990",author:{"name":"check",url:"test"},"random":"test"}
+        testjson = {'@context': "http://json-schema.org/draft-07/schema","@type":"Dataset","name":"Justin","description":"Test dataset","dataCreated":"5/12/1990","author":{"name":"check","url":"test"},"random":"test"}
         URL = " http://127.0.0.1:5000/validatejson"
         r = self.app.post('/validatejson',json = testjson)
         self.assertEqual(r.json, {'error': '', 'extra_elements': ["randomname"], 'valid': True})
