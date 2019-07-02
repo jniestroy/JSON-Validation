@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from jsonschema.validators import extend
+from pyshacl import validate
 from jsonschema.validators import Draft4Validator
 from jsonschema.exceptions import ValidationError
 from jsonschema._utils import format_as_index
@@ -218,28 +219,82 @@ def validate_item(item):
                     validation['full_report'] += '| Value found: ' + str(error.instance) + '\n'
     return validation
 
+def validate_shacl_min(testjson):
+    testjson = json.dumps(testjson)
+    shapes_file = '''
+    @prefix dash: <http://datashapes.org/dash#> .
+    @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    @prefix schema: <http://schema.org/> .
+    @prefix sh: <http://www.w3.org/ns/shacl#> .
+    @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+    schema:DatasetShape
+        a sh:NodeShape ;
+        sh:targetClass schema:Dataset ;
+        sh:property [
+            sh:path schema:name ;
+            sh:datatype xsd:string ;
+            sh:name "dataset name" ;
+            sh:minCount 1 ;
+        ] ;
+        sh:property [
+            sh:path schema:description ;
+            sh:datatype xsd:string ;
+            sh:name "dataset description" ;
+            sh:minCount 1 ;
+        ] ;
+        sh:property [
+            sh:path schema:author ;
+            sh:node schema:AuthorShape ;
+            sh:minCount 1 ;
+        ] ;
+        sh:property [
+            sh:path schema:dateCreated ;
+            sh:minCount 1 ;
+        ] .
+    schema:AuthorShape 
+        a sh:NodeShape ;
+        sh:targetClass schema:Author ;
+        sh:property [
+            sh:path schema:url ;
+            sh:datatype xsd:string ;
+            sh:minCount 1;
+        ] ;
+        sh:property [
+            sh:path schema:name ;
+            sh:datatype xsd:string ;
+            sh:minCount 1;
+        ] .
+    schema:PersonShape
+        a sh:NodeShape ;
+        sh:targetClass schema:Person ;
+        sh:property [
+            sh:path schema:name ;
+            sh:datatype xsd:string ;
+            sh:minCount 1 ;
+        ] ;
+        sh:property [
+            sh:path schema:email ;
+            sh:datatype xsd:string ;
+        ] .
+    schema:DataCatalogShape
+        a sh:NodeShape ;
+        sh:targetClass schema:DataCatalog ;
+        sh:property [
+            sh:path schema:dataset ;
+            sh:node schema:DatasetShape ;
+        ].
+    '''
+    shapes_file_format = 'turtle'
+    data_file_format = 'json-ld'
+    conforms, v_graph, v_text = validate(testjson, shacl_graph=shapes_file,
+                                     data_graph_format=data_file_format,
+                                     shacl_graph_format=shapes_file_format,
+                                     inference='rdfs', debug=True,
+                                     serialize_report_graph=True)
+    return(conforms,v_text)
 
-@app.route('/validatejson1', methods=['POST'])
-def jsonvalidate1():
-    testjson = request.get_json()
-    if testjson is None:
-        return(jsonify({'error':"Please POST JSON file",'valid':False}))
-    if '@type' not in testjson:
-        return(jsonify({'error':"@type required in order to determine proper schema",'valid':False}))
-    if '@graph' not in testjson:
-        testjson['@graph'] = [testjson]
-    result = validate_item(testjson)
-    URL = "https://schema.org/"+ testjson['@type'] + ".jsonld?"
-    req =  requests.get(url = URL)
-    schema = req.json()
-    keys = ['@context','@type','@id','@graph']
-    for i in schema['@graph']:
-        keys.append(i['@id'].replace('schema:', ''))
-    if result['minimum_missing'] == [] and result['bad_cardinality'] == [] and result['bad_type'] == [] and result['bad_cv'] == []:
-        keys_in_both = set(keys).intersection(set(testjson.keys()))
-        extra_keys = set(testjson.keys()) - keys_in_both
-        return(jsonify({'valid':True,'non schema properties':list(extra_keys)}))
-    return(jsonify({'valid':False,'error':result['full_report']}))
+
 
 @app.route('/validatejson', methods=['POST'])
 def jsonvalidate():
@@ -248,9 +303,12 @@ def jsonvalidate():
         return(jsonify({'error':"Please POST JSON file",'valid':False}))
     result = validate_json(testjson,"http://schema.org/",{'error': '','extra_elements':[]})
     if result['error'] == '':
-        result['valid'] = True
-        return(jsonify(result))
+        shacl_result = validate_shacl_min(testjson)
+        if shacl_result[0]:
+            result['valid'] = True
+            return(jsonify(result))
     result['valid'] = False
+    result['error'] = result['error'] + shacl_result[1]
     return(jsonify(result))
 if __name__=="__main__":
     app.run()
