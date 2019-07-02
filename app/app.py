@@ -306,8 +306,10 @@ def jsonvalidate():
         if shacl_result[0]:
             result['valid'] = True
             return(jsonify(result))
+        else:
+            result['error'] = result['error'] + shacl_result[1]
     result['valid'] = False
-    result['error'] = result['error'] + shacl_result[1]
+    
     return(jsonify(result))
 if __name__=="__main__":
     app.run()
