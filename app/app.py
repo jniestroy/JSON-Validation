@@ -16,6 +16,9 @@ def validate_json(testjson,context,response = {'error': '','extra_elements':[]})
     schema = get_schema(context,testjson['@type'])
     error = response['error']
     extra_elements = response['extra_elements']
+    if schema == "Non-Valid Type":
+        error = error + "Type not found on schema.org, "
+        return({'error':error,'extra_elements':extra_elements})
     for element in testjson.keys():
         element_valid = 0
         element_seen = 0
@@ -25,7 +28,7 @@ def validate_json(testjson,context,response = {'error': '','extra_elements':[]})
             if prop['@id'] == "schema:" +element:
                 element_seen = True
                 if isinstance(testjson[element],dict):
-                    if valid_type(testjson[element],prop['schema:rangeIncludes']):
+                    if valid_type(testjson[element],prop['schema:rangeIncludes'],context):
                         result = validate_json(testjson[element],context,response)
                         error = error + result['error']
                         extra_elements = extra_elements + result['extra_elements']
@@ -50,7 +53,7 @@ def validate_json(testjson,context,response = {'error': '','extra_elements':[]})
     if '@type' in extra_elements:
         extra_elements.remove('@type')
     return({'error':error,'extra_elements':extra_elements})
-def valid_type(testjson,types):
+def valid_type(testjson,types,context):
     if '@type' not in testjson.keys():
         return False
     if isinstance(types,list):
@@ -60,6 +63,21 @@ def valid_type(testjson,types):
     else:
         possible_types = [types['@id']]
     if 'schema:' + testjson['@type'] in possible_types:
+        return True
+    elif check_sub_class(testjson['@type'],possible_types,context):
+        return True
+    return False
+def check_sub_class(prop_type,possible_types,context):
+    schema = get_schema(context,prop_type)
+    if schema == "Non-Valid Type":
+        return False
+    for prop in schema['@graph']:
+        if prop['@id'] == "schema:" + prop_type:
+            subclass = prop['rdfs:subClassOf']['@id']
+            break
+    if 'subclass' not in locals():
+        return False
+    if subclass in possible_types:
         return True
     return False
 def validate_list(test_list,types,context):
@@ -74,7 +92,7 @@ def validate_list(test_list,types,context):
         for element in test_list:
             if isinstance(element,dict):
                 dict_type = {'@id':allowed_type}
-                if valid_type(element,dict_type):
+                if valid_type(element,dict_type,context):
                     if validate_json(element,context)['error'] == '':
                         test = 1
                     else:
@@ -128,8 +146,11 @@ def validate_element(element,types):
 def get_schema(context,prop_type):
     url = context + prop_type + ".jsonld"
     r = requests.get(url)
-    schema = r.json()
-    return(schema)
+    if r.status_code == 200:
+        schema = r.json()
+        return(schema)
+    else:
+        return("Non-Valid Type")
 
 def get_property(message):
     result = re.search("u''", message)
