@@ -260,7 +260,7 @@ def jsonvalidate():
 
 @app.route('/swagger',methods = ['GET'])
 def user_open_api():
-    return send_file('static\\swagger.html')
+    return send_file('static\\index.html')
     #return(index.html)
 @app.route('/swagger.yaml',methods = ['GET'])
 def open_api_yaml():
