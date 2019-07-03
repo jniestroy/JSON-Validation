@@ -1,4 +1,4 @@
-from flask import Flask, request, send_from_directory, jsonify
+from flask import Flask, request, send_from_directory, jsonify,render_template,send_file,current_app
 from jsonschema.validators import extend
 from pyshacl import validate
 from jsonschema.validators import Draft4Validator
@@ -10,6 +10,11 @@ import codecs
 import requests 
 
 app = Flask(__name__)
+
+
+@app.route('/')
+def hello_world():
+    return current_app.send_static_file('swagger.html')
 
 def validate_json(testjson,context,response = {'error': '','extra_elements':[]}):
     error = response['error']
@@ -111,17 +116,9 @@ def validate_list(test_list,types,context):
 def validate_element(element,types):
     if isinstance(types,list):
         for valid_option in types:
-            if isinstance(element,str):
+            if isinstance(element,str):#Assume if they've given a string its correct
                 return True
-            elif isinstance(element,list) and valid_option['@id'] == 'schema:Text':
-                return True
-            elif isinstance(element,str) and valid_option['@id'] == 'schema:URL':
-                return True
-            elif isinstance(element,str) and valid_option['@id'] == 'schema:Date':
-                return True
-            elif isinstance(element,str) and valid_option['@id'] == 'schema:Description':
-                return True
-            elif isinstance(element,str) and valid_option['@id'] == 'schema:Country':
+            elif isinstance(element,int) and valid_option['@id'] == 'schema:Number':
                 return True
             elif valid_option['@id'] == 'schema:Literal':
                 return True
@@ -129,13 +126,7 @@ def validate_element(element,types):
     else:
         if isinstance(element,str):
                 return True
-        elif isinstance(element,str) and types['@id'] == 'schema:URL':
-                return True
-        elif isinstance(element,str) and types['@id'] == 'schema:Date':
-                return True
-        elif isinstance(element,str) and types['@id'] == 'schema:Description':
-                return True
-        elif isinstance(element,str) and types['@id'] == 'schema:Country':
+        elif isinstance(element,int) and types['@id'] == 'schema:Number':
                 return True
         elif isinstance(element,list):
                 return True
@@ -173,8 +164,6 @@ def get_schema(context,prop_type):
         return(schema)
     else:
         return("Non-Valid Type")
-
-
 def validate_shacl_min(testjson):
     testjson = json.dumps(testjson)
     shapes_file = '''
@@ -269,10 +258,14 @@ def jsonvalidate():
     
     return(jsonify(result))
 
-# @app.route('/help',methods = ['GET'])
-# def print_documentation():
-#     return send_from_directory('','index.html')
-#     #return(index.html)
+@app.route('/swagger',methods = ['GET'])
+def user_open_api():
+    return send_file('static\\swagger.html')
+    #return(index.html)
+@app.route('/swagger.yaml',methods = ['GET'])
+def open_api_yaml():
+    return send_file('static\\openapi.yaml')
+    #return(index.html)
 
 if __name__=="__main__":
     app.run()
