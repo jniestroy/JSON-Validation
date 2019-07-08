@@ -190,7 +190,7 @@ def validate_shacl_min(testjson):
         ] ;
         sh:property [
             sh:path schema:author ;
-            sh:node schema:AuthorShape ;
+            sh:or ( [ sh:datatype xsd:string ] [ sh:node schema:AuthorShape ; ] ) ;
             sh:minCount 1 ;
         ] ;
         sh:property [
