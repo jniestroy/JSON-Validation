@@ -1,6 +1,8 @@
 import unittest
 import requests
 from app import app
+import sys
+sys.path.append("...")
 
 class Testflaskapp(unittest.TestCase):
     def setUp(self):
@@ -156,4 +158,5 @@ class Testflaskapp(unittest.TestCase):
         r = self.app.post('/validatejson')
         self.assertEqual(r.json, {'error':"Please POST JSON file",'valid':False})
 if __name__ == '__main__':
+    print(os.listdir())
     unittest.main()

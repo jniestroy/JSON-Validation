@@ -13,10 +13,6 @@ import requests
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():
-    return current_app.send_static_file('swagger.html')
-
 def validate_json(testjson,context,response = {'error': '','extra_elements':[]}):
     error = response['error']
     extra_elements = response['extra_elements']
@@ -75,16 +71,21 @@ def valid_type(testjson,types,context):
     elif check_sub_class(testjson['@type'],possible_types,context):
         return True
     return False
+#Checks if given type is sub-class of possible types
 def check_sub_class(prop_type,possible_types,context):
     schema = get_schema(context,prop_type)
     if schema == "Non-Valid Type":
         return False
+    #Grabs desired subclass information from schema.org about property we're interested in
     for prop in schema['@graph']:
         if prop['@id'] == "schema:" + prop_type:
             subclass = prop['rdfs:subClassOf']['@id']
             break
+    #subClass variable doesn't exsist means that the propety is not a subclass of anything so 
+    #not a subclass of any test types so false
     if 'subclass' not in locals():
         return False
+    #if the propety is a subclass of one of the possible types then return true
     if subclass in possible_types:
         return True
     return False
@@ -114,6 +115,8 @@ def validate_list(test_list,types,context):
         if valid_list:
             return True
     return False
+#element is the value of interest types is dictionary where allowed types is either list of dictionaries or
+#single dictionary, the types are held in the @id key of each dictionary
 def validate_element(element,types):
     if isinstance(types,list):
         for valid_option in types:
@@ -128,8 +131,6 @@ def validate_element(element,types):
         if isinstance(element,str):
                 return True
         elif isinstance(element,int) and types['@id'] == 'schema:Number':
-                return True
-        elif isinstance(element,list):
                 return True
         else:
             return False
