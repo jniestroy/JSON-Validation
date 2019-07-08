@@ -17,14 +17,14 @@ def validate_json(testjson,context,response = {'error': '','extra_elements':[]})
     error = response['error']
     extra_elements = response['extra_elements']
     if '@type' not in testjson.keys():
-        error = error +  " json missing type label"
+        error = error +  " json missing type label, "
         return({'error':error,'extra_elements':extra_elements})
     schema = get_schema(context,testjson['@type'])
     if schema == "Non-Valid Type":
         error = error + "Type not found on schema.org, "
         return({'error':error,'extra_elements':extra_elements})
     for element in testjson.keys():
-        element_valid = 0
+        element_valid = False
         element_seen = 0
         for prop in schema['@graph']:
             if element_seen:
@@ -169,11 +169,11 @@ def get_schema(context,prop_type):
 def validate_shacl_min(testjson):
     testjson = json.dumps(testjson)
     #need app// in front below to work locally
-    f = open("schema definitions/shacl definitions.txt", "r")
+    f = open("app/schema definitions/shacl definitions.txt", "r")
     shapes_file = f.read()
     shapes_file_format = 'turtle'
     data_file_format = 'json-ld'
-    conforms, v_graph, v_text = validate(testjson, shacl_graph=shapes_file,
+    conforms, _, v_text = validate(testjson, shacl_graph=shapes_file,
                                      data_graph_format=data_file_format,
                                      shacl_graph_format=shapes_file_format,
                                      inference='rdfs', debug=True,
@@ -188,7 +188,6 @@ def jsonvalidate():
     if testjson is None:
         return(jsonify({'error':"Please POST JSON file",'valid':False}))
     result = validate_json(testjson,"http://schema.org/",{'error': '','extra_elements':[]})
-    print(result)
     if result['error'] == '':
         shacl_result = validate_shacl_min(testjson)
         if shacl_result[0]:

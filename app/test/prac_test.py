@@ -1,7 +1,7 @@
 import unittest
 import requests
 from app import app
-#import sy
+#import sys
 #sys.path.append(".")
 
 class Testflaskapp(unittest.TestCase):
@@ -52,7 +52,6 @@ class Testflaskapp(unittest.TestCase):
      }
   ]
 } 
-        URL = " http://127.0.0.1:5000/validatejson"
         r = self.app.post('/validatejson',json = testjson)
         self.assertEqual(r.json, {'error': '', 'extra_elements': [], 'valid': True})
     
@@ -102,7 +101,6 @@ class Testflaskapp(unittest.TestCase):
      }
   ]
 } 
-        URL = " http://127.0.0.1:5000/validatejson"
         r = self.app.post('/validatejson',json = testjson)
         self.assertEqual(r.json, {'error': '', 'extra_elements': ["randomname"], 'valid': True})
     def test_missing_property(self):
@@ -149,12 +147,9 @@ class Testflaskapp(unittest.TestCase):
      }
   ]
 }
-        URL = " http://127.0.0.1:5000/validatejson"
         r = self.app.post('/validatejson',json = testjson)
         self.assertEqual(r.json,{'error': 'Validation Report\nConforms: False\nResults (1):\nConstraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n\tSeverity: sh:Violation\n\tSource Shape: [ sh:datatype xsd:string ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:name Literal("dataset name") ; sh:path schema:name ]\n\tFocus Node: [ ]\n\tResult Path: schema:name\n', 'extra_elements': [], 'valid': False})
     def test_no_json(self):
-        testjson = 'randomstring'
-        URL = " http://127.0.0.1:5000/validatejson"
         r = self.app.post('/validatejson')
         self.assertEqual(r.json, {'error':"Please POST JSON file",'valid':False})
 if __name__ == '__main__':
