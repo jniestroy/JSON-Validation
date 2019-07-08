@@ -1,8 +1,8 @@
 import unittest
 import requests
 from app import app
-import sys
-sys.path.append("...")
+#import sys
+#sys.path.append(".")
 
 class Testflaskapp(unittest.TestCase):
     def setUp(self):
