@@ -168,6 +168,7 @@ def get_schema(context,prop_type):
         return("Non-Valid Type")
 def validate_shacl_min(testjson):
     testjson = json.dumps(testjson)
+    #need app// in front below to work locally
     f = open("schema definitions\\shacl definitions.txt", "r")
     shapes_file = f.read()
     shapes_file_format = 'turtle'
