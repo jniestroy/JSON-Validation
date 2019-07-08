@@ -7,6 +7,7 @@ from jsonschema._utils import format_as_index
 import json
 import re
 import codecs
+import os
 import requests 
 
 app = Flask(__name__)
@@ -166,69 +167,8 @@ def get_schema(context,prop_type):
         return("Non-Valid Type")
 def validate_shacl_min(testjson):
     testjson = json.dumps(testjson)
-    shapes_file = '''
-    @prefix dash: <http://datashapes.org/dash#> .
-    @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    @prefix schema: <http://schema.org/> .
-    @prefix sh: <http://www.w3.org/ns/shacl#> .
-    @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-    schema:DatasetShape
-        a sh:NodeShape ;
-        sh:targetClass schema:Dataset ;
-        sh:property [
-            sh:path schema:name ;
-            sh:datatype xsd:string ;
-            sh:name "dataset name" ;
-            sh:minCount 1 ;
-        ] ;
-        sh:property [
-            sh:path schema:description ;
-            sh:datatype xsd:string ;
-            sh:name "dataset description" ;
-            sh:minCount 1 ;
-        ] ;
-        sh:property [
-            sh:path schema:author ;
-            sh:or ( [ sh:datatype xsd:string ] [ sh:node schema:AuthorShape ; ] ) ;
-            sh:minCount 1 ;
-        ] ;
-        sh:property [
-            sh:path schema:dateCreated ;
-            sh:minCount 1 ;
-        ] .
-    schema:AuthorShape 
-        a sh:NodeShape ;
-        sh:targetClass schema:Author ;
-        sh:property [
-            sh:path schema:url ;
-            sh:minCount 1;
-        ] ;
-        sh:property [
-            sh:path schema:name ;
-            sh:datatype xsd:string ;
-            sh:minCount 1;
-        ] .
-    schema:PersonShape
-        a sh:NodeShape ;
-        sh:targetClass schema:Person ;
-        sh:property [
-            sh:path schema:name ;
-            sh:datatype xsd:string ;
-            sh:minCount 1 ;
-        ] ;
-        sh:property [
-            sh:path schema:email ;
-            sh:datatype xsd:string ;
-        ] .
-    schema:DataCatalogShape
-        a sh:NodeShape ;
-        sh:targetClass schema:DataCatalog ;
-        sh:property [
-            sh:path schema:dataset ;
-            sh:node schema:DatasetShape ;
-        ].
-    '''
+    f = open("app\\schema definitions\\shacl definitions.txt", "r")
+    shapes_file = f.read()
     shapes_file_format = 'turtle'
     data_file_format = 'json-ld'
     conforms, v_graph, v_text = validate(testjson, shacl_graph=shapes_file,
