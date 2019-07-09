@@ -162,10 +162,16 @@ def get_schema(context,prop_type):
     else:
         return("Non-Valid Type")
 def validate_shacl_min(testjson):
+    if "@context" not in testjson.keys():
+        testjson["@context"] = "http://schema.org/"
     testjson = json.dumps(testjson)
-    #need app// in front below to work locally
-    f = open("./schema definitions/shacl definitions.txt", "r")
+    if 'app' in os.listdir():
+        f = open("app/schema definitions/shacl definitions.txt", "r")
+    else:
+        f = open("./schema definitions/shacl definitions.txt", "r")
     shapes_file = f.read()
+
+    
     shapes_file_format = 'turtle'
     data_file_format = 'json-ld'
     conforms, _, v_text = validate(testjson, shacl_graph=shapes_file,
@@ -187,6 +193,7 @@ def jsonvalidate():
         shacl_result = validate_shacl_min(testjson)
         if shacl_result[0]:
             result['valid'] = True
+            #result['error'] = result['error'] + shacl_result[1]
             return(jsonify(result))
         else:
             result['error'] = result['error'] + shacl_result[1]
