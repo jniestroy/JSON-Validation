@@ -24,7 +24,6 @@ def validate_json(testjson,context,response = {'error': '','extra_elements':[]})
         error = error + "Type not found on schema.org, "
         return({'error':error,'extra_elements':extra_elements})
     for element in testjson.keys():
-        element_valid = False
         element_seen = 0
         for prop in schema['@graph']:
             if element_seen:
@@ -39,14 +38,10 @@ def validate_json(testjson,context,response = {'error': '','extra_elements':[]})
                     else:
                         error = error + element + ' is missing type or has type outside of range of ' + str(prop['schema:rangeIncludes']) + ', '
                 elif isinstance(testjson[element],list):
-                    if validate_list(testjson[element],prop['schema:rangeIncludes'],context):
-                        element_valid = True
-                    else:
+                    if not validate_list(testjson[element],prop['schema:rangeIncludes'],context):
                         error = error + element + " in "+ testjson['@type'] +' at least an element in list is on improper type, ' 
                 else:
-                    if validate_element(testjson[element],prop['schema:rangeIncludes']):
-                        element_valid = True
-                    else:
+                    if not validate_element(testjson[element],prop['schema:rangeIncludes']):
                         error = error + element + " in "+ testjson['@type'] + " is of wrong typeshould be in " + str(prop['schema:rangeIncludes']) + ', '
         if not element_seen:
                 extra_elements.append(element)
@@ -123,8 +118,6 @@ def validate_element(element,types):
             if isinstance(element,str):#Assume if they've given a string its correct
                 return True
             elif isinstance(element,int) and valid_option['@id'] == 'schema:Number':
-                return True
-            elif valid_option['@id'] == 'schema:Literal':
                 return True
         return False
     else:
