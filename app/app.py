@@ -21,13 +21,15 @@ def validate_json(testjson,context,response = {'error': '','extra_elements':[]})
         return({'error':error,'extra_elements':extra_elements})
     schema = get_schema(context,testjson['@type'])
     if schema == "Non-Valid Type":
-        error = error + "Type not found on schema.org, "
+        error = error + testjson["@type"] +" not found on schema.org, "
         return({'error':error,'extra_elements':extra_elements})
     for element in testjson.keys():
-        element_seen = 0
+        element_seen = False
+        #Loops through provided schema to see if property in json is in proveded schema
         for prop in schema['@graph']:
             if element_seen:
                 break
+            #if property in json is in schema validate that provided information matches schema requirements
             if prop['@id'] == "schema:" +element:
                 element_seen = True
                 if isinstance(testjson[element],dict):
