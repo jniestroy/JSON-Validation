@@ -50,20 +50,20 @@ class RDFSValidator(object):
         for clas in classes:
             self.schema_properties[clas] = []
             
-            superClasses = [f for f in g.transitive_objects(
+            superClasses = [f for f in self.g.transitive_objects(
                 rdflib.term.URIRef(clas), 
                 rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'))]
             
             for superClass in superClasses:
                 
-                self.schema_properties[clas].extend([str(found) for found in g.transitive_subjects(
+                self.schema_properties[clas].extend([str(found) for found in self.g.transitive_subjects(
                                                                             rdflib.term.URIRef("http://schema.org/domainIncludes"), 
                                                                             rdflib.term.URIRef(superClass))])
         
         #Gathers acceptable ranges for all properties found
         self.schema_property_ranges = {}
         for prop in properties:
-            self.schema_property_ranges[prop] = [str(f) for f in g.transitive_objects(
+            self.schema_property_ranges[prop] = [str(f) for f in self.g.transitive_objects(
                                                                 rdflib.term.URIRef(prop), 
                                                                 rdflib.term.URIRef("http://schema.org/rangeIncludes"))]
     #Validates given json-ld
