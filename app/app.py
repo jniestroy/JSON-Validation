@@ -24,6 +24,14 @@ def validate_json(testjson,context,response = {'error': '','extra_elements':[]})
         error = error + testjson["@type"] +" not found on schema.org, "
         return({'error':error,'extra_elements':extra_elements})
     for element in testjson.keys():
+        if element == "@graph":
+            for item in element:
+                if isinstance(item,dict):
+                    result = validate_json(testjson[element],context,response)
+                    error = error + result['error']
+                    extra_elements = extra_elements + result['extra_elements']
+                else:
+                    error = error + "element in @graph is not of type dictionary, "
         element_seen = False
         #Loops through provided schema to see if property in json is in proveded schema
         for prop in schema['@graph']:
@@ -130,6 +138,7 @@ def validate_element(element,types):
         else:
             return False
 def get_schema(context,prop_type):
+    prop_type = prop_type.replace("bio:","")
     url = context + prop_type + ".jsonld"
     if prop_type == "Taxon":
         schema = dict()
