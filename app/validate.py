@@ -2,6 +2,7 @@ import rdflib
 import json
 import requests
 from pyshacl import validate
+import os
 
 # class Validator(object):
 
@@ -28,13 +29,13 @@ class RDFSValidator(object):
     #"""
 
         with open("./static/schema.jsonld", "rb") as file:
-            schema_rdfs = json.loads(file.Read())
+            schema_rdfs = json.loads(file.read())
         
         g = rdflib.Graph().parse(data = json.dumps(schema_rdfs.get("@graph")), 
                   context=schema_rdfs.get("@context"), format="json-ld")
 
         classes = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdfs:Class" ]
-        properties = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdfs:Property" ]
+        properties = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdf:Property" ]
 
         #self.schema = { elem.get("@id"): elem for elem in schema_rdfs}
         self.context = "http://schema.org/"
@@ -121,14 +122,14 @@ class RDFSValidator(object):
             self.error += " " + prop +" is missing required arguement @type."
             return False
 
-        if self.context + given["@type"] in self.schema_property_ranges[prop]:
+        if self.context + given["@type"] in self.schema_property_ranges[self.context + prop]:
             return True
         
         elif self.check_super_classes(prop,given['@type']):
             return True    
         
         self.error += " " + prop + " is of incorrect type should be in " \
-                    + str(self.schema_property_ranges[prop])
+                    + str(self.schema_property_ranges[self.context + prop])
         return False
 
     def check_super_classes(self,prop,actual):
@@ -156,8 +157,9 @@ class RDFSValidator(object):
 
 
     def validate_elem(self,item,prop):
-        if isinstance(item,(int, float)) and "http://schema.org/Number" not in self.schema_property_ranges[prop]:
-            self.error += " " + prop + " is numeric but should be of type " + str(self.schema_property_ranges[prop]) + "."
+        if isinstance(item,(int, float)) and self.context + "Number" not in self.schema_property_ranges[self.context + prop]:
+            self.error += " " + prop + " is numeric but should be of type " + str(self.schema_property_ranges[self.context + prop]) + "."
+            return
         if not isinstance(item,str):
             self.error += " " + prop + " is of wrong type."
         return
