@@ -73,6 +73,7 @@ def valid_type(testjson,types,context):
             possible_types.append(element['@id'])
     else:
         possible_types = [types['@id']]
+    testjson["@type"]= testjson["@type"].replace("bio:","")
     if 'schema:' + testjson['@type'] in possible_types:
         return True
     elif check_sub_class(testjson['@type'],possible_types,context):
