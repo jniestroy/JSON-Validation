@@ -1,59 +1,166 @@
+import rdflib
+import json
+import requests
+from pyshacl import validate
 
-class Validator(object):
+# class Validator(object):
 
-    def __init__(self, data):
-        pass
+#     def __init__(self, data):
+#         pass
 
-    def validate_jsonschema(self):
-        return
+#     def validate_jsonschema(self):
+#         return
 
-    def validate_shacl(self):
-        return
+#     def validate_shacl(self):
+#         return
 
-class JsonSchemaValidator(object):
+# class JsonSchemaValidator(object):
 
-    def __init__(self):
-        pass
+#     def __init__(self):
+#         pass
 
 
 
 class RDFSValidator(object):
 
     def __init__(self, data):
-    """ Set up RDFSValidator class, read in json-ld to validate, open RDFS definition file and parse into ...
-    """
+    #""" Set up RDFSValidator class, read in json-ld to validate, open RDFS definition file and parse into ...
+    #"""
 
         with open("./static/schema.jsonld", "rb") as file:
             schema_rdfs = json.loads(file.Read())
+        
+        g = rdflib.Graph().parse(data = json.dumps(schema_rdfs.get("@graph")), 
+                  context=schema_rdfs.get("@context"), format="json-ld")
 
+        classes = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdfs:Class" ]
+        properties = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdfs:Property" ]
 
-        classes = [ elem.get("@id") for elem in schema_rdfs if elem.get("@type") == "rdfs:Class" ]
-        properties = [ elem.get("@id") for elem in schema_rdfs if elem.get("@type") == "rdfs:Property" ]
-
-        self.schema = { elem.get("@id"): elem for elem in schema_rdfs}
+        #self.schema = { elem.get("@id"): elem for elem in schema_rdfs}
+        self.context = "http://schema.org/"
+        self.error = ""
+        self.extra_elements = []
+        self.data = data
+        self.g = g
 
         self.schema_properties = {}
-        for class in classes:
-            self.schema_properties[class] = [ prop for prop in properties if class == prop.get("http://schema.org/rangeIncludes") or class in prop.get("http://schema.org/rangeIncludes") ]
+        for clas in classes:
+            self.schema_properties[clas] = []
+            
+            superClasses = [f for f in g.transitive_objects(
+                rdflib.term.URIRef(clas), 
+                rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'))]
+            
+            for superClass in superClasses:
+                
+                self.schema_properties[clas].extend([str(found) for found in g.transitive_subjects(
+                                                                            rdflib.term.URIRef("http://schema.org/domainIncludes"), 
+                                                                            rdflib.term.URIRef(superClass))])
+        
+        self.schema_property_ranges = {}
+        for prop in properties:
+            self.schema_property_ranges[prop] = [str(f) for f in g.transitive_objects(
+                                                                rdflib.term.URIRef(prop), 
+                                                                rdflib.term.URIRef("http://schema.org/rangeIncludes"))]
+          
+    def validate(self):
+        if not self.initial_validate(self.data,"JSON"):
+            return
+        self.parse(self.data,"JSON")
+        
 
 
-    def _initial_validate(self):
-        # check for @type key
+    def initial_validate(self,data,element):
+        if not isinstance(data,dict):
+            self.error += " " + element + " not of type dict."
+            return False
+        elif '@type' not in data.keys():
+            self.error += " " + element + " missing required property @type."
+            return False
+        elif self.context + data['@type'] not in self.schema_properties.keys():
+            self.error += " " + element + " not of reconginized class."
+            return False
+        return True
+        
 
-        # check for @graph
+
+    def parse(self,data,current_element):
+        
+        if not self.initial_validate(data,current_element):
+            return
+       
+        clas = self.context + data['@type']
+        
+        if "@graph" in data.keys():
+            
+            if isinstance(data['@graph'],list):
+                for element in data['graph']:
+                    self.parse(element,"Element in @graph")
+            
+            else:
+                self.error += " @graph is not of proper type list."
+        
+        for element in data.keys():
+            
+            if self.context + element not in self.schema_properties[clas]:
+                self.extra_elements.append(element)
+            
+            elif isinstance(data[element],dict):
+                if self.check_valid_type(data[element],element):
+                    self.parse(data[element],element)
+            
+            elif isinstance(data[element],list):
+                self.validate_list(data[element],element)
+            
+            else:
+                self.validate_elem(data[element],element)
+    
+    def check_valid_type(self,given,prop):
+        
+        if "@type" not in given.keys():
+            self.error += " " + prop +" is missing required arguement @type."
+            return False
+
+        if self.context + given["@type"] in self.schema_property_ranges[prop]:
+            return True
+        
+        elif self.check_super_classes(prop,given['@type']):
+            return True    
+        
+        self.error += " " + prop + " is of incorrect type should be in " \
+                    + str(self.schema_property_ranges[prop])
+        return False
+
+    def check_super_classes(self,prop,actual):
+        
+        superClasses = [str(f) for f in self.g.transitive_objects(
+                rdflib.term.URIRef(actual), 
+                rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'))]
+        
+        for superclass in superClasses:
+            
+            if superclass in self.schema_property_ranges[prop]:
+                return True
+        
+        return False
+
+    def validate_list(self,data,prop):
+        for item in data:
+            if isinstance(item,dict):
+                if self.check_valid_type(item,prop):
+                    self.parse(item,prop)
+            elif isinstance(item,list):
+                self.validate_list(item,prop)
+            self.validate_elem(item,prop)
         return
 
 
-    def _parse(self):
-        pass
-
-    def _validate_list(self):
-        pass
-
-    def _validate_elem(self):
-
-
-        pass
+    def validate_elem(self,item,prop):
+        if isinstance(item,(int, float)) and "http://schema.org/Number" not in self.schema_property_ranges[prop]:
+            self.error += " " + prop + " is numeric but should be of type " + str(self.schema_property_ranges[prop]) + "."
+        if not isinstance(item,str):
+            self.error += " " + prop + " is of wrong type."
+        return
 
 
 class SchemaValidator(object):
