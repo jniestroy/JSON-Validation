@@ -31,7 +31,7 @@ class RDFSValidator(object):
         with open("./static/schema.jsonld", "rb") as file:
             schema_rdfs = json.loads(file.read())
         
-        g = rdflib.Graph().parse(data = json.dumps(schema_rdfs.get("@graph")), 
+        self.g = rdflib.Graph().parse(data = json.dumps(schema_rdfs.get("@graph")), 
                   context=schema_rdfs.get("@context"), format="json-ld")
 
         classes = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdfs:Class" ]
@@ -42,8 +42,10 @@ class RDFSValidator(object):
         self.error = ""
         self.extra_elements = []
         self.data = data
-        self.g = g
+        
 
+        #Creates list of all properites for each class 
+        #including those which are inherited from classes above
         self.schema_properties = {}
         for clas in classes:
             self.schema_properties[clas] = []
@@ -58,29 +60,41 @@ class RDFSValidator(object):
                                                                             rdflib.term.URIRef("http://schema.org/domainIncludes"), 
                                                                             rdflib.term.URIRef(superClass))])
         
+        #Gathers acceptable ranges for all properties found
         self.schema_property_ranges = {}
         for prop in properties:
             self.schema_property_ranges[prop] = [str(f) for f in g.transitive_objects(
                                                                 rdflib.term.URIRef(prop), 
                                                                 rdflib.term.URIRef("http://schema.org/rangeIncludes"))]
-          
+    #Validates given json-ld
     def validate(self):
+        
         if not self.initial_validate(self.data,"JSON"):
             return
+        
         self.parse(self.data,"JSON")
+
+        return
         
 
-
+    #Checks that json meets minimum requirements for validation
+    # 1.) json is a dictionary
+    # 2.) json contains @type tag
+    # 3.) the type submitted is recongized by the vocab
     def initial_validate(self,data,element):
+    
         if not isinstance(data,dict):
             self.error += " " + element + " not of type dict."
             return False
+        
         elif '@type' not in data.keys():
             self.error += " " + element + " missing required property @type."
             return False
+        
         elif self.context + data['@type'] not in self.schema_properties.keys():
             self.error += " " + element + " not of reconginized class."
             return False
+        
         return True
         
 
@@ -121,10 +135,13 @@ class RDFSValidator(object):
         if "@type" not in given.keys():
             self.error += " " + prop +" is missing required arguement @type."
             return False
+        elif self.context + given['@type'] not in self.schema_properties.keys():
+            self.error += " " + prop + " not of reconginized class."
+            return False
 
         if self.context + given["@type"] in self.schema_property_ranges[self.context + prop]:
             return True
-        
+
         elif self.check_super_classes(prop,given['@type']):
             return True    
         
@@ -146,22 +163,31 @@ class RDFSValidator(object):
         return False
 
     def validate_list(self,data,prop):
+        
         for item in data:
+            
             if isinstance(item,dict):
                 if self.check_valid_type(item,prop):
                     self.parse(item,prop)
+            
             elif isinstance(item,list):
                 self.validate_list(item,prop)
-            self.validate_elem(item,prop)
+            
+            else:
+                self.validate_elem(item,prop)
+        
         return
 
 
     def validate_elem(self,item,prop):
+        
         if isinstance(item,(int, float)) and self.context + "Number" not in self.schema_property_ranges[self.context + prop]:
             self.error += " " + prop + " is numeric but should be of type " + str(self.schema_property_ranges[self.context + prop]) + "."
             return
+        
         if not isinstance(item,str):
             self.error += " " + prop + " is of wrong type."
+        
         return
 
 
@@ -173,11 +199,48 @@ class SchemaValidator(object):
 class ShaclValidator(object):
 
     def __init__(self, data):
-        pass
+        
+        if 'app' in os.listdir():
+            f = open("app/schema definitions/shacl definitions.txt", "r")
+        else:
+            f = open("./schema definitions/shacl definitions.txt", "r")
+        
+        self.data = data
+        self.shapes_file = f.read()
+        self.shapes_file_format = 'turtle'
+
+        self.error = ""
+        self.valid = False
+        
+        
+        
+        
 
 
     def validate(self):
-        pass
+        if "@context" not in self.data.keys():
+            self.data["@context"] = "http://schema.org/"
+        
+        testjson = json.dumps(self.data)
+        
+        data_file_format = 'json-ld'
+        
+        conforms, _, v_text = validate(testjson, shacl_graph=self.shapes_file,
+                                        data_graph_format=data_file_format,
+                                        shacl_graph_format=self.shapes_file_format,
+                                        inference='rdfs', debug=True,
+                                        serialize_report_graph=True)
+        
+        if conforms:
+            self.valid = True
+            return
+        
+        self.error = v_text
+        self.valid = False
+        
+        return
+        
+        
 
 
 
