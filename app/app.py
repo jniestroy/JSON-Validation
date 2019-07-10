@@ -24,15 +24,17 @@ def validate_json(testjson,context,response = {'error': '','extra_elements':[]})
         error = error + testjson["@type"] +" not found on schema.org, "
         return({'error':error,'extra_elements':extra_elements})
     for element in testjson.keys():
-        if element == "@graph":
-            for item in element:
-                if isinstance(item,dict):
-                    result = validate_json(testjson[element],context,response)
-                    error = error + result['error']
-                    extra_elements = extra_elements + result['extra_elements']
-                else:
-                    error = error + "element in @graph is not of type dictionary, "
         element_seen = False
+        if element == "@graph":
+            element_seen = True
+            if isinstance(testjson[element],list):
+                for item in testjson[element]:
+                    if isinstance(item,dict):
+                        result = validate_json(testjson[element],context,response)
+                        error = error + result['error']
+                        extra_elements = extra_elements + result['extra_elements']
+                    else:
+                        error = error + "element in @graph is not of type dictionary, "
         #Loops through provided schema to see if property in json is in proveded schema
         for prop in schema['@graph']:
             if element_seen:
