@@ -14,14 +14,6 @@ class test_initial_validate(unittest.TestCase):
         val = validate.RDFSValidator({"@type":"Datase1212"})
         check = val.initial_validate({"@type":"Datas1212"},"test")
         self.assertEqual(check,False)
-class Testmissingitems(unittest.TestCase):
-    def setUp(self):
-        self.app = app.app.test_client()
-    def test_missing(self):
-        testjson = {'@type':"Dataset","author":"test"} 
-        r = self.app.post('/validatejson',json = testjson)
-        self.assertEqual(r.json, {'error': 'Validation Report\nConforms: False\nResults (3):\nConstraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n\tSeverity: sh:Violation\n\tSource Shape: [ sh:minCount Literal("1", datatype=xsd:integer) ; sh:path schema:dateCreated ]\n\tFocus Node: [ ]\n\tResult Path: schema:dateCreated\nConstraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n\tSeverity: sh:Violation\n\tSource Shape: [ sh:datatype xsd:string ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:name Literal("dataset name") ; sh:path schema:name ]\n\tFocus Node: [ ]\n\tResult Path: schema:name\nConstraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):\n\tSeverity: sh:Violation\n\tSource Shape: [ sh:datatype xsd:string ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:name Literal("dataset description") ; sh:path schema:description ]\n\tFocus Node: [ ]\n\tResult Path: schema:description\n', 'extra_elements': [], 'valid': False})
-    
 
 class Testflaskapp(unittest.TestCase):
     def setUp(self):
