@@ -212,11 +212,6 @@ class ShaclValidator(object):
         self.error = ""
         self.valid = False
         
-        
-        
-        
-
-
     def validate(self):
         if "@context" not in self.data.keys():
             self.data["@context"] = "http://schema.org/"
