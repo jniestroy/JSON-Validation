@@ -8,10 +8,8 @@ import json
 import re
 import codecs
 import os
-if 'app' in os.listdir():
-    from app import validate
-else:
-    import validate
+os.chdir("./app")
+import validate
 import requests
 
 app = Flask(__name__)
@@ -41,6 +39,7 @@ def jsonvalidate():
         schacl_validator.validate()
 
         if schacl_validator.valid:
+            result['error'] = ''
             result['valid'] = True
             return(jsonify(result))
         
