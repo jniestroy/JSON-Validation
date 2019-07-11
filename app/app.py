@@ -8,35 +8,73 @@ import json
 import re
 import codecs
 import os
+os.chdir("./app")
+import validate
 import requests
 
 app = Flask(__name__)
 
 
-
 @app.route('/validatejson', methods=['POST'])
 def jsonvalidate():
+    
+    result = {}
+
     testjson = request.get_json()
 
     if testjson is None:
         return(jsonify({'error':"Please POST JSON file",'valid':False}))
 
-    result = validate_json(testjson,"http://schema.org/",{'error': '','extra_elements':[]})
+    validator = validate.RDFSValidator(testjson)
+    validator.validate()
+    result['extra_elements'] = validator.extra_elements
+    
+
+    result['extra_elements'] = [x for x in result['extra_elements'] if x != "@context" and x != "@type"]
 
 
-    if result['error'] == '':
+    if validator.error == '':
 
-        shacl_result = validate_shacl_min(testjson)
+        schacl_validator = validate.ShaclValidator(testjson)
+        schacl_validator.validate()
 
-        if shacl_result[0]:
+        if schacl_validator.valid:
+            result['error'] = ''
             result['valid'] = True
-            #result['error'] = result['error'] + shacl_result[1]
             return(jsonify(result))
+        
         else:
-            result['error'] = result['error'] + shacl_result[1]
+            result['error'] = schacl_validator.error
+            result['valid'] = False
+            return(jsonify(result))
+    result['error'] = validator.error
     result['valid'] = False
-
     return(jsonify(result))
+
+
+# @app.route('/validatejson', methods=['POST'])
+# def jsonvalidate():
+#     testjson = request.get_json()
+
+#     if testjson is None:
+#         return(jsonify({'error':"Please POST JSON file",'valid':False}))
+
+#     result = validate_json(testjson,"http://schema.org/",{'error': '','extra_elements':[]})
+
+
+#     if result['error'] == '':
+
+#         shacl_result = validate_shacl_min(testjson)
+
+#         if shacl_result[0]:
+#             result['valid'] = True
+#             #result['error'] = result['error'] + shacl_result[1]
+#             return(jsonify(result))
+#         else:
+#             result['error'] = result['error'] + shacl_result[1]
+#     result['valid'] = False
+
+#     return(jsonify(result))
 
 
 @app.route('/swagger',methods = ['GET'])
