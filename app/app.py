@@ -7,8 +7,11 @@ from jsonschema._utils import format_as_index
 import json
 import re
 import codecs
-import validate
 import os
+if 'app' in os.listdir():
+    from app import validate
+else:
+    import validate
 import requests
 
 app = Flask(__name__)
