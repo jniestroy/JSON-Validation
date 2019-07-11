@@ -14,7 +14,7 @@ import requests
 app = Flask(__name__)
 
 
-@app.route('/validate', methods=['POST'])
+@app.route('/validatejson', methods=['POST'])
 def jsonvalidate():
     
     result = {}
@@ -26,6 +26,11 @@ def jsonvalidate():
 
     validator = validate.RDFSValidator(testjson)
     validator.validate()
+    result['extra_elements'] = validator.extra_elements
+    
+
+    result['extra_elements'] = [x for x in result['extra_elements'] if x != "@context" and x != "@type"]
+
 
     if validator.error == '':
 
@@ -39,6 +44,7 @@ def jsonvalidate():
         else:
             result['error'] = schacl_validator.error
             result['valid'] = False
+            return(jsonify(result))
     result['error'] = validator.error
     result['valid'] = False
     return(jsonify(result))

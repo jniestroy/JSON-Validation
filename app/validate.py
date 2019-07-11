@@ -132,6 +132,7 @@ class RDFSValidator(object):
             
             else:
                 self.validate_elem(data[element],element)
+        return
     
     def check_valid_type(self,given,prop):
         
@@ -193,11 +194,6 @@ class RDFSValidator(object):
         
         return
 
-
-class SchemaValidator(object):
-
-    def __init__(self, data):
-        pass
 
 class ShaclValidator(object):
 
