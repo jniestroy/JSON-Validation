@@ -3,7 +3,6 @@ import json
 import requests
 from pyshacl import validate
 import os
-os.chdir("./app")
 
 # class Validator(object):
 
