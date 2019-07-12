@@ -22,6 +22,7 @@ script:
 
 after_success:
    - set -e
+   - cd ..
    - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
    - REPO=jniestroy/json_validation
    - docker build -f Dockerfile -t $REPO:latest .;
