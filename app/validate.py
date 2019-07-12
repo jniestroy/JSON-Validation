@@ -4,33 +4,18 @@ import requests
 from pyshacl import validate
 import os
 
-# class Validator(object):
-
-#     def __init__(self, data):
-#         pass
-
-#     def validate_jsonschema(self):
-#         return
-
-#     def validate_shacl(self):
-#         return
-
-# class JsonSchemaValidator(object):
-
-#     def __init__(self):
-#         pass
-
-
-
 class RDFSValidator(object):
 
     def __init__(self, data,path = "./static/"):
-    #""" Set up RDFSValidator class, read in json-ld to validate, open RDFS definition file and parse into ...
-    #"""
+    """
+        Set up RDFSValidator class, read in json-ld to validate, open RDFS
+        definition file and parse into ...
+    """
         with open(path + "schema.jsonld", "rb") as file:
             schema_rdfs = json.loads(file.read())
 
-        self.g = rdflib.Graph().parse(data = json.dumps(schema_rdfs.get("@graph")),context=schema_rdfs.get("@context"), format="json-ld")
+        self.g = rdflib.Graph().parse(data = json.dumps(schema_rdfs.get("@graph")),
+        context=schema_rdfs.get("@context"), format="json-ld")
 
         classes = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdfs:Class" ]
         properties = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdf:Property" ]
@@ -179,6 +164,14 @@ class RDFSValidator(object):
 
 
     def validate_elem(self,item,prop):
+        '''
+            {
+            "author":"Justin"
+            }
+            here "author" is prop
+            and "Justin" is the item
+
+        '''
 
         if isinstance(item,(int, float)) and self.context + "Number" not in self.schema_property_ranges[self.context + prop]:
             self.error += " " + prop + " is numeric but should be of type " + str(self.schema_property_ranges[self.context + prop]) + "."
