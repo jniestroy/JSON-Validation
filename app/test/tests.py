@@ -14,6 +14,11 @@ class test_initial_validate(unittest.TestCase):
         val = validate.RDFSValidator({"@type":"Datase1212"})
         check = val.initial_validate({"@type":"Datas1212"},"test")
         self.assertEqual(check,False)
+class test_check_valid_type(unittest.TestCase):
+    def test_invalid_type(self):
+        val = validate.RDFSValidator({"@type":"Dataset"})
+        check = val.check_valid_type({"@type":"Animal"},"author")
+        self.assertEqual(check,False)
 
 class Testflaskapp(unittest.TestCase):
     def setUp(self):

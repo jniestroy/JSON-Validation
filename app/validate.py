@@ -28,12 +28,15 @@ class RDFSValidator(object):
     def __init__(self, data,path = "./static/"):
     #""" Set up RDFSValidator class, read in json-ld to validate, open RDFS definition file and parse into ...
     #"""
-
-        with open(path + "schema.jsonld", "rb") as file:
-            schema_rdfs = json.loads(file.read())
-
+        if 'app' in os.listdir():
+            with open("./app/static/schema.jsonld", "rb") as file:
+                schema_rdfs = json.loads(file.read())
+        
+        else:
+            with open("./static/schema.jsonld", "rb") as file:
+                schema_rdfs = json.loads(file.read())
+        
         self.g = rdflib.Graph().parse(data = json.dumps(schema_rdfs.get("@graph")),
-                  context=schema_rdfs.get("@context"), format="json-ld")
 
         classes = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdfs:Class" ]
         properties = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdf:Property" ]
@@ -145,9 +148,9 @@ class RDFSValidator(object):
             return True
 
         elif self.check_super_classes(prop,given['@type']):
-            return True
-
-        self.error += " " + prop + " is of incorrect type should be in " \
+            return True    
+        
+        self.error += " " + str(prop) + " is of incorrect type should be in " \
                     + str(self.schema_property_ranges[self.context + prop])
         return False
 

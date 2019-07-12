@@ -55,31 +55,6 @@ def jsonvalidate():
     return(jsonify(result))
 
 
-# @app.route('/validatejson', methods=['POST'])
-# def jsonvalidate():
-#     testjson = request.get_json()
-
-#     if testjson is None:
-#         return(jsonify({'error':"Please POST JSON file",'valid':False}))
-
-#     result = validate_json(testjson,"http://schema.org/",{'error': '','extra_elements':[]})
-
-
-#     if result['error'] == '':
-
-#         shacl_result = validate_shacl_min(testjson)
-
-#         if shacl_result[0]:
-#             result['valid'] = True
-#             #result['error'] = result['error'] + shacl_result[1]
-#             return(jsonify(result))
-#         else:
-#             result['error'] = result['error'] + shacl_result[1]
-#     result['valid'] = False
-
-#     return(jsonify(result))
-
-
 @app.route('/swagger',methods = ['GET'])
 def user_open_api():
     return send_file('static\\index.html')
