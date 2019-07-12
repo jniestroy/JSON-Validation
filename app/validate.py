@@ -30,6 +30,7 @@ class RDFSValidator(object):
         if 'app' in os.listdir():
             with open("./app/static/schema.jsonld", "rb") as file:
                 schema_rdfs = json.loads(file.read())
+        
         else:
             with open("./static/schema.jsonld", "rb") as file:
                 schema_rdfs = json.loads(file.read())
@@ -149,7 +150,7 @@ class RDFSValidator(object):
         elif self.check_super_classes(prop,given['@type']):
             return True    
         
-        self.error += " " + prop + " is of incorrect type should be in " \
+        self.error += " " + str(prop) + " is of incorrect type should be in " \
                     + str(self.schema_property_ranges[self.context + prop])
         return False
 
