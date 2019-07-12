@@ -7,10 +7,10 @@ import os
 class RDFSValidator(object):
 
     def __init__(self, data,path = "./static/"):
-    """
+    '''
         Set up RDFSValidator class, read in json-ld to validate, open RDFS
         definition file and parse into ...
-    """
+    '''
         with open(path + "schema.jsonld", "rb") as file:
             schema_rdfs = json.loads(file.read())
 
