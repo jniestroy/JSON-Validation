@@ -18,6 +18,7 @@ install:
 script:
   - python3 -m pytest -v app/test/tests.py
 
+
 after_success:
    - set -e
    - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
