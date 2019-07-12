@@ -17,6 +17,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def homepage():
     return("JSON-LD Validator")
+
 @app.route('/validatejson', methods=['POST'])
 def jsonvalidate():
 
