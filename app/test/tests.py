@@ -1,7 +1,7 @@
 import unittest
 import requests
-from app import app
-from app import validate
+import app
+import validate
 #import sys
 #sys.path.append(".")
 
@@ -67,10 +67,10 @@ class Testflaskapp(unittest.TestCase):
         "contentUrl":"http://gis.ncdc.noaa.gov/all-records/catalog/search/resource/details.page?id=gov.noaa.ncdc:C00510"
      }
   ]
-} 
+}
         r = self.app.post('/validatejson',json = testjson)
         self.assertEqual(r.json, {'error': '', 'extra_elements': [], 'valid': True})
-    
+
     def test_extra_property(self):
         testjson = {
   "@context":{ "@vocab": "http://schema.org/" },
@@ -116,7 +116,7 @@ class Testflaskapp(unittest.TestCase):
         "contentUrl":"http://gis.ncdc.noaa.gov/all-records/catalog/search/resource/details.page?id=gov.noaa.ncdc:C00510"
      }
   ]
-} 
+}
         r = self.app.post('/validatejson',json = testjson)
         self.assertEqual(r.json, {'error': '', 'extra_elements': ["randomname"], 'valid': True})
     def test_no_json(self):

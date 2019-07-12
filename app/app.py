@@ -8,7 +8,7 @@ import json
 import re
 import codecs
 import os
-os.chdir("./app")
+#os.chdir("./app")
 import validate
 import requests
 
