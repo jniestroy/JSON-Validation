@@ -2,106 +2,107 @@
   "@context": {
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
     "bio": "http://bioschemas.org/specifications/",
     "pending": "http://pending.schema.org/"
   },
   "@graph": [
-    {"@id" : "bio:DataCatalog",
+    {"@id" : "http://bioschemas.org/specifications/DataCatalog",
       "@type": "rdfs:Class",
       "rdfs:subClassOf": {"@id":"http://schema.org/DataCatalog"}
       },
-    {"@id" : "bio:Dataset",
+    {"@id" : "http://bioschemas.org/specifications/Dataset",
         "@type": "rdfs:Class",
         "rdfs:subClassOf": {"@id":"http://schema.org/Dataset"}
       },
-    {"@id" : "bio:Gene",
+    {"@id" : "http://bioschemas.org/specifications/Gene",
         "@type": "rdfs:Class",
-        "rdfs:subClassOf": {"@id" :"bio:BioChemEntity"}
+        "rdfs:subClassOf": {"@id" :"http://bioschemas.org/specifications/BioChemEntity"}
       },
-    {"@id" : "bio:Sample",
+    {"@id" : "http://bioschemas.org/specifications/Sample",
       "@type": "rdfs:Class",
       "rdfs:label": "The data and metadata involved in the collection of data, with reference to methods and experimental design.",
       "rdfs:subClassOf":{"@id":"http://schema.org/Thing"}
     },
-    {"@id" : "bio:Tool",
+    {"@id" : "http://bioschemas.org/specifications/Tool",
       "@type": "rdfs:Class",
       "rdfs:subClassOf":{"@id":"http://schema.org/SoftwareApplication"},
       "rdfs:label": "Bioschemas spec for describing a SoftwareApplication in the life sciences"
     },
 
-    {"@id": "bio:CategoryCode",
+    {"@id": "http://bioschemas.org/specifications/CategoryCode",
       "@type": "rdfs:Class",
       "rdfs:label": "An extension of 'Medical Code' in the health-lifesci.schema.org for BioChemical Codes",
       "rdfs:subClassOf":{"@id":"http://health-lifesci.schema.org/MedicalCode"}
     },
-      {"@id": "bio:name",
+      {"@id": "http://bioschemas.org/specifications/name",
         "@type": "rdfs:property",
         "rdfs:label": "A human readable label",
-        "http://schema.org/domainIncludes":{"@id": "bio:CategoryCode"},
+        "http://schema.org/domainIncludes":{"@id": "http://bioschemas.org/specifications/CategoryCode"},
         "http://schema.org/rangeIncludes": {"@id":"http://schema.org/Text"}
         },
-      {"@id": "bio:codeValue",
+      {"@id": "http://bioschemas.org/specifications/codeValue",
         "@type": "rdfs:property",
         "rdfs:label": "A short textual code that uniquely identifies the value",
-        "http://schema.org/domainIncludes": {"@id":"bio:CategoryCode"},
+        "http://schema.org/domainIncludes": {"@id":"http://bioschemas.org/specifications/CategoryCode"},
         "http://schema.org/rangeIncludes": {"@id":"http://schema.org/Text"}
         },
-      {"@id": "bio:url",
+      {"@id": "http://bioschemas.org/specifications/url",
         "@type": "rdfs:property",
         "rdfs:label": "The URI for the vocabulary code",
-        "http://schema.org/domainIncludes": {"@id":"bio:CategoryCode"},
+        "http://schema.org/domainIncludes": {"@id":"http://bioschemas.org/specifications/CategoryCode"},
         "http://schema.org/rangeIncludes": {"@id":"http://schema.org/URL"}
         },
 
-    {"@id": "bio:PropertyValue",
+    {"@id": "http://bioschemas.org/specifications/PropertyValue",
       "@type": "rdfs:Class",
       "rdfs:label": "PropertyValue recommendations specific to the bioschemas Sample class",
       "rdfs:subClassOf":{"@id":"http://schema.org/PropertyValue"}
     },
-      {"@id": "bio:valueReference",
+      {"@id": "http://bioschemas.org/specifications/valueReference",
         "@type": "rdfs:property",
         "rdfs:label": "A pointer to a secondary value with additional information",
-        "http://schema.org/domainIncludes": {"@id":"bio:PropertyValue"},
-        "http://schema.org/rangeIncludes": {"@id":"bio:CategoryCode"}
+        "http://schema.org/domainIncludes": {"@id":"http://bioschemas.org/specifications/PropertyValue"},
+        "http://schema.org/rangeIncludes": {"@id":"http://bioschemas.org/specifications/CategoryCode"}
         },
-      {"@id": "bio:unitCode",
+      {"@id": "http://bioschemas.org/specifications/unitCode",
         "@type": "rdfs:property",
         "rdfs:label": "The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL",
-        "http://schema.org/domainIncludes": {"@id":"bio:PropertyValue"},
+        "http://schema.org/domainIncludes": {"@id":"http://bioschemas.org/specifications/PropertyValue"},
         "http://schema.org/rangeIncludes": [{"@id":"http://schema.org/Text"}, {"@id":"http://schema.org/URL"}]
         },
-      {"@id": "bio:unitText",
+      {"@id": "http://bioschemas.org/specifications/unitText",
         "@type": "rdfs:property",
         "rdfs:label": "String Indicating the Unit of Measurment",
-        "http://schema.org/domainIncludes": {"@id":"bio:PropertyValue"},
+        "http://schema.org/domainIncludes": {"@id":"http://bioschemas.org/specifications/PropertyValue"},
         "http://schema.org/rangeIncludes": {"@id":"http://schema.org/Text"}
         },
 
 
-    {"@id": "bio:supportedRefs",
+    {"@id": "http://bioschemas.org/specifications/supportedRefs",
       "rdfs:label": "Supported Genome ID references",
       "@type": "rdfs:Property",
       "http://schema.org/domainIncludes": [
-        {"@id":"bio:Beacon"}
+        {"@id":"http://bioschemas.org/specifications/Beacon"}
       ],
       "http://schema.org/rangeIncludes": [
         {"@id":"http://schema.org/Text"}
       ]
     },
-    {"@id": "bio:aggregator",
+    {"@id": "http://bioschemas.org/specifications/aggregator",
       "rdfs:label": "True if Beacon is an aggregator of other Beacon Datasets",
       "@type": "rdfs:Property",
       "http://schema.org/domainIncludes": [
-        {"@id":"bio:DataCatalog"}
+        {"@id":"http://bioschemas.org/specifications/DataCatalog"}
       ],
       "http://schema.org/rangeIncludes": [
         {"@id":"http://schema.org/Text"}
       ]
     },
-    {"@id": "bio:isBasisFor",
+    {"@id": "http://bioschemas.org/specifications/isBasisFor",
       "@type": "rdfs:Property",
       "http://schema.org/domainIncludes": [
-        {"@id":"bio:DataRecord"}
+        {"@id":"http://bioschemas.org/specifications/DataRecord"}
       ],
       "http://schema.org/rangeIncludes": [
         {"@id":"http://schema.org/CreativeWork"},
@@ -109,138 +110,138 @@
         {"@id":"http://schema.org/URL"}
       ]
     },
-    {"@id": "bio:seeAlso",
+    {"@id": "http://bioschemas.org/specifications/seeAlso",
       "rdfs:label": "A pointer to any related entity",
       "@type": "rdfs:Property",
       "http://schema.org/domainIncludes": [
-        {"@id":"bio:DataRecord"}
+        {"@id":"http://bioschemas.org/specifications/DataRecord"}
       ],
       "http://schema.org/rangeIncludes": [
         {"@id":"http://schema.org/Thing"},
         {"@id":"http://schema.org/URL"}
         ]
       },
-    {"@id": "measurementTechnique",
+    {"@id": "http://bioschemas.org/specifications/measurementTechnique",
       "rdfs:label": "A technique or technology used in a Dataset, corresponding to the method used for measuring the corresponding variable(s) described using variableMeasured",
       "@type": "rdfs:Property",
       "http://schema.org/domainIncludes": [
-        {"@id":"bio:Dataset"}
+        {"@id":"http://bioschemas.org/specifications/Dataset"}
       ],
       "http://schema.org/rangeIncludes": [
         {"@id":"http://schema.org/Text"},
         {"@id":"http://schema.org/URL"}
       ]
       },
-    {"@id": "variableMeasured",
+    {"@id": "http://bioschemas.org/specifications/variableMeasured",
       "rdfs:label": "What does the dataset measure? (e.g. temperature, pressure)",
       "@type": "rdfs:Property",
       "http://schema.org/domainIncludes": [
-        {"@id":"bio:Dataset"}
+        {"@id":"http://bioschemas.org/specifications/Dataset"}
         ],
       "http://schema.org/rangeIncludes": [
         {"@id":"http://schema.org/PropertyValue"},
         {"@id":"http://schema.org/Text"}
         ]
       },
-    {"@id": "bio:encodes",
+    {"@id": "http://bioschemas.org/specifications/encodes",
       "rdfs:label": "Property links gene products encoded directly or indirectly, from a gene such as RNA or protiens",
       "@type": "rdfs:Property",
-      "http://schema.org/domainIncludes": [ {"@id":"bio:Gene" }],
+      "http://schema.org/domainIncludes": [ {"@id":"http://bioschemas.org/specifications/Gene" }],
       "http://schema.org/rangeIncludes": [
-        {"@id":"bio:BioChemEntity"},
-        {"@id":"bio:Protein"},
+        {"@id":"http://bioschemas.org/specifications/BioChemEntity"},
+        {"@id":"http://bioschemas.org/specifications/Protein"},
         {"@id":"http://schema.org/URL"}
           ]
     },
-    {"@id": "bio:hasRepresentation",
+    {"@id": "http://bioschemas.org/specifications/hasRepresentation",
       "rdfs:label": "A common representation such as a protein sequence or chemical structure for this entity. For images use schema.org/image.",
       "@type": "rdfs:Property",
-      "http://schema.org/domainIncludes": [ {"@id":"bio:Gene"}],
+      "http://schema.org/domainIncludes": [ {"@id":"http://bioschemas.org/specifications/Gene"}],
       "http://schema.org/rangeIncludes": [
         {"@id":"http://schema.org/PropertyValue"},
         {"@id":"http://schema.org/Text"},
         {"@id":"http://schema.org/URL"}
           ]
       },
-    {"@id": "bio:isPartOfBioChemEntity",
+    {"@id": "http://bioschemas.org/specifications/isPartOfBioChemEntity",
       "rdfs:label": "Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity. Inverse property: hasBioChemEntity",
       "@type": "rdfs:Property",
-      "http://schema.org/domainIncludes": [ {"@id":"bio:Gene"} ],
-      "http://schema.org/rangeIncludes": [ {"@id":"bio:BioChemEntity"} ]
+      "http://schema.org/domainIncludes": [ {"@id":"http://bioschemas.org/specifications/Gene"} ],
+      "http://schema.org/rangeIncludes": [ {"@id":"http://bioschemas.org/specifications/BioChemEntity"} ]
       },
-    {"@id": "bio:associatedDisease",
+    {"@id": "http://bioschemas.org/specifications/associatedDisease",
       "rdfs:label": "Disease associated with this BioChemEntity",
       "@type": "rdfs:Property",
       "http://schema.org/domainIncludes": [],
       "http://schema.org/rangeIncludes": [
         ]
       },
-    {"@id": "bio:hasBioChemEntityPart",
+    {"@id": "http://bioschemas.org/specifications/hasBioChemEntityPart",
       "rdfs:label": "For genes, it can be used to link to gene sequence annotations such as variants or so.",
       "@type": "rdfs:Property",
-      "http://schema.org/domainIncludes": [ {"@id":"bio:Gene"} ],
+      "http://schema.org/domainIncludes": [ {"@id":"http://bioschemas.org/specifications/Gene"} ],
       "http://schema.org/rangeIncludes": [
-          {"@id":"bio:BioChemEntity"}
+          {"@id":"http://bioschemas.org/specifications/BioChemEntity"}
         ]
       },
-    {"@id": "bio:enablesMF",
+    {"@id": "http://bioschemas.org/specifications/enablesMF",
       "rdfs:label": "",
       "@type": "rdfs:Property",
-      "http://schema.org/domainIncludes": [ {"@id":"bio:Gene"} ],
+      "http://schema.org/domainIncludes": [ {"@id":"http://bioschemas.org/specifications/Gene"} ],
       "http://schema.org/rangeIncludes": [
           {"@id":"https://health-lifesci.schema.org/MedicalCondition"},
           {"@id":"http://schema.org/URL"}
         ]
       },
-    {"@id": "bio:hasCategoryCode",
+    {"@id": "http://bioschemas.org/specifications/hasCategoryCode",
       "rdfs:label": "A Category code contained in this code set.",
       "@type": "rdfs:Property",
-      "http://schema.org/domainIncludes": [ {"@id":"bio:Gene" }],
+      "http://schema.org/domainIncludes": [ {"@id":"http://bioschemas.org/specifications/Gene" }],
       "http://schema.org/rangeIncludes": [
           {"@id":"https://pending.schema.org/CategoryCode"}
         ]
       },
-    {"@id": "bio:involvedInBP",
+    {"@id": "http://bioschemas.org/specifications/involvedInBP",
       "rdfs:label": "GO biological process this gene/protein is involved in. Recommended range: BioChemEntity or CategoryCode, ProteinAnnotation if evidence should be included. RO:0002331 (is involved in).",
       "@type": "rdfs:Property",
-      "http://schema.org/domainIncludes": [ {"@id":"bio:Gene" }],
+      "http://schema.org/domainIncludes": [ {"@id":"http://bioschemas.org/specifications/Gene" }],
       "http://schema.org/rangeIncludes": [
           {"@id":"https://pending.schema.org/CategoryCode"},
           {"@id":"http://schema.org/PropertyValue"}
         ]
       },
-    {"@id": "bio:isTranscribedInto",
+    {"@id": "http://bioschemas.org/specifications/isTranscribedInto",
       "rdfs:label": "For genes, this property is used to link to gene products transcribed from this gene such as RNA. SIO:010080 (is transcribed into).",
       "@type": "rdfs:Property",
-      "http://schema.org/domainIncludes": [ {"@id":"bio:Gene"}],
+      "http://schema.org/domainIncludes": [ {"@id":"http://bioschemas.org/specifications/Gene"}],
       "http://schema.org/rangeIncludes": [
-          {"@id":"bio:BioChemEntity"}
+          {"@id":"http://bioschemas.org/specifications/BioChemEntity"}
         ]
       },
-    {"@id": "bio:isVariantOf",
+    {"@id": "http://bioschemas.org/specifications/isVariantOf",
       "rdfs:label": "Use this property to express when a gene is a variant of any other gene. SIO: 000272 (is variant of). ",
       "@type": "rdfs:Property",
-      "http://schema.org/domainIncludes": [ {"@id":"bio:Gene"}],
+      "http://schema.org/domainIncludes": [ {"@id":"http://bioschemas.org/specifications/Gene"}],
       "http://schema.org/rangeIncludes": [
-          {"@id":"bio:BioChemEntity"},
-          {"@id":"bio:Gene"}
+          {"@id":"http://bioschemas.org/specifications/BioChemEntity"},
+          {"@id":"http://bioschemas.org/specifications/Gene"}
         ]
       },
-    {"@id": "bio:taxonomicRange",
+    {"@id": "http://bioschemas.org/specifications/taxonomicRange",
       "rdfs:label": "The taxonomic grouping of the organism that expresses, encodes, or in someway related to the BioChemEntity.",
 
       "@type": "rdfs:Property",
-      "http://schema.org/domainIncludes": [ {"@id":"bio:Gene" }],
+      "http://schema.org/domainIncludes": [ {"@id":"http://bioschemas.org/specifications/Gene" }],
       "http://schema.org/rangeIncludes": [
-        {"@id":"bio:Taxon"},
+        {"@id":"http://bioschemas.org/specifications/Taxon"},
         {"@id":"http://schema.org/Text"},
         {"@id":"http://schema.org/URL"}
         ]},
-    {"@id": "bio:subjectOf",
+    {"@id": "http://bioschemas.org/specifications/subjectOf",
       "@type": "rdfs:Property",
       "rdfs:subPropertyOf": "https://pending.schema.org/subjectOf",
       "rdfs:label": "Links to resources for (meta)data about this sample record.",
-      "http://schema.org/domainIncludes": [{"@id":"bio:Sample"}],
+      "http://schema.org/domainIncludes": [{"@id":"http://bioschemas.org/specifications/Sample"}],
       "http://schema.org/rangeIncludes": [{"@id":"http://schema.org/CreativeWork"}, {"@id":"http://schema.org/Event"}]
       }
     ]

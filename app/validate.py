@@ -7,18 +7,26 @@ import os
 class RDFSValidator(object):
 
     def __init__(self, data,path = "./static/"):
-    '''
-        Set up RDFSValidator class, read in json-ld to validate, open RDFS
-        definition file and parse into ...
-    '''
+    # '''
+    #     Set up RDFSValidator class, read in json-ld to validate, open RDFS
+    #     definition file and parse into ...
+    # '''
         with open(path + "schema.jsonld", "rb") as file:
             schema_rdfs = json.loads(file.read())
-
-        self.g = rdflib.Graph().parse(data = json.dumps(schema_rdfs.get("@graph")),
-        context=schema_rdfs.get("@context"), format="json-ld")
+        with open(path + "rdfs_bioschemas_definition.jsonld","rb") as file:
+            bio_rdfs = json.loads(file.read())
+        self.g = rdflib.Graph().parse(
+            data = json.dumps(bio_rdfs.get("@graph")),
+            context=bio_rdfs.get("@context"), format="json-ld",publicID = "http://bioschemas.org/specifications/").parse(
+            data = json.dumps(schema_rdfs.get("@graph")),
+            context=schema_rdfs.get("@context"), format="json-ld",)
+        #self.g = rdflib.Graph().parse(data = json.dumps(schema_rdfs.get("@graph")),
+        #context=schema_rdfs.get("@context"), format="json-ld")
 
         classes = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdfs:Class" ]
         properties = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdf:Property" ]
+        classes.extend([ elem.get("@id") for elem in bio_rdfs['@graph'] if elem.get("@type") == "rdfs:Class" ])
+        properties.extend([ elem.get("@id") for elem in bio_rdfs['@graph'] if elem.get("@type") == "rdfs:Property" ])
 
         #self.schema = { elem.get("@id"): elem for elem in schema_rdfs}
         self.context = "http://schema.org/"
@@ -74,12 +82,27 @@ class RDFSValidator(object):
             self.error += " " + element + " missing required property @type."
             return False
 
-        elif self.context + data['@type'] not in self.schema_properties.keys():
+        elif not self.recongized_class(data["@type"]):
             self.error += " " + element + " not of reconginized class."
             return False
 
         return True
 
+    def recongized_class(self,given_type):
+        given_type = self.update_context(given_type)
+        if given_type in self.schema_properties.keys():
+            return(True)
+        else:
+            return(False)
+
+    def update_context(self,item):
+        if "bio:" in item:
+            item = item.replace("bio:","http://bioschemas.org/specifications/")
+        elif self.context in item:
+            return(item)
+        else:
+            item = self.context + item
+        return(item)
 
 
     def parse(self,data,current_element):
@@ -87,7 +110,7 @@ class RDFSValidator(object):
         if not self.initial_validate(data,current_element):
             return
 
-        clas = self.context + data['@type']
+        clas = self.update_context(data["@type"])
 
         if "@graph" in data.keys():
 
@@ -100,18 +123,20 @@ class RDFSValidator(object):
 
         for element in data.keys():
 
-            if self.context + element not in self.schema_properties[clas]:
+            element_with_context = self.update_context(element)
+
+            if element_with_context not in self.schema_properties[clas]:
                 self.extra_elements.append(element)
 
             elif isinstance(data[element],dict):
-                if self.check_valid_type(data[element],element):
+                if self.check_valid_type(data[element],element_with_context):
                     self.parse(data[element],element)
 
             elif isinstance(data[element],list):
-                self.validate_list(data[element],element)
+                self.validate_list(data[element],element_with_context)
 
             else:
-                self.validate_elem(data[element],element)
+                self.validate_elem(data[element],element_with_context)
         return
 
     def check_valid_type(self,given,prop):
@@ -119,18 +144,21 @@ class RDFSValidator(object):
         if "@type" not in given.keys():
             self.error += " " + prop +" is missing required arguement @type."
             return False
-        elif self.context + given['@type'] not in self.schema_properties.keys():
-            self.error += " " + prop + " not of reconginized class."
+
+        given["@type"] = self.update_context(given["@type"])
+
+        if not self.recongized_class(given["@type"]):
+            self.error += " " + prop.replace(self.context,"") + " not of reconginized class."
             return False
 
-        if self.context + given["@type"] in self.schema_property_ranges[self.context + prop]:
+        if given["@type"] in self.schema_property_ranges[prop]:
             return True
 
         elif self.check_super_classes(prop,given['@type']):
             return True
 
         self.error += " " + str(prop) + " is of incorrect type should be in " \
-                    + str(self.schema_property_ranges[self.context + prop])
+                    + str(self.schema_property_ranges[prop])
         return False
 
     def check_super_classes(self,prop,actual):
@@ -164,17 +192,17 @@ class RDFSValidator(object):
 
 
     def validate_elem(self,item,prop):
-        '''
-            {
-            "author":"Justin"
-            }
-            here "author" is prop
-            and "Justin" is the item
+        # '''
+        #     {
+        #     "author":"Justin"
+        #     }
+        #     here "author" is prop
+        #     and "Justin" is the item
+        #
+        # '''
 
-        '''
-
-        if isinstance(item,(int, float)) and self.context + "Number" not in self.schema_property_ranges[self.context + prop]:
-            self.error += " " + prop + " is numeric but should be of type " + str(self.schema_property_ranges[self.context + prop]) + "."
+        if isinstance(item,(int, float)) and self.context + "Number" not in self.schema_property_ranges[prop]:
+            self.error += " " + prop + " is numeric but should be of type " + str(self.schema_property_ranges[prop]) + "."
             return
 
         if not isinstance(item,str):
