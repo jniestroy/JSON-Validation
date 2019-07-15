@@ -42,30 +42,48 @@ schema:AuthorShape
     sh:property [
         sh:path schema:url ;
     ] ;
+    sh:or (
     sh:property [
         sh:path schema:name ;
         sh:datatype xsd:string ;
         sh:minCount 1;
-    ] .
+    ]
+    sh:property [
+        sh:path schema:givenName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1;
+    ] ) .
 schema:CreatorShape
     a sh:NodeShape ;
     sh:targetClass schema:Creator ;
     sh:property [
         sh:path schema:url ;
     ] ;
+    sh:or (
     sh:property [
         sh:path schema:name ;
         sh:datatype xsd:string ;
         sh:minCount 1;
-    ] .
+    ]
+    sh:property [
+        sh:path schema:givenName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1;
+    ] ) .
 schema:PersonShape
     a sh:NodeShape ;
     sh:targetClass schema:Person ;
+    sh:or (
     sh:property [
         sh:path schema:name ;
         sh:datatype xsd:string ;
-        sh:minCount 1 ;
-    ] ;
+        sh:minCount 1;
+    ]
+    sh:property [
+        sh:path schema:givenName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1;
+    ] )  ;
     sh:property [
         sh:path schema:email ;
         sh:datatype xsd:string ;
