@@ -106,32 +106,6 @@ class RDFSValidator(object):
         else:
             return(False)
 
-    #Updates elements to match the way rdflib reads in graphs
-    def update_context(self,item):
-
-        if "bio:" in item:
-            item = item.replace("bio:","http://bioschemas.org/specifications/")
-
-        elif "http://bioschemas.org/specifications/" in item:
-            return(item)
-
-        elif self.context in item:
-            return(item)
-
-        else:
-            item = self.context + item
-
-        return(item)
-
-    #Removes context for error
-    def remove_context(self,prop):
-
-        if isinstance(prop,str):
-
-            return(prop.replace(self.context,"").replace("http://bioschemas.org/specifications/","bio"))
-
-        return(prop)
-
     #Main Validation Function
     #Breaks up json and validates each section
     def parse(self,data,current_element):
@@ -256,6 +230,32 @@ class RDFSValidator(object):
             self.error += " " + self.remove_context(prop) + " is of wrong type."
 
         return
+
+    #Updates elements to match the way rdflib reads in graphs
+    def update_context(self,item):
+
+        if "bio:" in item:
+            item = item.replace("bio:","http://bioschemas.org/specifications/")
+
+        elif "http://bioschemas.org/specifications/" in item:
+            return(item)
+
+        elif self.context in item:
+            return(item)
+
+        else:
+            item = self.context + item
+
+        return(item)
+
+    #Removes context for error
+    def remove_context(self,prop):
+
+        if isinstance(prop,str):
+
+            return(prop.replace(self.context,"").replace("http://bioschemas.org/specifications/","bio"))
+
+        return(prop)
 
 
 class ShaclValidator(object):

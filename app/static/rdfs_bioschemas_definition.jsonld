@@ -134,7 +134,7 @@
       ],
       "http://schema.org/rangeIncludes": [
         {"@id":"http://schema.org/Text"},
-        {"@id":"http://schema.org/Taxon"}
+        {"@id":"http://bioschemas.org/specifications/Taxon"}
       ]
       },
       {"@id": "http://bioschemas.org/specifications/taxonRank",
