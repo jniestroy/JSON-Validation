@@ -15,6 +15,7 @@ class RDFSValidator(object):
             schema_rdfs = json.loads(file.read())
         with open(path + "rdfs_bioschemas_definition.jsonld","rb") as file:
             bio_rdfs = json.loads(file.read())
+
         self.g = rdflib.Graph().parse(
             data = json.dumps(bio_rdfs.get("@graph")),
             context=bio_rdfs.get("@context"), format="json-ld",publicID = "http://bioschemas.org/specifications/").parse(
@@ -26,9 +27,10 @@ class RDFSValidator(object):
         classes = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdfs:Class" ]
         properties = [ elem.get("@id") for elem in schema_rdfs['@graph'] if elem.get("@type") == "rdf:Property" ]
         classes.extend([ elem.get("@id") for elem in bio_rdfs['@graph'] if elem.get("@type") == "rdfs:Class" ])
-        properties.extend([ elem.get("@id") for elem in bio_rdfs['@graph'] if elem.get("@type") == "rdfs:Property" ])
+        properties.extend([ elem.get("@id") for elem in bio_rdfs['@graph'] if elem.get("@type") == "rdf:Property" ])
 
         #self.schema = { elem.get("@id"): elem for elem in schema_rdfs}
+        #For now assuming schema is schema.org can exapnd to accept more later
         self.context = "http://schema.org/"
         self.error = ""
         self.extra_elements = []
@@ -47,16 +49,19 @@ class RDFSValidator(object):
 
             for superClass in superClasses:
 
-                self.schema_properties[clas].extend([str(found) for found in self.g.transitive_subjects(
-                                                                            rdflib.term.URIRef("http://schema.org/domainIncludes"),
-                                                                            rdflib.term.URIRef(superClass))])
+                self.schema_properties[clas].extend([str(found)
+                    for found in self.g.transitive_subjects(
+                            rdflib.term.URIRef("http://schema.org/domainIncludes"),
+                            rdflib.term.URIRef(superClass))])
 
         #Gathers acceptable ranges for all properties found
         self.schema_property_ranges = {}
         for prop in properties:
-            self.schema_property_ranges[prop] = [str(f) for f in self.g.transitive_objects(
-                                                                rdflib.term.URIRef(prop),
-                                                                rdflib.term.URIRef("http://schema.org/rangeIncludes"))]
+            self.schema_property_ranges[prop] = [str(f)
+                for f in self.g.transitive_objects(
+                        rdflib.term.URIRef(prop),
+                        rdflib.term.URIRef("http://schema.org/rangeIncludes"))]
+
     #Validates given json-ld
     def validate(self):
 
@@ -73,6 +78,8 @@ class RDFSValidator(object):
     # 2.) json contains @type tag
     # 3.) the type submitted is recongized by the vocab
     def initial_validate(self,data,element):
+        #data is given jsonld
+        #element is where current element in JSON for error reporting
 
         if not isinstance(data,dict):
             self.error += " " + element + " not of type dict."
@@ -88,23 +95,45 @@ class RDFSValidator(object):
 
         return True
 
+    #Determines if given type is recongized by vocab
     def recongized_class(self,given_type):
+
         given_type = self.update_context(given_type)
+
         if given_type in self.schema_properties.keys():
             return(True)
+
         else:
             return(False)
 
+    #Updates elements to match the way rdflib reads in graphs
     def update_context(self,item):
+
         if "bio:" in item:
             item = item.replace("bio:","http://bioschemas.org/specifications/")
+
+        elif "http://bioschemas.org/specifications/" in item:
+            return(item)
+
         elif self.context in item:
             return(item)
+
         else:
             item = self.context + item
+
         return(item)
 
+    #Removes context for error
+    def remove_context(self,prop):
 
+        if isinstance(prop,str):
+
+            return(prop.replace(self.context,"").replace("http://bioschemas.org/specifications/","bio"))
+
+        return(prop)
+
+    #Main Validation Function
+    #Breaks up json and validates each section
     def parse(self,data,current_element):
 
         if not self.initial_validate(data,current_element):
@@ -139,16 +168,29 @@ class RDFSValidator(object):
                 self.validate_elem(data[element],element_with_context)
         return
 
+    #Checks to make sure given type (given)
+    #is in the allowed classes for the property (prop) it is conntected to
+    #   {
+    #   'author':{'@type':'Person'}
+    #   }
+    # {'@type':'Person'} = given
+    # 'author' = prop
     def check_valid_type(self,given,prop):
 
         if "@type" not in given.keys():
-            self.error += " " + prop +" is missing required arguement @type."
+
+            self.error += " " + self.remove_context(prop) + \
+                " is missing required arguement @type."
+
             return False
 
         given["@type"] = self.update_context(given["@type"])
 
         if not self.recongized_class(given["@type"]):
-            self.error += " " + prop.replace(self.context,"") + " not of reconginized class."
+
+            self.error += " " + self.remove_context(prop) +  \
+                " not of reconginized class."
+
             return False
 
         if given["@type"] in self.schema_property_ranges[prop]:
@@ -157,14 +199,18 @@ class RDFSValidator(object):
         elif self.check_super_classes(prop,given['@type']):
             return True
 
-        self.error += " " + str(prop) + " is of incorrect type should be in " \
-                    + str(self.schema_property_ranges[prop])
+        self.error += " " + self.remove_context(prop) + \
+            " is of incorrect type should be in " \
+            + str(self.schema_property_ranges[prop])
+
         return False
 
-    def check_super_classes(self,prop,actual):
+    #similar to check valid classes but looks to see
+    #if given class is subclass of acceptable class
+    def check_super_classes(self,prop,given_class):
 
         superClasses = [str(f) for f in self.g.transitive_objects(
-                rdflib.term.URIRef(actual),
+                rdflib.term.URIRef(given_class),
                 rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'))]
 
         for superclass in superClasses:
@@ -202,11 +248,12 @@ class RDFSValidator(object):
         # '''
 
         if isinstance(item,(int, float)) and self.context + "Number" not in self.schema_property_ranges[prop]:
-            self.error += " " + prop + " is numeric but should be of type " + str(self.schema_property_ranges[prop]) + "."
+            self.error += " " + self.remove_context(prop) + " is numeric but should be of type " \
+                + str(self.schema_property_ranges[prop]) + "."
             return
 
         if not isinstance(item,str):
-            self.error += " " + prop + " is of wrong type."
+            self.error += " " + self.remove_context(prop) + " is of wrong type."
 
         return
 
