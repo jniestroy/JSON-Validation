@@ -1,0 +1,153 @@
+[
+{
+    "@context": "http://schema.org",
+    "@type": "DataCatalog",
+    "name": "GigaDB.org",
+    "description": "GigaDB primarily serves as a repository to host data and tools associated with articles in GigaScience; however, it also includes a subset of datasets that are not associated with GigaScience articles. GigaDB defines a dataset as a group of files (e.g., sequencing data, analyses, imaging files, software programs) that are related to and support an article or study. Through our association with DataCite, each dataset in GigaDB will be assigned a DOI that can be used as a standard citation for future use of these data in other articles by the authors and other researchers. Datasets in GigaDB all require a title that is specific to the dataset, an author list, and an abstract that provides information specific to the data included within the set. We encourage detailed information about the data we host to be submitted by their creators in ISA-Tab, a format used by the BioSharing and ISA Commons communities that we work with to maintain the highest data and metadata standards in our journal. To maximize its utility to the research community, all datasets in GigaDB are placed under a CC0 waiver (for more information on the issues surrounding CC0 and data see Hrynaszkiewicz and Cockerill, 2012).Datasets that are not affiliated with a GigaScience article are approved for inclusion by the Editors of GigaScience. The majority of such datasets are from internal projects at the BGI, given their sponsorship of GigaDB. Many of these datasets may not have another discipline-specific repository suitably able to host them or have been rapidly released prior to any publications for use by the research community, whilst enabling their producers to obtain credit through data citation. The GigaScience Editors may also consider the inclusion of particularly interesting, previously unpublished datasets in GigaDB, especially if they meet our criteria and inclusion as Data Note articles in the journal.",
+    "alternateName": "GigaScience Journal Database",
+    "license": "Public Domain",
+    "citation": "Tam P. Sneddon, Xiao Si Zhe, Scott C. Edmunds, Peter Li, Laurie Goodman, Christopher I. Hunter; GigaDB: promoting data dissemination and reproducibility, Database, Volume 2014, 1 January 2014, bau018, https://doi.org/10.1093/database/bau018",
+    "url": "https://GigaDB.org/",
+    "keywords": [
+        "registry",
+        "life science",
+        "GigaScience Journal"
+    ],
+    "provider": [
+        {
+            "@type": "Person",
+            "name": "GigaDB.org support",
+            "email": "database@gigasciencejournal.com"
+        }
+    ]
+},
+{
+    "@context": "http://schema.org",
+    "@type": "DataCatalog",
+    "name": "European Genome-phenome Archive",
+    "alternateName": "EGA",
+    "description": "The EGA provides a service for the permanent archiving and distribution of personally identifiable genetic and phenotypic data resulting from biomedical research projects. Data at EGA was collected from individuals whose consent agreements authorise data release only for specific research use to bona fide researchers. Strict protocols govern how information is managed, stored and distributed by the EGA project.",
+    "url": "https://ega-archive.org",
+    "publication": {
+        "@type": "PublicationEvent",
+        "name": "The European Genome-phenome Archive of human data consented for biomedical research.",
+        "url": "http://europepmc.org/abstract/MED/26111507"
+    },
+    "keywords": [
+        "European Genome-phenome Archive",
+        "Genomics",
+        "Genomics Research",
+        "CRG",
+        "Centre for Genomic Regulation",
+        "EGA",
+        "EBI",
+        "European Bioinformatic Institute",
+        "Research",
+        "Genomics Archives",
+        "European Research",
+        "Human",
+        "Controlled Access",
+        "Human Data",
+        "Natural Science"
+    ],
+    "sourceOrganization": [
+        {
+            "@type": "Organization",
+            "name": "The European Bioinformatics Institute (EMBL-EBI)",
+            "url": "http://www.ebi.ac.uk/"
+        },
+        {
+            "@type": "Organization",
+            "name": "Centre for Genomic Regulation (CRG) ",
+            "url": "http://www.crg.eu/"
+        }
+    ],
+    "provider": [
+        {
+            "@type": "Person",
+            "name": "Helpdesk Officer",
+            "email": "ega-helpdesk@ebi.ac.uk"
+        }
+    ]
+},
+{
+    "@context": [
+        "http://schema.org",
+        {
+            "dwc": "http://rs.tdwg.org/dwc/terms/",
+            "dwc:vernacularName": { "@container": "@language" }
+        }
+    ],
+
+    "@type" : "bio:Taxon",
+    "additionalType": [ "dwc:Taxon", "http://rs.tdwg.org/ontology/voc/TaxonConcept#TaxonConcept" ],
+    "identifier": "60932",
+    "mainEntityOfPage": "https://inpn.mnhn.fr/espece/cd_nom/60932?lg=en",
+
+    "name": "Delphinapterus leucas",
+    "dwc:scientificName": "Delphinapterus leucas (Pallas, 1776)",
+    "dwc:scientificNameAuthorship": "(Pallas, 1776)",
+    "alternateName": [
+        "Balaena albicans Muller, 1776",
+        "Beluga catodon Gray, 1846"
+    ],
+    "dwc:vernacularName": [
+        { "@language": "en", "@value": "Beluga Whale" },
+        { "@language": "fr", "@value": "Bélouga" }
+    ],
+
+    "image": "https://inpn.mnhn.fr/photos/uploads/webtofs/inpn/3/181473.jpg",
+
+    "bio:taxonRank": [
+      "http://rs.tdwg.org/ontology/voc/TaxonRank#Species",
+      "http://www.wikidata.org/entity/Q7432",
+      "species"
+    ],
+
+    "bio:parentTaxon": {
+        "@type": "bio:Taxon",
+        "name": "Delphinapterus",
+        "dwc:scientificName": "Delphinapterus Lacépède, 1804",
+        "identifier": "191588",
+        "url": "https://inpn.mnhn.fr/espece/cd_nom/191588?lg=en",
+        "bio:taxonRank" : [ "http://rs.tdwg.org/ontology/voc/TaxonRank#Genus", "genus" ]
+    },
+
+    "sameAs": [
+        "http://doris.ffessm.fr/Especes/Delphinapterus-leucas-Beluga-868",
+        "http://www.marinespecies.org/aphia.php?p=taxdetails&id=137115",
+        "http://www.iucnredlist.org/details/6335"
+    ]
+},
+{"@context": "http://schema.org",
+  "@type": "Dataset",
+  "@id": "http://www.uniprot.org/uniparc",
+  "name": "UniProt Archive (UniParc)",
+  "dateCreated":"Today",
+  "description": "The UniProt Archive (UniParc) is a comprehensive and non-redundant database that contains most of the publicly available protein sequences in the world. Proteins may exist in different source databases and in multiple copies in the same database. UniParc avoided such redundancy by storing each unique sequence only once and giving it a stable and unique identifier (UPI) making it possible to identify the same protein from different source databases. A UPI is never removed, changed or reassigned. UniParc contains only protein sequences. All other information about the protein must be retrieved from the source databases using the database cross-references. UniParc tracks sequence changes in the source databases and archives the history of all changes. UniParc has combined many databases into one at the sequence level and searching UniParc is equivalent to searching many databases simultaneously",
+  "url": "http://www.uniprot.org/uniparc",
+  "identifier": "UniParc",
+  "keywords": "protein, protein sequence, archive",
+  "includedInDataCatalog": "http://www.uniprot.org",
+  "creator": {
+    "@type": "Organization",
+    "name": "UniProt Consortium"
+  },
+  "version": "2017-09",
+  "license": "Creative Commons Attribution-NoDerivs",
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "name": "UniParc XML",
+      "fileFormat": "xml",
+      "contentURL": "ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/uniparc/uniparc_all.xml.gz"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "UniParc FASTA",
+      "fileFormat": "fasta",
+      "contentURL": "ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/uniparc/uniparc_active.fasta.gz"
+    }
+  ]
+}
+]

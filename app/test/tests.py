@@ -2,6 +2,7 @@ import unittest
 import requests
 import app
 import validate
+import json
 #import sys
 #sys.path.append(".")
 
@@ -19,6 +20,29 @@ class test_check_valid_type(unittest.TestCase):
         val = validate.RDFSValidator({"@type":"Dataset"})
         check = val.check_valid_type({"@type":"Animal"},"author")
         self.assertEqual(check,False)
+class test_bioschemas_jsons(unittest.TestCase):
+    def setUp(self):
+        self.app = app.app.test_client()
+    def test_passing_jsons(self):
+        with open('./test/valid_jsons.json') as json_file:
+            data = json.load(json_file)
+        test = True
+        for js in data:
+            req = self.app.post('/validatejson',json = js)
+            result = req.json
+            if not result['valid']:
+                test = False
+        self.assertTrue(test)
+    def test_failing_jsons(self):
+        with open('./test/invalid_jsons.json') as json_file:
+            data = json.load(json_file)
+        test = True
+        for js in data:
+            req = self.app.post('/validatejson',json = js)
+            result = req.json
+            if result['valid']:
+                test = False
+        self.assertTrue(test)
 
 class Testflaskapp(unittest.TestCase):
     def setUp(self):
