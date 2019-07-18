@@ -6,23 +6,68 @@ import json
 #import sys
 #sys.path.append(".")
 
+####################
+#Schema Validator Function check
+####################
 class test_initial_validate(unittest.TestCase):
+
     def test_check_working_initial(self):
         val = validate.RDFSValidator({"@type":"Dataset"})
         check = val.initial_validate({"@type":"Dataset"},"test")
         self.assertEqual(check,True)
+
     def test_failing_initial(self):
         val = validate.RDFSValidator({"@type":"Datase1212"})
         check = val.initial_validate({"@type":"Datas1212"},"test")
         self.assertEqual(check,False)
+
+class test_recongize_class(unittest.TestCase):
+
+    def test_all_classes(self):
+        val = validate.RDFSValidator({"@type":"Dataset"})
+        check = True
+        for clas in val.schema_properties.keys():
+            if not val.recongized_class(clas):
+                check = False
+        self.assertTrue(check)
+
+    def test_non_schema_class(self):
+        val = validate.RDFSValidator({"@type":"Dataset"})
+        check = True
+        if val.recongized_class("MadeUpClass"):
+            check = False
+        self.assertTrue(check)
+
 class test_check_valid_type(unittest.TestCase):
+
     def test_invalid_type(self):
         val = validate.RDFSValidator({"@type":"Dataset"})
-        check = val.check_valid_type({"@type":"Animal"},"author")
+        check = val.check_valid_type({"@type":"Animal"},"http://schema.org/author")
         self.assertEqual(check,False)
+
+    def test_valid_type(self):
+        val = validate.RDFSValidator({"@type":"Dataset"})
+        check = val.check_valid_type({"@type":"Person"},"http://schema.org/author")
+        self.assertEqual(check,True)
+
+    def test_improper_spelling__type(self):
+        val = validate.RDFSValidator({"@type":"Dataset"})
+        check = val.check_valid_type({"type":"Person"},"author")
+        self.assertEqual(check,False)
+
+    def test_bio_class(self):
+        val = validate.RDFSValidator({"@type":"Dataset"})
+        check = val.check_valid_type({"@type":"http://bioschemas.org/specifications/Taxon"},"http://bioschemas.org/specifications/parentTaxon")
+        self.assertTrue(check)
+############
+#Full Validator Tests
+############
+
+#Test Full Validator schema and shacl
 class test_bioschemas_jsons(unittest.TestCase):
     def setUp(self):
         self.app = app.app.test_client()
+
     def test_passing_jsons(self):
         with open('./test/valid_jsons.json') as json_file:
             data = json.load(json_file)
@@ -33,6 +78,7 @@ class test_bioschemas_jsons(unittest.TestCase):
             if not result['valid']:
                 test = False
         self.assertTrue(test)
+
     def test_failing_jsons(self):
         with open('./test/invalid_jsons.json') as json_file:
             data = json.load(json_file)
