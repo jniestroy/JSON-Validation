@@ -22,17 +22,20 @@ def homepage():
 def jsonvalidate():
 
     result = {}
-    print("REQUEST DATA IS:\n")
-    print(request.data)
+    #Read in Posted Data and confirm its a jsonld
+    #Convert to schema.org if required
     if request.data == b'':
         return(jsonify({'error':"Please POST JSON file",'valid':False}))
+
     try:
         testjson = json.loads(request.data.decode('utf-8'))
     except:
         return(jsonify({'error':"Please POST JSON file",'valid':False}))
 
+
     if request.headers.get('Content-type') == "application/json-figshare":
         testjson = fig_to_schema(testjson)
+
 
     validator = validate.RDFSValidator(testjson)
     validator.validate()
@@ -58,6 +61,7 @@ def jsonvalidate():
             result['error'] = schacl_validator.error
             result['valid'] = False
             return(jsonify(result))
+
     app.logger.info('%s failed schema validation', testjson.get('name'))
     result['error'] = validator.error
     result['valid'] = False
@@ -79,6 +83,10 @@ def fig_to_schema(metadata):
     schema = {}
     if metadata.get('defined_type_name') == 'dataset':
         schema["@type"] = "Dataset"
+    elif metadata.get('defined_type_name') == 'journal contribution':
+        schema["@type"] = "ScholarlyArticle"
+    else:
+        schema["@type"] = "Thing"
     schema['url'] = []
     schema['url'].append(metadata.get('url'))
     schema['url'].append(metadata.get('url_private_html'))
@@ -103,6 +111,8 @@ def fig_to_schema(metadata):
         for file in metadata.get('files'):
             file_dict = {"@type":"DataDownload","name":file.get('name'),'contentUrl':file.get('download_url')}
             schema['distribution'].append(file_dict)
+    if metadata.get('license'):
+        schema['license'] = metadata.get('license').get('url')
 
     return(schema)
 
