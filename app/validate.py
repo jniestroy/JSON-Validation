@@ -2,6 +2,7 @@ import rdflib
 import json
 import requests
 from pyshacl import validate
+import pickle
 import os
 
 class RDFSValidator(object):
@@ -17,6 +18,8 @@ class RDFSValidator(object):
         self.data = data
 
         try:
+            self.g = rdflib.Graph()
+            self.g.parse(path + "g.txt", format="turtle")
             self.schema_properties = pickle.load( open(path +  "schema_properties.p", "rb" ) )
             self.schema_property_ranges = pickle.load( open(path +  "schema_property_ranges.p", "rb" ) )
         except:

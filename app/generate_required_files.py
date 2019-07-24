@@ -50,4 +50,5 @@ for prop in properties:
                 rdflib.term.URIRef("http://schema.org/rangeIncludes"))]
 
 pickle.dump(schema_properties, open(path + "schema_properties.p", "wb" ) )
+g.serialize(destination=path + 'g.txt', format='turtle')
 pickle.dump(schema_property_ranges, open( path + "schema_property_ranges.p", "wb" ) )
