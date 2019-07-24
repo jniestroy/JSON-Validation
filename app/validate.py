@@ -18,10 +18,12 @@ class RDFSValidator(object):
         self.data = data
 
         try:
+
             self.g = rdflib.Graph()
             self.g.parse(path + "g.txt", format="turtle")
             self.schema_properties = pickle.load( open(path +  "schema_properties.p", "rb" ) )
             self.schema_property_ranges = pickle.load( open(path +  "schema_property_ranges.p", "rb" ) )
+
         except:
             with open(path + "schema.jsonld", "rb") as file:
                 schema_rdfs = json.loads(file.read())

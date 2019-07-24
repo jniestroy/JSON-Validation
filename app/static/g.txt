@@ -1,6 +1,6 @@
 @prefix bio: <http://bioschemas.org/specifications/> .
-@prefix ns1: <http://purl.org/dc/terms/> .
-@prefix ns2: <http://www.w3.org/2002/07/owl#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix ns2: <http://purl.org/dc/terms/> .
 @prefix ns3: <http://www.w3.org/2004/02/skos/core#> .
 @prefix pending: <http://pending.schema.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -40,7 +40,7 @@ bio:Tool a rdfs:Class ;
 
 schema:AMRadioChannel a rdfs:Class ;
     rdfs:label "AMRadioChannel" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1004> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1004> ;
     schema:category "issue-1004" ;
     rdfs:comment "A radio channel that uses AM." ;
     rdfs:subClassOf schema:RadioChannel .
@@ -69,7 +69,7 @@ Related actions:<br/><br/>
 
 schema:Accommodation a rdfs:Class ;
     rdfs:label "Accommodation" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment """An accommodation is a place that can accommodate human beings, e.g. a hotel room, a camping pitch, or a meeting room. Many accommodations are for overnight stays, but this is not a mandatory requirement.
 For more specific types of accommodations not defined in schema.org, one can use additionalType with external vocabularies.
 <br /><br />
@@ -90,7 +90,7 @@ schema:AchieveAction a rdfs:Class ;
 
 schema:Action a rdfs:Class ;
     rdfs:label "Action" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_ActionCollabClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_ActionCollabClass> ;
     rdfs:comment """An action performed by a direct agent and indirect participants upon a direct object. Optionally happens at a location with the help of an inanimate instrument. The execution of the action may produce a result. Specific action sub-type documentation specifies the exact expectation of each argument/role.<br/><br/>
 
 See also <a href="http://blog.schema.org/2014/04/announcing-schemaorg-actions.html">blog post</a> and <a href="http://schema.org/docs/actions.html">Actions overview document</a>.""" ;
@@ -98,7 +98,7 @@ See also <a href="http://blog.schema.org/2014/04/announcing-schemaorg-actions.ht
 
 schema:ActionAccessSpecification a rdfs:Class ;
     rdfs:label "ActionAccessSpecification" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
     schema:category "issue-1741" ;
     rdfs:comment "A set of requirements that a must be fulfilled in order to perform an Action." ;
     rdfs:subClassOf schema:Intangible .
@@ -155,7 +155,7 @@ schema:Airport a rdfs:Class ;
 
 schema:AlignmentObject a rdfs:Class ;
     rdfs:label "AlignmentObject" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_LRMIClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_LRMIClass> ;
     rdfs:comment "An intangible item that describes an alignment between a learning resource and a node in an educational framework." ;
     rdfs:subClassOf schema:Intangible .
 
@@ -176,13 +176,13 @@ schema:AnimalShelter a rdfs:Class ;
 
 schema:Answer a rdfs:Class ;
     rdfs:label "Answer" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_QAStackExchange> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_QAStackExchange> ;
     rdfs:comment "An answer offered to a question; perhaps correct, perhaps opinionated or wrong." ;
     rdfs:subClassOf schema:Comment .
 
 schema:Apartment a rdfs:Class ;
     rdfs:label "Apartment" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment "An apartment (in American English) or flat (in British English) is a self-contained housing unit (a type of residential real estate) that occupies only part of a building (Source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/Apartment\">http://en.wikipedia.org/wiki/Apartment</a>)." ;
     rdfs:subClassOf schema:Accommodation .
 
@@ -225,7 +225,7 @@ schema:ArtGallery a rdfs:Class ;
 
 schema:Article a rdfs:Class ;
     rdfs:label "Article" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
     rdfs:comment """An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all.<br/><br/>
 
 See also <a href="http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html">blog post</a>.""" ;
@@ -267,7 +267,7 @@ schema:Audience a rdfs:Class ;
 
 schema:AudioObject a rdfs:Class ;
     rdfs:label "AudioObject" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
     rdfs:comment "An audio file." ;
     rdfs:subClassOf schema:MediaObject .
 
@@ -324,7 +324,7 @@ schema:Bakery a rdfs:Class ;
 
 schema:BankAccount a rdfs:Class ;
     rdfs:label "BankAccount" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     rdfs:comment "A product or service offered by a bank whereby one may deposit, withdraw or transfer money and in some cases be paid interest." ;
     rdfs:subClassOf schema:FinancialProduct .
 
@@ -362,13 +362,13 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
 
 schema:BedDetails a rdfs:Class ;
     rdfs:label "BedDetails" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment "An entity holding detailed information about the available bed types, e.g. the quantity of twin beds for a hotel room. For the single case of just one bed of a certain type, you can use bed directly with a text. See also <a class=\"localLink\" href=\"http://schema.org/BedType\">BedType</a> (under development)." ;
     rdfs:subClassOf schema:Intangible .
 
 schema:BedType a rdfs:Class ;
     rdfs:label "BedType" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1262>,
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1262>,
         <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     schema:category "issue-1262" ;
     rdfs:comment "A type of bed. This is used for indicating the bed or beds available in an accommodation." ;
@@ -460,7 +460,7 @@ schema:BowlingAlley a rdfs:Class ;
 
 schema:Brand a rdfs:Class ;
     rdfs:label "Brand" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "A brand is a name used by an organization or business person for labeling a product, product group, or similar." ;
     rdfs:subClassOf schema:Intangible .
 
@@ -493,7 +493,7 @@ schema:BroadcastEvent a rdfs:Class ;
 
 schema:BroadcastFrequencySpecification a rdfs:Class ;
     rdfs:label "BroadcastFrequencySpecification" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1004> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1004> ;
     schema:category "issue-1004" ;
     rdfs:comment "The frequency in MHz and the modulation used for a particular BroadcastService." ;
     rdfs:subClassOf schema:Intangible .
@@ -537,7 +537,7 @@ schema:BusinessAudience a rdfs:Class ;
 
 schema:BusinessEntityType a rdfs:Class ;
     rdfs:label "BusinessEntityType" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment """A business entity type is a conceptual entity representing the legal form, the size, the main line of business, the position in the value chain, or any combination thereof, of an organization or business person.<br/><br/>
 
 Commonly used values:<br/><br/>
@@ -558,7 +558,7 @@ schema:BusinessEvent a rdfs:Class ;
 
 schema:BusinessFunction a rdfs:Class ;
     rdfs:label "BusinessFunction" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment """The business function specifies the type of activity or access (i.e., the bundle of rights) offered by the organization or business person through the offer. Typical are sell, rental or lease, maintenance or repair, manufacture / produce, recycle / dispose, engineering / construction, or installation. Proprietary specifications of access rights are also instances of this class.<br/><br/>
 
 Commonly used values:<br/><br/>
@@ -593,7 +593,7 @@ schema:CafeOrCoffeeShop a rdfs:Class ;
 
 schema:Campground a rdfs:Class ;
     rdfs:label "Campground" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment """A camping site, campsite, or <a class="localLink" href="http://schema.org/Campground">Campground</a> is a place used for overnight stay in the outdoors, typically containing individual <a class="localLink" href="http://schema.org/CampingPitch">CampingPitch</a> locations. <br/><br/>
 
 In British English a campsite is an area, usually divided into a number of pitches, where people can camp overnight using tents or camper vans or caravans; this British English use of the word is synonymous with the American English expression campground. In American English the term campsite generally means an area where an individual, family, group, or military unit can pitch a tent or park a camper; a campground may contain many campsites (Source: Wikipedia see <a href="https://en.wikipedia.org/wiki/Campsite">https://en.wikipedia.org/wiki/Campsite</a>).<br/><br/>
@@ -604,7 +604,7 @@ See also the dedicated <a href="/docs/hotels.html">document on the use of schema
 
 schema:CampingPitch a rdfs:Class ;
     rdfs:label "CampingPitch" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment """A <a class="localLink" href="http://schema.org/CampingPitch">CampingPitch</a> is an individual place for overnight stay in the outdoors, typically being part of a larger camping site, or <a class="localLink" href="http://schema.org/Campground">Campground</a>.<br/><br/>
 
 In British English a campsite, or campground, is an area, usually divided into a number of pitches, where people can camp overnight using tents or camper vans or caravans; this British English use of the word is synonymous with the American English expression campground. In American English the term campsite generally means an area where an individual, family, group, or military unit can pitch a tent or park a camper; a campground may contain many campsites.
@@ -632,7 +632,7 @@ Related actions:<br/><br/>
 
 schema:Car a rdfs:Class ;
     rdfs:label "Car" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     rdfs:comment "A car is a wheeled, self-powered motor vehicle used for transportation." ;
     rdfs:subClassOf schema:Vehicle .
 
@@ -730,7 +730,7 @@ schema:CivicStructure a rdfs:Class ;
 
 schema:ClaimReview a rdfs:Class ;
     rdfs:label "ClaimReview" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1061> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1061> ;
     schema:category "issue-1061" ;
     rdfs:comment "A fact-checking review of claims made (or reported) in some creative work (referenced via itemReviewed)." ;
     rdfs:subClassOf schema:Review .
@@ -788,7 +788,7 @@ schema:CommunicateAction a rdfs:Class ;
 
 schema:CompoundPriceSpecification a rdfs:Class ;
     rdfs:label "CompoundPriceSpecification" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "A compound price specification is one that bundles multiple prices that all apply in combination for different dimensions of consumption. Use the name property of the attached unit price specification for indicating the dimension of a price component (e.g. \"electricity\" or \"final cleaning\")." ;
     rdfs:subClassOf schema:PriceSpecification .
 
@@ -861,7 +861,7 @@ schema:CookAction a rdfs:Class ;
 
 schema:Corporation a rdfs:Class ;
     rdfs:label "Corporation" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
     rdfs:comment "Organization: A business corporation." ;
     rdfs:subClassOf schema:Organization .
 
@@ -892,7 +892,7 @@ schema:CreateAction a rdfs:Class ;
 
 schema:CreativeWork a rdfs:Class ;
     rdfs:label "CreativeWork" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
     rdfs:comment "The most generic kind of creative work, including books, movies, photographs, software programs, etc." ;
     rdfs:subClassOf schema:Thing .
 
@@ -913,7 +913,7 @@ It is common for properties applicable to an item from the series to be usefully
 
 schema:CreditCard a rdfs:Class ;
     rdfs:label "CreditCard" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO>,
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO>,
         <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment """A card payment method of a particular brand or name.  Used to mark up a particular payment method and/or the financial product/service that supplies the card account.<br/><br/>
 
@@ -938,7 +938,7 @@ schema:Crematorium a rdfs:Class ;
 
 schema:CurrencyConversionService a rdfs:Class ;
     rdfs:label "CurrencyConversionService" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     rdfs:comment "A service to convert funds from one currency to another currency." ;
     rdfs:subClassOf schema:FinancialProduct .
 
@@ -954,17 +954,17 @@ schema:DanceGroup a rdfs:Class ;
 
 schema:DataCatalog a rdfs:Class ;
     rdfs:label "DataCatalog" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_DatasetClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_DatasetClass> ;
     rdfs:comment "A collection of datasets." ;
     rdfs:subClassOf schema:CreativeWork ;
-    ns2:equivalentClass <http://www.w3.org/ns/dcat#Catalog> .
+    ns1:equivalentClass <http://www.w3.org/ns/dcat#Catalog> .
 
 schema:DataDownload a rdfs:Class ;
     rdfs:label "DataDownload" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_DatasetClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_DatasetClass> ;
     rdfs:comment "A dataset in downloadable form." ;
     rdfs:subClassOf schema:MediaObject ;
-    ns2:equivalentClass <http://www.w3.org/ns/dcat#Distribution> .
+    ns1:equivalentClass <http://www.w3.org/ns/dcat#Distribution> .
 
 schema:DataFeed a rdfs:Class ;
     rdfs:label "DataFeed" ;
@@ -983,10 +983,10 @@ schema:DataType a rdfs:Class ;
 
 schema:Dataset a rdfs:Class ;
     rdfs:label "Dataset" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_DatasetClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_DatasetClass> ;
     rdfs:comment "A body of structured information describing some topic(s) of interest." ;
     rdfs:subClassOf schema:CreativeWork ;
-    ns2:equivalentClass <http://purl.org/dc/dcmitype/Dataset>,
+    ns1:equivalentClass <http://purl.org/dc/dcmitype/Dataset>,
         <http://rdfs.org/ns/void#Dataset>,
         <http://www.w3.org/ns/dcat#Dataset> .
 
@@ -1008,7 +1008,7 @@ schema:DatedMoneySpecification a rdfs:Class ;
 
 schema:DayOfWeek a rdfs:Class ;
     rdfs:label "DayOfWeek" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment """The day of the week, e.g. used to specify to which day the opening hours of an OpeningHoursSpecification refer.<br/><br/>
 
 Originally, URLs from <a href="http://purl.org/goodrelations/v1">GoodRelations</a> were used (for <a class="localLink" href="http://schema.org/Monday">Monday</a>, <a class="localLink" href="http://schema.org/Tuesday">Tuesday</a>, <a class="localLink" href="http://schema.org/Wednesday">Wednesday</a>, <a class="localLink" href="http://schema.org/Thursday">Thursday</a>, <a class="localLink" href="http://schema.org/Friday">Friday</a>, <a class="localLink" href="http://schema.org/Saturday">Saturday</a>, <a class="localLink" href="http://schema.org/Sunday">Sunday</a> plus a special entry for <a class="localLink" href="http://schema.org/PublicHolidays">PublicHolidays</a>); these have now been integrated directly into schema.org.""" ;
@@ -1036,7 +1036,7 @@ schema:DeleteAction a rdfs:Class ;
 
 schema:DeliveryChargeSpecification a rdfs:Class ;
     rdfs:label "DeliveryChargeSpecification" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "The price for the delivery of an offer using a particular delivery method." ;
     rdfs:subClassOf schema:PriceSpecification .
 
@@ -1047,7 +1047,7 @@ schema:DeliveryEvent a rdfs:Class ;
 
 schema:DeliveryMethod a rdfs:Class ;
     rdfs:label "DeliveryMethod" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment """A delivery method is a standardized procedure for transferring the product or service to the destination of fulfillment chosen by the customer. Delivery methods are characterized by the means of transportation used, and by the organization or group that is the contracting party for the sending organization or person.<br/><br/>
 
 Commonly used values:<br/><br/>
@@ -1067,7 +1067,7 @@ Commonly used values:<br/><br/>
 
 schema:Demand a rdfs:Class ;
     rdfs:label "Demand" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply." ;
     rdfs:subClassOf schema:Intangible .
 
@@ -1090,7 +1090,7 @@ schema:DepartmentStore a rdfs:Class ;
 
 schema:DepositAccount a rdfs:Class ;
     rdfs:label "DepositAccount" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     rdfs:comment "A type of Bank Account with a main purpose of depositing funds to gain interest or other benefits." ;
     rdfs:subClassOf schema:BankAccount,
         schema:InvestmentOrDeposit .
@@ -1137,7 +1137,7 @@ schema:Distance a rdfs:Class ;
 
 schema:Distillery a rdfs:Class ;
     rdfs:label "Distillery" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/743> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/743> ;
     schema:category "issue-743" ;
     rdfs:comment "A distillery." ;
     rdfs:subClassOf schema:FoodEstablishment .
@@ -1164,7 +1164,7 @@ schema:DrinkAction a rdfs:Class ;
 
 schema:DriveWheelConfigurationValue a rdfs:Class ;
     rdfs:label "DriveWheelConfigurationValue" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     rdfs:comment "A value indicating which roadwheels will receive torque." ;
     rdfs:subClassOf schema:QualitativeValue .
 
@@ -1190,7 +1190,7 @@ schema:EducationEvent a rdfs:Class ;
 
 schema:EducationalAudience a rdfs:Class ;
     rdfs:label "EducationalAudience" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_LRMIClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_LRMIClass> ;
     rdfs:comment "An EducationalAudience." ;
     rdfs:subClassOf schema:Audience .
 
@@ -1236,7 +1236,7 @@ schema:EmployeeRole a rdfs:Class ;
 
 schema:EmployerAggregateRating a rdfs:Class ;
     rdfs:label "EmployerAggregateRating" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1689> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1689> ;
     schema:category "issue-1689" ;
     rdfs:comment "An aggregate rating of an Organization related to its role as an employer." ;
     rdfs:subClassOf schema:AggregateRating .
@@ -1253,7 +1253,7 @@ schema:EndorseAction a rdfs:Class ;
 
 schema:EndorsementRating a rdfs:Class ;
     rdfs:label "EndorsementRating" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1293> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1293> ;
     schema:category "issue-1293" ;
     rdfs:comment """An EndorsementRating is a rating that expresses some level of endorsement, for example inclusion in a "critic's pick" blog, a
 "Like" or "+1" on a social network. It can be considered the <a class="localLink" href="http://schema.org/result">result</a> of an <a class="localLink" href="http://schema.org/EndorseAction">EndorseAction</a> in which the <a class="localLink" href="http://schema.org/object">object</a> of the action is rated positively by
@@ -1270,7 +1270,7 @@ schema:Energy a rdfs:Class ;
 
 schema:EngineSpecification a rdfs:Class ;
     rdfs:label "EngineSpecification" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     rdfs:comment "Information about the engine of the vehicle. A vehicle can have multiple engines represented by multiple engine specification entities." ;
     rdfs:subClassOf schema:StructuredValue .
 
@@ -1281,7 +1281,7 @@ schema:EntertainmentBusiness a rdfs:Class ;
 
 schema:EntryPoint a rdfs:Class ;
     rdfs:label "EntryPoint" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_ActionCollabClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_ActionCollabClass> ;
     rdfs:comment "An entry point, within some Web-based protocol." ;
     rdfs:subClassOf schema:Intangible .
 
@@ -1299,7 +1299,7 @@ schema:Event a rdfs:Class ;
     rdfs:label "Event" ;
     rdfs:comment "An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the <a class=\"localLink\" href=\"http://schema.org/offers\">offers</a> property. Repeated events may be structured as separate Event objects." ;
     rdfs:subClassOf schema:Thing ;
-    ns2:equivalentClass <http://purl.org/dc/dcmitype/Event> .
+    ns1:equivalentClass <http://purl.org/dc/dcmitype/Event> .
 
 schema:EventReservation a rdfs:Class ;
     rdfs:label "EventReservation" ;
@@ -1335,14 +1335,14 @@ schema:ExhibitionEvent a rdfs:Class ;
 
 schema:FAQPage a rdfs:Class ;
     rdfs:label "FAQPage" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1723> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1723> ;
     schema:category "issue-1723" ;
     rdfs:comment "A <a class=\"localLink\" href=\"http://schema.org/FAQPage\">FAQPage</a> is a <a class=\"localLink\" href=\"http://schema.org/WebPage\">WebPage</a> presenting one or more \"<a href=\"https://en.wikipedia.org/wiki/FAQ\">Frequently asked questions</a>\" (see also <a class=\"localLink\" href=\"http://schema.org/QAPage\">QAPage</a>)." ;
     rdfs:subClassOf schema:WebPage .
 
 schema:FMRadioChannel a rdfs:Class ;
     rdfs:label "FMRadioChannel" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1004> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1004> ;
     schema:category "issue-1004" ;
     rdfs:comment "A radio channel that uses FM." ;
     rdfs:subClassOf schema:RadioChannel .
@@ -1364,7 +1364,7 @@ schema:FilmAction a rdfs:Class ;
 
 schema:FinancialProduct a rdfs:Class ;
     rdfs:label "FinancialProduct" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     rdfs:comment "A product provided to consumers and businesses by financial institutions such as banks, insurance companies, brokerage firms, consumer finance companies, and investment companies which comprise the financial services industry." ;
     rdfs:subClassOf schema:Service .
 
@@ -1448,7 +1448,7 @@ schema:FoodEvent a rdfs:Class ;
 
 schema:FoodService a rdfs:Class ;
     rdfs:label "FoodService" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment "A food service, like breakfast, lunch, or dinner." ;
     rdfs:subClassOf schema:Service .
 
@@ -1519,7 +1519,7 @@ schema:GeoCoordinates a rdfs:Class ;
 
 schema:GeoShape a rdfs:Class ;
     rdfs:label "GeoShape" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
     rdfs:comment "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs. Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points." ;
     rdfs:subClassOf schema:StructuredValue .
 
@@ -1642,7 +1642,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
 
 schema:Hotel a rdfs:Class ;
     rdfs:label "Hotel" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment """A hotel is an establishment that provides lodging paid on a short-term basis (Source: Wikipedia, the free encyclopedia, see http://en.wikipedia.org/wiki/Hotel).
 <br /><br />
 See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.""" ;
@@ -1650,7 +1650,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
 
 schema:HotelRoom a rdfs:Class ;
     rdfs:label "HotelRoom" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment """A hotel room is a single room in a hotel.
 <br /><br />
 See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.""" ;
@@ -1658,7 +1658,7 @@ See also the <a href="/docs/hotels.html">dedicated document on the use of schema
 
 schema:House a rdfs:Class ;
     rdfs:label "House" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment "A house is a building or structure that has the ability to be occupied for habitation by humans or other creatures (Source: Wikipedia, the free encyclopedia, see <a href=\"http://en.wikipedia.org/wiki/House\">http://en.wikipedia.org/wiki/House</a>)." ;
     rdfs:subClassOf schema:Accommodation .
 
@@ -1732,11 +1732,11 @@ schema:ImageObject a rdfs:Class ;
     rdfs:label "ImageObject" ;
     rdfs:comment "An image file." ;
     rdfs:subClassOf schema:MediaObject ;
-    ns2:equivalentClass <http://purl.org/dc/dcmitype/Image> .
+    ns1:equivalentClass <http://purl.org/dc/dcmitype/Image> .
 
 schema:IndividualProduct a rdfs:Class ;
     rdfs:label "IndividualProduct" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "A single, identifiable product instance (e.g. a laptop with a particular serial number)." ;
     rdfs:subClassOf schema:Product .
 
@@ -1787,7 +1787,7 @@ schema:InternetCafe a rdfs:Class ;
 
 schema:InvestmentOrDeposit a rdfs:Class ;
     rdfs:label "InvestmentOrDeposit" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     rdfs:comment "A type of financial product that typically requires the client to transfer funds to a financial service in return for potential beneficial financial return." ;
     rdfs:subClassOf schema:FinancialProduct .
 
@@ -1939,7 +1939,7 @@ schema:LiveBlogPosting a rdfs:Class ;
 
 schema:LoanOrCredit a rdfs:Class ;
     rdfs:label "LoanOrCredit" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     rdfs:comment "A financial product for the loaning of an amount of money under agreed terms and charges." ;
     rdfs:subClassOf schema:FinancialProduct .
 
@@ -1952,7 +1952,7 @@ schema:LocalBusiness a rdfs:Class ;
 
 schema:LocationFeatureSpecification a rdfs:Class ;
     rdfs:label "LocationFeatureSpecification" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment "Specifies a location feature by providing a structured value representing a feature of an accommodation as a property-value pair of varying degrees of formality." ;
     rdfs:subClassOf schema:PropertyValue .
 
@@ -2010,7 +2010,7 @@ schema:MediaObject a rdfs:Class ;
 
 schema:MediaSubscription a rdfs:Class ;
     rdfs:label "MediaSubscription" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
     schema:category "issue-1741" ;
     rdfs:comment "A subscription which allows a user to access media including audio, video, books, etc." ;
     rdfs:subClassOf schema:Intangible .
@@ -2022,7 +2022,7 @@ schema:MedicalOrganization a rdfs:Class ;
 
 schema:MeetingRoom a rdfs:Class ;
     rdfs:label "MeetingRoom" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment """A meeting room, conference room, or conference hall is a room provided for singular events such as business conferences and meetings (Source: Wikipedia, the free encyclopedia, see <a href="http://en.wikipedia.org/wiki/Conference_hall">http://en.wikipedia.org/wiki/Conference_hall</a>).
 <br /><br />
 See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.""" ;
@@ -2070,13 +2070,13 @@ schema:MobilePhoneStore a rdfs:Class ;
 
 schema:MonetaryAmount a rdfs:Class ;
     rdfs:label "MonetaryAmount" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     rdfs:comment "A monetary value or range. This type can be used to describe an amount of money such as $50 USD, or a range as in describing a bank account being suitable for a balance between £1,000 and £1,000,000 GBP, or the value of a salary, etc. It is recommended to use <a class=\"localLink\" href=\"http://schema.org/PriceSpecification\">PriceSpecification</a> Types to describe the price of an Offer, Invoice, etc." ;
     rdfs:subClassOf schema:StructuredValue .
 
 schema:MonetaryAmountDistribution a rdfs:Class ;
     rdfs:label "MonetaryAmountDistribution" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     rdfs:comment "A statistical distribution of monetary amounts." ;
     rdfs:subClassOf schema:QuantitativeValueDistribution .
@@ -2163,19 +2163,19 @@ schema:MusicAlbum a rdfs:Class ;
 
 schema:MusicAlbumProductionType a rdfs:Class ;
     rdfs:label "MusicAlbumProductionType" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "Classification of the album by it's type of content: soundtrack, live album, studio album, etc." ;
     rdfs:subClassOf schema:Enumeration .
 
 schema:MusicAlbumReleaseType a rdfs:Class ;
     rdfs:label "MusicAlbumReleaseType" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "The kind of release which this album is: single, EP or album." ;
     rdfs:subClassOf schema:Enumeration .
 
 schema:MusicComposition a rdfs:Class ;
     rdfs:label "MusicComposition" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "A musical composition." ;
     rdfs:subClassOf schema:CreativeWork .
 
@@ -2201,13 +2201,13 @@ schema:MusicRecording a rdfs:Class ;
 
 schema:MusicRelease a rdfs:Class ;
     rdfs:label "MusicRelease" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "A MusicRelease is a specific release of a music album." ;
     rdfs:subClassOf schema:MusicPlaylist .
 
 schema:MusicReleaseFormatType a rdfs:Class ;
     rdfs:label "MusicReleaseFormatType" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "Format of this release (the type of recording media used, ie. compact disc, digital media, LP, etc.)." ;
     rdfs:subClassOf schema:Enumeration .
 
@@ -2238,7 +2238,7 @@ schema:NailSalon a rdfs:Class ;
 
 schema:NewsArticle a rdfs:Class ;
     rdfs:label "NewsArticle" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews>,
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews>,
         <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#TP-draws> ;
     rdfs:comment """A NewsArticle is an article whose content reports news, or provides background context and supporting materials for understanding the news.<br/><br/>
 
@@ -2280,7 +2280,7 @@ schema:NutritionInformation a rdfs:Class ;
 
 schema:Occupation a rdfs:Class ;
     rdfs:label "Occupation" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     rdfs:comment "A profession, may involve prolonged training and/or a formal qualification." ;
     rdfs:subClassOf schema:Intangible .
@@ -2292,7 +2292,7 @@ schema:OceanBodyOfWater a rdfs:Class ;
 
 schema:Offer a rdfs:Class ;
     rdfs:label "Offer" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     rdfs:comment """An offer to transfer some rights to an item or to provide a service — for example, an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, to repair a motorcycle, or to loan a book.<br/><br/>
 
 For <a href="http://www.gs1.org/barcodes/technical/idkeys/gtin">GTIN</a>-related fields, see <a href="http://www.gs1.org/barcodes/support/check_digit_calculator">Check Digit calculator</a> and <a href="http://www.gs1us.org/resources/standards/gtin-validation-guide">validation guide</a> from <a href="http://www.gs1.org/">GS1</a>.""" ;
@@ -2320,7 +2320,7 @@ schema:OnDemandEvent a rdfs:Class ;
 
 schema:OpeningHoursSpecification a rdfs:Class ;
     rdfs:label "OpeningHoursSpecification" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment """A structured value providing information about the opening hours of a place or a certain service inside a place.<br/><br/>
 
 The place is <strong>open</strong> if the <a class="localLink" href="http://schema.org/opens">opens</a> property is specified, and <strong>closed</strong> otherwise.<br/><br/>
@@ -2370,7 +2370,7 @@ schema:OutletStore a rdfs:Class ;
 
 schema:OwnershipInfo a rdfs:Class ;
     rdfs:label "OwnershipInfo" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "A structured value providing information about when a certain organization or person owned a certain product." ;
     rdfs:subClassOf schema:StructuredValue .
 
@@ -2391,7 +2391,7 @@ schema:ParcelDelivery a rdfs:Class ;
 
 schema:ParcelService a rdfs:Class ;
     rdfs:label "ParcelService" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment """A private parcel service as the delivery mode available for a certain offer.<br/><br/>
 
 Commonly used values:<br/><br/>
@@ -2431,20 +2431,20 @@ schema:PayAction a rdfs:Class ;
 
 schema:PaymentCard a rdfs:Class ;
     rdfs:label "PaymentCard" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     rdfs:comment "A payment method using a credit, debit, store or other card to associate the payment with an account." ;
     rdfs:subClassOf schema:FinancialProduct,
         schema:PaymentMethod .
 
 schema:PaymentChargeSpecification a rdfs:Class ;
     rdfs:label "PaymentChargeSpecification" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "The costs of settling the payment using a particular payment method." ;
     rdfs:subClassOf schema:PriceSpecification .
 
 schema:PaymentMethod a rdfs:Class ;
     rdfs:label "PaymentMethod" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment """A payment method is a standardized procedure for transferring the monetary amount for a purchase. Payment methods are characterized by the legal and technical structures used, and by the organization or group carrying out the transaction.<br/><br/>
 
 Commonly used values:<br/><br/>
@@ -2465,7 +2465,7 @@ Commonly used values:<br/><br/>
 
 schema:PaymentService a rdfs:Class ;
     rdfs:label "PaymentService" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     rdfs:comment "A Service to transfer funds from a person or organization to a beneficiary person or organization." ;
     rdfs:subClassOf schema:FinancialProduct .
 
@@ -2501,12 +2501,12 @@ schema:PerformingGroup a rdfs:Class ;
 
 schema:Periodical a rdfs:Class ;
     rdfs:label "Periodical" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
     rdfs:comment """A publication in any medium issued in successive parts bearing numerical or chronological designations and intended, such as a magazine, scholarly journal, or newspaper to continue indefinitely.<br/><br/>
 
 See also <a href="http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html">blog post</a>.""" ;
     rdfs:subClassOf schema:CreativeWorkSeries ;
-    ns2:equivalentClass <http://purl.org/ontology/bibo/Periodical> .
+    ns1:equivalentClass <http://purl.org/ontology/bibo/Periodical> .
 
 schema:Permit a rdfs:Class ;
     rdfs:label "Permit" ;
@@ -2515,10 +2515,10 @@ schema:Permit a rdfs:Class ;
 
 schema:Person a rdfs:Class ;
     rdfs:label "Person" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
     rdfs:comment "A person (alive, dead, undead, or fictional)." ;
     rdfs:subClassOf schema:Thing ;
-    ns2:equivalentClass <http://xmlns.com/foaf/0.1/Person> .
+    ns1:equivalentClass <http://xmlns.com/foaf/0.1/Person> .
 
 schema:PetStore a rdfs:Class ;
     rdfs:label "PetStore" ;
@@ -2608,7 +2608,7 @@ schema:PostalAddress a rdfs:Class ;
 
 schema:PreOrderAction a rdfs:Class ;
     rdfs:label "PreOrderAction" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1125> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1125> ;
     schema:category "issue-1125" ;
     rdfs:comment "An agent orders a (not yet released) object/product/service to be delivered/sent." ;
     rdfs:subClassOf schema:TradeAction .
@@ -2630,19 +2630,19 @@ schema:PresentationDigitalDocument a rdfs:Class ;
 
 schema:PriceSpecification a rdfs:Class ;
     rdfs:label "PriceSpecification" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "A structured value representing a price or price range. Typically, only the subclasses of this type are used for markup. It is recommended to use <a class=\"localLink\" href=\"http://schema.org/MonetaryAmount\">MonetaryAmount</a> to describe independent amounts of money such as a salary, credit card limits, etc." ;
     rdfs:subClassOf schema:StructuredValue .
 
 schema:Product a rdfs:Class ;
     rdfs:label "Product" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     rdfs:comment "Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online." ;
     rdfs:subClassOf schema:Thing .
 
 schema:ProductModel a rdfs:Class ;
     rdfs:label "ProductModel" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "A datasheet or vendor specification of a product (in the sense of a prototypical description)." ;
     rdfs:subClassOf schema:Product .
 
@@ -2668,7 +2668,7 @@ schema:ProgramMembership a rdfs:Class ;
 schema:PropertyValue a rdfs:Class ;
     rdfs:label "PropertyValue",
         "PropertyValue recommendations specific to the bioschemas Sample class" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment """A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>
 
 Always use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.""" ;
@@ -2677,7 +2677,7 @@ Always use specific schema.org properties when a) they exist and b) you can popu
 
 schema:PropertyValueSpecification a rdfs:Class ;
     rdfs:label "PropertyValueSpecification" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_ActionCollabClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_ActionCollabClass> ;
     rdfs:comment "A Property value specification." ;
     rdfs:subClassOf schema:Intangible .
 
@@ -2693,16 +2693,16 @@ schema:PublicationEvent a rdfs:Class ;
 
 schema:PublicationIssue a rdfs:Class ;
     rdfs:label "PublicationIssue" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
     rdfs:comment """A part of a successively published publication such as a periodical or publication volume, often numbered, usually containing a grouping of works such as articles.<br/><br/>
 
 See also <a href="http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html">blog post</a>.""" ;
     rdfs:subClassOf schema:CreativeWork ;
-    ns2:equivalentClass <http://purl.org/ontology/bibo/Issue> .
+    ns1:equivalentClass <http://purl.org/ontology/bibo/Issue> .
 
 schema:PublicationVolume a rdfs:Class ;
     rdfs:label "PublicationVolume" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
     rdfs:comment """A part of a successively published publication such as a periodical or multi-volume work, often numbered. It may represent a time span, such as a year.<br/><br/>
 
 See also <a href="http://blog.schema.org/2014/09/schemaorg-support-for-bibliographic_2.html">blog post</a>.""" ;
@@ -2715,19 +2715,19 @@ schema:QAPage a rdfs:Class ;
 
 schema:QualitativeValue a rdfs:Class ;
     rdfs:label "QualitativeValue" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "A predefined value for a product characteristic, e.g. the power cord plug type 'US' or the garment sizes 'S', 'M', 'L', and 'XL'." ;
     rdfs:subClassOf schema:Enumeration .
 
 schema:QuantitativeValue a rdfs:Class ;
     rdfs:label "QuantitativeValue" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "A point value or interval for product characteristics and other purposes." ;
     rdfs:subClassOf schema:StructuredValue .
 
 schema:QuantitativeValueDistribution a rdfs:Class ;
     rdfs:label "QuantitativeValueDistribution" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     rdfs:comment "A statistical distribution of values." ;
     rdfs:subClassOf schema:StructuredValue .
@@ -2739,7 +2739,7 @@ schema:Quantity a rdfs:Class ;
 
 schema:Question a rdfs:Class ;
     rdfs:label "Question" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_QAStackExchange> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_QAStackExchange> ;
     rdfs:comment "A specific question - e.g. from a user seeking answers online, or collected in a Frequently Asked Questions (FAQ) document." ;
     rdfs:subClassOf schema:CreativeWork .
 
@@ -2927,7 +2927,7 @@ schema:Residence a rdfs:Class ;
 
 schema:Resort a rdfs:Class ;
     rdfs:label "Resort" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment """A resort is a place used for relaxation or recreation, attracting visitors for holidays or vacations. Resorts are places, towns or sometimes commercial establishment operated by a single company (Source: Wikipedia, the free encyclopedia, see <a href="http://en.wikipedia.org/wiki/Resort">http://en.wikipedia.org/wiki/Resort</a>).
 <br /><br />
 See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.""" ;
@@ -2982,7 +2982,7 @@ schema:RoofingContractor a rdfs:Class ;
 
 schema:Room a rdfs:Class ;
     rdfs:label "Room" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment """A room is a distinguishable space within a structure, usually separated from other spaces by interior walls. (Source: Wikipedia, the free encyclopedia, see <a href="http://en.wikipedia.org/wiki/Room">http://en.wikipedia.org/wiki/Room</a>).
 <br /><br />
 See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.""" ;
@@ -3160,13 +3160,13 @@ schema:SoftwareSourceCode a rdfs:Class ;
 
 schema:SomeProducts a rdfs:Class ;
     rdfs:label "SomeProducts" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "A placeholder for multiple similar products of the same kind." ;
     rdfs:subClassOf schema:Product .
 
 schema:SpeakableSpecification a rdfs:Class ;
     rdfs:label "SpeakableSpecification" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1389> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1389> ;
     schema:category "issue-1389" ;
     rdfs:comment "A SpeakableSpecification indicates (typically via <a class=\"localLink\" href=\"http://schema.org/xpath\">xpath</a> or <a class=\"localLink\" href=\"http://schema.org/cssSelector\">cssSelector</a>) sections of a document that are highlighted as particularly <a class=\"localLink\" href=\"http://schema.org/speakable\">speakable</a>. Instances of this type are expected to be used primarily as values of the <a class=\"localLink\" href=\"http://schema.org/speakable\">speakable</a> property." ;
     rdfs:subClassOf schema:Intangible .
@@ -3224,7 +3224,7 @@ schema:State a rdfs:Class ;
 
 schema:SteeringPositionValue a rdfs:Class ;
     rdfs:label "SteeringPositionValue" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     rdfs:comment "A value indicating a steering position." ;
     rdfs:subClassOf schema:QualitativeValue .
 
@@ -3259,7 +3259,7 @@ schema:SubwayStation a rdfs:Class ;
 
 schema:Suite a rdfs:Class ;
     rdfs:label "Suite" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     rdfs:comment """A suite in a hotel or other public accommodation, denotes a class of luxury accommodations, the key feature of which is multiple rooms (Source: Wikipedia, the free encyclopedia, see <a href="http://en.wikipedia.org/wiki/Suite_(hotel)">http://en.wikipedia.org/wiki/Suite_(hotel)</a>).
 <br /><br />
 See also the <a href="/docs/hotels.html">dedicated document on the use of schema.org for marking up hotels and other forms of accommodations</a>.""" ;
@@ -3422,7 +3422,7 @@ schema:Tool a rdfs:Class ;
 
 schema:TouristAttraction a rdfs:Class ;
     rdfs:label "TouristAttraction" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#IIT-CNR.it>,
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#IIT-CNR.it>,
         <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Tourism> ;
     rdfs:comment "A tourist attraction.  In principle any Thing can be a <a class=\"localLink\" href=\"http://schema.org/TouristAttraction\">TouristAttraction</a>, from a <a class=\"localLink\" href=\"http://schema.org/Mountain\">Mountain</a> and <a class=\"localLink\" href=\"http://schema.org/LandmarksOrHistoricalBuildings\">LandmarksOrHistoricalBuildings</a> to a <a class=\"localLink\" href=\"http://schema.org/LocalBusiness\">LocalBusiness</a>.  This Type can be used on its own to describe a general <a class=\"localLink\" href=\"http://schema.org/TouristAttraction\">TouristAttraction</a>, or be used as an <a class=\"localLink\" href=\"http://schema.org/additionalType\">additionalType</a> to add tourist attraction properties to any other type.  (See examples below)" ;
     rdfs:subClassOf schema:Place .
@@ -3489,13 +3489,13 @@ schema:TravelAgency a rdfs:Class ;
 
 schema:Trip a rdfs:Class ;
     rdfs:label "Trip" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Tourism> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Tourism> ;
     rdfs:comment "A trip or journey. An itinerary of visits to one or more places." ;
     rdfs:subClassOf schema:Intangible .
 
 schema:TypeAndQuantityNode a rdfs:Class ;
     rdfs:label "TypeAndQuantityNode" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "A structured value indicating the quantity, unit of measurement, and business function of goods included in a bundle offer." ;
     rdfs:subClassOf schema:StructuredValue .
 
@@ -3519,7 +3519,7 @@ Related actions:<br/><br/>
 
 schema:UnitPriceSpecification a rdfs:Class ;
     rdfs:label "UnitPriceSpecification" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "The price asked for a given offer by the respective organization or person." ;
     rdfs:subClassOf schema:PriceSpecification .
 
@@ -3547,7 +3547,7 @@ schema:UserCheckins a rdfs:Class ;
 
 schema:UserComments a rdfs:Class ;
     rdfs:label "UserComments" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
     schema:supersededBy schema:InteractionCounter ;
     rdfs:comment "UserInteraction and its subtypes is an old way of talking about users interacting with pages. It is generally better to use <a class=\"localLink\" href=\"http://schema.org/Action\">Action</a>-based vocabulary, alongside types such as <a class=\"localLink\" href=\"http://schema.org/Comment\">Comment</a>." ;
     rdfs:subClassOf schema:UserInteraction .
@@ -3622,7 +3622,7 @@ schema:VideoGameSeries a rdfs:Class ;
 
 schema:VideoObject a rdfs:Class ;
     rdfs:label "VideoObject" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
     rdfs:comment "A video file." ;
     rdfs:subClassOf schema:MediaObject .
 
@@ -3638,7 +3638,7 @@ schema:VisualArtsEvent a rdfs:Class ;
 
 schema:VisualArtwork a rdfs:Class ;
     rdfs:label "VisualArtwork" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_VisualArtworkClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_VisualArtworkClass> ;
     rdfs:comment "A work of art that is primarily visual in character." ;
     rdfs:subClassOf schema:CreativeWork .
 
@@ -3679,13 +3679,13 @@ schema:WantAction a rdfs:Class ;
 
 schema:WarrantyPromise a rdfs:Class ;
     rdfs:label "WarrantyPromise" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "A structured value representing the duration and scope of services that will be provided to a customer free of charge in case of a defect or malfunction of a product." ;
     rdfs:subClassOf schema:StructuredValue .
 
 schema:WarrantyScope a rdfs:Class ;
     rdfs:label "WarrantyScope" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment """A range of of services that will be provided to a customer free of charge in case of a defect or malfunction of a product.<br/><br/>
 
 Commonly used values:<br/><br/>
@@ -3750,7 +3750,7 @@ schema:Winery a rdfs:Class ;
 
 schema:WorkersUnion a rdfs:Class ;
     rdfs:label "WorkersUnion" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/243> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/243> ;
     schema:category "issue-243" ;
     rdfs:comment "A Workers Union (also known as a Labor Union, Labour Union, or Trade Union) is an organization that promotes the interests of its worker members by collectively bargaining with management, organizing, and political lobbying." ;
     rdfs:subClassOf schema:Organization .
@@ -3917,12 +3917,12 @@ schema:ActiveActionStatus a schema:ActionStatusType ;
 
 schema:AlbumRelease a schema:MusicAlbumReleaseType ;
     rdfs:label "AlbumRelease" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "AlbumRelease." .
 
 schema:AllWheelDriveConfiguration a schema:DriveWheelConfigurationValue ;
     rdfs:label "AllWheelDriveConfiguration" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     rdfs:comment "All-wheel Drive is a transmission layout where the engine drives all four wheels." .
 
 schema:AudiobookFormat a schema:BookFormatType ;
@@ -3931,17 +3931,17 @@ schema:AudiobookFormat a schema:BookFormatType ;
 
 schema:BroadcastRelease a schema:MusicAlbumReleaseType ;
     rdfs:label "BroadcastRelease" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "BroadcastRelease." .
 
 schema:CDFormat a schema:MusicReleaseFormatType ;
     rdfs:label "CDFormat" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "CDFormat." .
 
 schema:CassetteFormat a schema:MusicReleaseFormatType ;
     rdfs:label "CassetteFormat" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "CassetteFormat." .
 
 schema:CoOp a schema:GamePlayMode ;
@@ -3954,7 +3954,7 @@ schema:CommentPermission a schema:DigitalDocumentPermissionType ;
 
 schema:CompilationAlbum a schema:MusicAlbumProductionType ;
     rdfs:label "CompilationAlbum" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "CompilationAlbum." .
 
 schema:CompletedActionStatus a schema:ActionStatusType ;
@@ -3963,12 +3963,12 @@ schema:CompletedActionStatus a schema:ActionStatusType ;
 
 schema:DJMixAlbum a schema:MusicAlbumProductionType ;
     rdfs:label "DJMixAlbum" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "DJMixAlbum." .
 
 schema:DVDFormat a schema:MusicReleaseFormatType ;
     rdfs:label "DVDFormat" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "DVDFormat." .
 
 schema:DamagedCondition a schema:OfferItemCondition ;
@@ -3977,7 +3977,7 @@ schema:DamagedCondition a schema:OfferItemCondition ;
 
 schema:DemoAlbum a schema:MusicAlbumProductionType ;
     rdfs:label "DemoAlbum" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "DemoAlbum." .
 
 schema:DiabeticDiet a schema:RestrictedDiet ;
@@ -3986,12 +3986,12 @@ schema:DiabeticDiet a schema:RestrictedDiet ;
 
 schema:DigitalAudioTapeFormat a schema:MusicReleaseFormatType ;
     rdfs:label "DigitalAudioTapeFormat" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "DigitalAudioTapeFormat." .
 
 schema:DigitalFormat a schema:MusicReleaseFormatType ;
     rdfs:label "DigitalFormat" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "DigitalFormat." .
 
 schema:Discontinued a schema:ItemAvailability ;
@@ -4004,7 +4004,7 @@ schema:EBook a schema:BookFormatType ;
 
 schema:EPRelease a schema:MusicAlbumReleaseType ;
     rdfs:label "EPRelease" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "EPRelease." .
 
 schema:EventCancelled a schema:EventStatusType ;
@@ -4037,7 +4037,7 @@ schema:Female a schema:GenderType ;
 
 schema:FourWheelDriveConfiguration a schema:DriveWheelConfigurationValue ;
     rdfs:label "FourWheelDriveConfiguration" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     rdfs:comment "Four-wheel drive is a transmission layout where the engine primarily drives two wheels with a part-time four-wheel drive capability." .
 
 schema:Friday a schema:DayOfWeek ;
@@ -4047,7 +4047,7 @@ schema:Friday a schema:DayOfWeek ;
 
 schema:FrontWheelDriveConfiguration a schema:DriveWheelConfigurationValue ;
     rdfs:label "FrontWheelDriveConfiguration" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     rdfs:comment "Front-wheel drive is a transmission layout where the engine drives the front wheels." .
 
 schema:GlutenFreeDiet a schema:RestrictedDiet ;
@@ -4100,12 +4100,12 @@ schema:KosherDiet a schema:RestrictedDiet ;
 
 schema:LaserDiscFormat a schema:MusicReleaseFormatType ;
     rdfs:label "LaserDiscFormat" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "LaserDiscFormat." .
 
 schema:LeftHandDriving a schema:SteeringPositionValue ;
     rdfs:label "LeftHandDriving" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     rdfs:comment "The steering position is on the left side of the vehicle (viewed from the main direction of driving)." .
 
 schema:LimitedAvailability a schema:ItemAvailability ;
@@ -4114,7 +4114,7 @@ schema:LimitedAvailability a schema:ItemAvailability ;
 
 schema:LiveAlbum a schema:MusicAlbumProductionType ;
     rdfs:label "LiveAlbum" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "LiveAlbum." .
 
 schema:LowCalorieDiet a schema:RestrictedDiet ;
@@ -4139,7 +4139,7 @@ schema:Male a schema:GenderType ;
 
 schema:MixtapeAlbum a schema:MusicAlbumProductionType ;
     rdfs:label "MixtapeAlbum" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "MixtapeAlbum." .
 
 schema:Monday a schema:DayOfWeek ;
@@ -4257,7 +4257,7 @@ schema:PreSale a schema:ItemAvailability ;
 
 schema:PublicHolidays a schema:DayOfWeek ;
     rdfs:label "PublicHolidays" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
     rdfs:comment "This stands for any day that is a public holiday; it is a placeholder for all official public holidays in some particular location. While not technically a \"day of the week\", it can be used with <a class=\"localLink\" href=\"http://schema.org/OpeningHoursSpecification\">OpeningHoursSpecification</a>. In the context of an opening hours specification it can be used to indicate opening hours on public holidays, overriding general opening hours for the day of the week on which a public holiday occurs." .
 
 schema:ReadPermission a schema:DigitalDocumentPermissionType ;
@@ -4266,7 +4266,7 @@ schema:ReadPermission a schema:DigitalDocumentPermissionType ;
 
 schema:RearWheelDriveConfiguration a schema:DriveWheelConfigurationValue ;
     rdfs:label "RearWheelDriveConfiguration" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     rdfs:comment "Real-wheel drive is a transmission layout where the engine drives the rear wheels." .
 
 schema:RefurbishedCondition a schema:OfferItemCondition ;
@@ -4275,7 +4275,7 @@ schema:RefurbishedCondition a schema:OfferItemCondition ;
 
 schema:RemixAlbum a schema:MusicAlbumProductionType ;
     rdfs:label "RemixAlbum" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "RemixAlbum." .
 
 schema:Researcher a schema:Audience ;
@@ -4300,7 +4300,7 @@ schema:ReservationPending a schema:ReservationStatusType ;
 
 schema:RightHandDriving a schema:SteeringPositionValue ;
     rdfs:label "RightHandDriving" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     rdfs:comment "The steering position is on the right side of the vehicle (viewed from the main direction of driving)." .
 
 schema:RsvpResponseMaybe a schema:RsvpResponseType ;
@@ -4330,7 +4330,7 @@ schema:SinglePlayer a schema:GamePlayMode ;
 
 schema:SingleRelease a schema:MusicAlbumReleaseType ;
     rdfs:label "SingleRelease" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "SingleRelease." .
 
 schema:SoldOut a schema:ItemAvailability ;
@@ -4339,17 +4339,17 @@ schema:SoldOut a schema:ItemAvailability ;
 
 schema:SoundtrackAlbum a schema:MusicAlbumProductionType ;
     rdfs:label "SoundtrackAlbum" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "SoundtrackAlbum." .
 
 schema:SpokenWordAlbum a schema:MusicAlbumProductionType ;
     rdfs:label "SpokenWordAlbum" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "SpokenWordAlbum." .
 
 schema:StudioAlbum a schema:MusicAlbumProductionType ;
     rdfs:label "StudioAlbum" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "StudioAlbum." .
 
 schema:Sunday a schema:DayOfWeek ;
@@ -4397,7 +4397,7 @@ schema:VenueMap a schema:MapCategoryType ;
 
 schema:VinylFormat a schema:MusicReleaseFormatType ;
     rdfs:label "VinylFormat" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     rdfs:comment "VinylFormat." .
 
 schema:Wednesday a schema:DayOfWeek ;
@@ -4429,7 +4429,7 @@ schema:acceptedOffer a rdf:Property ;
 
 schema:acceptedPaymentMethod a rdf:Property ;
     rdfs:label "acceptedPaymentMethod" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer ;
     schema:rangeIncludes schema:LoanOrCredit,
@@ -4452,7 +4452,7 @@ schema:accessCode a rdf:Property ;
 
 schema:accessMode a rdf:Property ;
     rdfs:label "accessMode" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1100> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1100> ;
     schema:category "issue-1110" ;
     schema:domainIncludes schema:CreativeWork ;
     schema:rangeIncludes schema:Text ;
@@ -4460,7 +4460,7 @@ schema:accessMode a rdf:Property ;
 
 schema:accessModeSufficient a rdf:Property ;
     rdfs:label "accessModeSufficient" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1100> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1100> ;
     schema:category "issue-1110" ;
     schema:domainIncludes schema:CreativeWork ;
     schema:rangeIncludes schema:ItemList ;
@@ -4492,7 +4492,7 @@ schema:accessibilityHazard a rdf:Property ;
 
 schema:accessibilitySummary a rdf:Property ;
     rdfs:label "accessibilitySummary" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1100> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1100> ;
     schema:category "issue-1110" ;
     schema:domainIncludes schema:CreativeWork ;
     schema:rangeIncludes schema:Text ;
@@ -4513,7 +4513,7 @@ schema:accountablePerson a rdf:Property ;
 
 schema:acquiredFrom a rdf:Property ;
     rdfs:label "acquiredFrom" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:OwnershipInfo ;
     schema:rangeIncludes schema:Organization,
         schema:Person ;
@@ -4521,7 +4521,7 @@ schema:acquiredFrom a rdf:Property ;
 
 schema:actionAccessibilityRequirement a rdf:Property ;
     rdfs:label "actionAccessibilityRequirement" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
     schema:category "issue-1741" ;
     schema:domainIncludes schema:ConsumeAction ;
     schema:rangeIncludes schema:ActionAccessSpecification ;
@@ -4557,7 +4557,7 @@ schema:actors a rdf:Property ;
 
 schema:addOn a rdf:Property ;
     rdfs:label "addOn" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Offer ;
     schema:rangeIncludes schema:Offer ;
     rdfs:comment "An additional offer that can only be obtained in combination with the first base offer (e.g. supplements and extensions that are available for a surcharge)." .
@@ -4626,7 +4626,7 @@ schema:addressRegion a rdf:Property ;
 
 schema:advanceBookingRequirement a rdf:Property ;
     rdfs:label "advanceBookingRequirement" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer ;
     schema:rangeIncludes schema:QuantitativeValue ;
@@ -4680,14 +4680,14 @@ schema:aircraft a rdf:Property ;
 
 schema:albumProductionType a rdf:Property ;
     rdfs:label "albumProductionType" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicAlbum ;
     schema:rangeIncludes schema:MusicAlbumProductionType ;
     rdfs:comment "Classification of the album by it's type of content: soundtrack, live album, studio album, etc." .
 
 schema:albumReleaseType a rdf:Property ;
     rdfs:label "albumReleaseType" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicAlbum ;
     schema:rangeIncludes schema:MusicAlbumReleaseType ;
     rdfs:comment "The kind of release which this album is: single, EP or album." .
@@ -4719,7 +4719,7 @@ schema:alternativeHeadline a rdf:Property ;
 
 schema:amenityFeature a rdf:Property ;
     rdfs:label "amenityFeature" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     schema:domainIncludes schema:Accommodation,
         schema:LodgingBusiness,
         schema:Place ;
@@ -4728,7 +4728,7 @@ schema:amenityFeature a rdf:Property ;
 
 schema:amount a rdf:Property ;
     rdfs:label "amount" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1253>,
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1253>,
         <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1253",
         "issue-1698" ;
@@ -4743,14 +4743,14 @@ schema:amount a rdf:Property ;
 
 schema:amountOfThisGood a rdf:Property ;
     rdfs:label "amountOfThisGood" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:TypeAndQuantityNode ;
     schema:rangeIncludes schema:Number ;
     rdfs:comment "The quantity of the goods included in the offer." .
 
 schema:annualPercentageRate a rdf:Property ;
     rdfs:label "annualPercentageRate" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     schema:domainIncludes schema:FinancialProduct ;
     schema:rangeIncludes schema:Number,
         schema:QuantitativeValue ;
@@ -4791,7 +4791,7 @@ schema:applicationSuite a rdf:Property ;
 
 schema:appliesToDeliveryMethod a rdf:Property ;
     rdfs:label "appliesToDeliveryMethod" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:DeliveryChargeSpecification,
         schema:PaymentChargeSpecification ;
     schema:rangeIncludes schema:DeliveryMethod ;
@@ -4799,7 +4799,7 @@ schema:appliesToDeliveryMethod a rdf:Property ;
 
 schema:appliesToPaymentMethod a rdf:Property ;
     rdfs:label "appliesToPaymentMethod" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:PaymentChargeSpecification ;
     schema:rangeIncludes schema:PaymentMethod ;
     rdfs:comment "The payment method(s) to which the payment charge specification applies." .
@@ -4946,7 +4946,7 @@ schema:audio a rdf:Property ;
 
 schema:authenticator a rdf:Property ;
     rdfs:label "authenticator" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
     schema:category "issue-1741" ;
     schema:domainIncludes schema:MediaSubscription ;
     schema:rangeIncludes schema:Organization ;
@@ -4969,7 +4969,7 @@ schema:availability a rdf:Property ;
 
 schema:availabilityEnds a rdf:Property ;
     rdfs:label "availabilityEnds" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms>,
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms>,
         <https://github.com/schemaorg/schemaorg/issues/1741> ;
     schema:category "issue-1741" ;
     schema:domainIncludes schema:ActionAccessSpecification,
@@ -4982,7 +4982,7 @@ schema:availabilityEnds a rdf:Property ;
 
 schema:availabilityStarts a rdf:Property ;
     rdfs:label "availabilityStarts" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms>,
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms>,
         <https://github.com/schemaorg/schemaorg/issues/1741> ;
     schema:category "issue-1741" ;
     schema:domainIncludes schema:ActionAccessSpecification,
@@ -4995,7 +4995,7 @@ schema:availabilityStarts a rdf:Property ;
 
 schema:availableAtOrFrom a rdf:Property ;
     rdfs:label "availableAtOrFrom" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer ;
     schema:rangeIncludes schema:Place ;
@@ -5010,7 +5010,7 @@ schema:availableChannel a rdf:Property ;
 
 schema:availableDeliveryMethod a rdf:Property ;
     rdfs:label "availableDeliveryMethod" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer ;
     schema:rangeIncludes schema:DeliveryMethod ;
@@ -5076,7 +5076,7 @@ schema:bccRecipient a rdf:Property ;
 
 schema:bed a rdf:Property ;
     rdfs:label "bed" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     schema:domainIncludes schema:HotelRoom,
         schema:Suite ;
     schema:rangeIncludes schema:BedDetails,
@@ -5114,7 +5114,7 @@ schema:billingAddress a rdf:Property ;
 
 schema:billingIncrement a rdf:Property ;
     rdfs:label "billingIncrement" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:UnitPriceSpecification ;
     schema:rangeIncludes schema:Number ;
     rdfs:comment "This property specifies the minimal quantity and rounding increment that will be the basis for the billing. The unit of measurement is specified by the unitCode property." .
@@ -5254,7 +5254,7 @@ schema:broadcastDisplayName a rdf:Property ;
 
 schema:broadcastFrequency a rdf:Property ;
     rdfs:label "broadcastFrequency" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1004> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1004> ;
     schema:category "issue-1004" ;
     schema:domainIncludes schema:BroadcastChannel,
         schema:BroadcastService ;
@@ -5264,7 +5264,7 @@ schema:broadcastFrequency a rdf:Property ;
 
 schema:broadcastFrequencyValue a rdf:Property ;
     rdfs:label "broadcastFrequencyValue" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1004> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1004> ;
     schema:category "issue-1004" ;
     schema:domainIncludes schema:BroadcastFrequencySpecification ;
     schema:rangeIncludes schema:Number,
@@ -5315,7 +5315,7 @@ schema:busNumber a rdf:Property ;
 
 schema:businessFunction a rdf:Property ;
     rdfs:label "businessFunction" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer,
         schema:TypeAndQuantityNode ;
@@ -5367,7 +5367,7 @@ schema:carbohydrateContent a rdf:Property ;
 
 schema:cargoVolume a rdf:Property ;
     rdfs:label "cargoVolume" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:QuantitativeValue ;
     rdfs:comment """The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.<br/><br/>
@@ -5399,14 +5399,14 @@ schema:catalog a rdf:Property ;
 
 schema:catalogNumber a rdf:Property ;
     rdfs:label "catalogNumber" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicRelease ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The catalog number for the release." .
 
 schema:category a rdf:Property ;
     rdfs:label "category" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
     schema:category "issue-1741" ;
     schema:domainIncludes schema:ActionAccessSpecification,
         schema:Invoice,
@@ -5509,7 +5509,7 @@ schema:citation a rdf:Property ;
 
 schema:claimReviewed a rdf:Property ;
     rdfs:label "claimReviewed" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1061> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1061> ;
     schema:category "issue-1061" ;
     schema:domainIncludes schema:ClaimReview ;
     schema:rangeIncludes schema:Text ;
@@ -5525,7 +5525,7 @@ schema:clipNumber a rdf:Property ;
 
 schema:closes a rdf:Property ;
     rdfs:label "closes" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:OpeningHoursSpecification ;
     schema:rangeIncludes schema:Time ;
     rdfs:comment "The closing hour of the place or service on the given day(s) of the week." .
@@ -5564,7 +5564,7 @@ schema:collection a rdf:Property ;
 
 schema:color a rdf:Property ;
     rdfs:label "color" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Product ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The color of the product." .
@@ -5597,7 +5597,7 @@ schema:commentTime a rdf:Property ;
 
 schema:composer a rdf:Property ;
     rdfs:label "composer" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:Event,
         schema:MusicComposition ;
     schema:rangeIncludes schema:Organization,
@@ -5770,7 +5770,7 @@ schema:creator a rdf:Property ;
 
 schema:creditedTo a rdf:Property ;
     rdfs:label "creditedTo" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicRelease ;
     schema:rangeIncludes schema:Organization,
         schema:Person ;
@@ -5778,7 +5778,7 @@ schema:creditedTo a rdf:Property ;
 
 schema:cssSelector a rdf:Property ;
     rdfs:label "cssSelector" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1389> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1389> ;
     schema:category "issue-1389" ;
     schema:domainIncludes schema:SpeakableSpecification,
         schema:WebPageElement ;
@@ -5795,7 +5795,7 @@ Use standard formats: <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217 c
 
 schema:currency a rdf:Property ;
     rdfs:label "currency" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1253> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1253> ;
     schema:category "issue-1253" ;
     schema:domainIncludes schema:DatedMoneySpecification,
         schema:ExchangeRateSpecification,
@@ -5893,7 +5893,7 @@ schema:dateSent a rdf:Property ;
 
 schema:dateVehicleFirstRegistered a rdf:Property ;
     rdfs:label "dateVehicleFirstRegistered" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Date ;
     rdfs:comment "The date of the first registration of the vehicle with the respective public authorities." .
@@ -5910,7 +5910,7 @@ Dateline summaries are oriented more towards human readers than towards automate
 
 schema:dayOfWeek a rdf:Property ;
     rdfs:label "dayOfWeek" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:OpeningHoursSpecification ;
     schema:rangeIncludes schema:DayOfWeek ;
     rdfs:comment "The day of the week for which these opening hours are valid." .
@@ -5942,7 +5942,7 @@ schema:deliveryAddress a rdf:Property ;
 
 schema:deliveryLeadTime a rdf:Property ;
     rdfs:label "deliveryLeadTime" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer ;
     schema:rangeIncludes schema:QuantitativeValue ;
@@ -6022,7 +6022,7 @@ schema:dependencies a rdf:Property ;
 
 schema:depth a rdf:Property ;
     rdfs:label "depth" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Product,
         schema:VisualArtwork ;
     schema:rangeIncludes schema:Distance,
@@ -6132,7 +6132,7 @@ schema:downvoteCount a rdf:Property ;
 
 schema:driveWheelConfiguration a rdf:Property ;
     rdfs:label "driveWheelConfiguration" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:DriveWheelConfigurationValue,
         schema:Text ;
@@ -6152,7 +6152,7 @@ schema:dropoffTime a rdf:Property ;
 
 schema:duns a rdf:Property ;
     rdfs:label "duns" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Organization,
         schema:Person ;
     schema:rangeIncludes schema:Text ;
@@ -6161,7 +6161,7 @@ schema:duns a rdf:Property ;
 
 schema:durationOfWarranty a rdf:Property ;
     rdfs:label "durationOfWarranty" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:WarrantyPromise ;
     schema:rangeIncludes schema:QuantitativeValue ;
     rdfs:comment "The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days." .
@@ -6221,7 +6221,7 @@ schema:elevation a rdf:Property ;
 
 schema:eligibleCustomerType a rdf:Property ;
     rdfs:label "eligibleCustomerType" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer ;
     schema:rangeIncludes schema:BusinessEntityType ;
@@ -6229,7 +6229,7 @@ schema:eligibleCustomerType a rdf:Property ;
 
 schema:eligibleDuration a rdf:Property ;
     rdfs:label "eligibleDuration" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer ;
     schema:rangeIncludes schema:QuantitativeValue ;
@@ -6237,7 +6237,7 @@ schema:eligibleDuration a rdf:Property ;
 
 schema:eligibleQuantity a rdf:Property ;
     rdfs:label "eligibleQuantity" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer,
         schema:PriceSpecification ;
@@ -6246,7 +6246,7 @@ schema:eligibleQuantity a rdf:Property ;
 
 schema:eligibleRegion a rdf:Property ;
     rdfs:label "eligibleRegion" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms>,
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms>,
         <https://github.com/schemaorg/schemaorg/issues/1741> ;
     schema:category "issue-1741" ;
     schema:domainIncludes schema:ActionAccessSpecification,
@@ -6263,7 +6263,7 @@ See also <a class="localLink" href="http://schema.org/ineligibleRegion">ineligib
 
 schema:eligibleTransactionVolume a rdf:Property ;
     rdfs:label "eligibleTransactionVolume" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer,
         schema:PriceSpecification ;
@@ -6380,7 +6380,7 @@ schema:episodes a rdf:Property ;
 
 schema:equal a rdf:Property ;
     rdfs:label "equal" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:QualitativeValue ;
     schema:rangeIncludes schema:QualitativeValue ;
     rdfs:comment "This ordering relation for qualitative values indicates that the subject is equal to the object." .
@@ -6408,7 +6408,7 @@ schema:estimatedFlightDuration a rdf:Property ;
 
 schema:estimatedSalary a rdf:Property ;
     rdfs:label "estimatedSalary" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:JobPosting,
         schema:Occupation ;
@@ -6454,7 +6454,7 @@ schema:expectedArrivalUntil a rdf:Property ;
 
 schema:expectsAcceptanceOf a rdf:Property ;
     rdfs:label "expectsAcceptanceOf" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
     schema:category "issue-1741" ;
     schema:domainIncludes schema:ActionAccessSpecification,
         schema:ConsumeAction,
@@ -6464,7 +6464,7 @@ schema:expectsAcceptanceOf a rdf:Property ;
 
 schema:experienceRequirements a rdf:Property ;
     rdfs:label "experienceRequirements" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:JobPosting,
         schema:Occupation ;
@@ -6507,7 +6507,7 @@ schema:featureList a rdf:Property ;
 
 schema:feesAndCommissionsSpecification a rdf:Property ;
     rdfs:label "feesAndCommissionsSpecification" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     schema:domainIncludes schema:FinancialProduct,
         schema:FinancialService ;
     schema:rangeIncludes schema:Text,
@@ -6536,7 +6536,7 @@ schema:fileSize a rdf:Property ;
 
 schema:firstPerformance a rdf:Property ;
     rdfs:label "firstPerformance" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicComposition ;
     schema:rangeIncludes schema:Event ;
     rdfs:comment "The date and place the work was first performed." .
@@ -6557,7 +6557,7 @@ schema:flightNumber a rdf:Property ;
 
 schema:floorSize a rdf:Property ;
     rdfs:label "floorSize" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     schema:domainIncludes schema:Accommodation ;
     schema:rangeIncludes schema:QuantitativeValue ;
     rdfs:comment """The size of the accommodation, e.g. in square meter or squarefoot.
@@ -6629,7 +6629,7 @@ schema:fromLocation a rdf:Property ;
 
 schema:fuelConsumption a rdf:Property ;
     rdfs:label "fuelConsumption" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:QuantitativeValue ;
     rdfs:comment """The amount of fuel consumed for traveling a particular distance or temporal duration with the given vehicle (e.g. liters per 100 km).<br/><br/>
@@ -6643,7 +6643,7 @@ schema:fuelConsumption a rdf:Property ;
 
 schema:fuelEfficiency a rdf:Property ;
     rdfs:label "fuelEfficiency" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:QuantitativeValue ;
     rdfs:comment """The distance traveled per unit of fuel used; most commonly miles per gallon (mpg) or kilometers per liter (km/L).<br/><br/>
@@ -6657,7 +6657,7 @@ schema:fuelEfficiency a rdf:Property ;
 
 schema:fuelType a rdf:Property ;
     rdfs:label "fuelType" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:EngineSpecification,
         schema:Vehicle ;
     schema:rangeIncludes schema:QualitativeValue,
@@ -6839,7 +6839,7 @@ schema:givenName a rdf:Property ;
 
 schema:globalLocationNumber a rdf:Property ;
     rdfs:label "globalLocationNumber" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Organization,
         schema:Person,
         schema:Place ;
@@ -6858,14 +6858,14 @@ schema:grantee a rdf:Property ;
 
 schema:greater a rdf:Property ;
     rdfs:label "greater" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:QualitativeValue ;
     schema:rangeIncludes schema:QualitativeValue ;
     rdfs:comment "This ordering relation for qualitative values indicates that the subject is greater than the object." .
 
 schema:greaterOrEqual a rdf:Property ;
     rdfs:label "greaterOrEqual" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:QualitativeValue ;
     schema:rangeIncludes schema:QualitativeValue ;
     rdfs:comment "This ordering relation for qualitative values indicates that the subject is greater than or equal to the object." .
@@ -6882,7 +6882,7 @@ schema:gtin12 a rdf:Property ;
 
 schema:gtin13 a rdf:Property ;
     rdfs:label "gtin13" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer,
         schema:Product ;
@@ -6893,7 +6893,7 @@ schema:gtin13 a rdf:Property ;
 
 schema:gtin14 a rdf:Property ;
     rdfs:label "gtin14" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer,
         schema:Product ;
@@ -6904,7 +6904,7 @@ schema:gtin14 a rdf:Property ;
 
 schema:gtin8 a rdf:Property ;
     rdfs:label "gtin8" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer,
         schema:Product ;
@@ -6958,7 +6958,7 @@ schema:hasMenuSection a rdf:Property ;
 
 schema:hasOccupation a rdf:Property ;
     rdfs:label "hasOccupation" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:Person ;
     schema:rangeIncludes schema:Occupation ;
@@ -6974,7 +6974,7 @@ schema:hasOfferCatalog a rdf:Property ;
 
 schema:hasPOS a rdf:Property ;
     rdfs:label "hasPOS" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Organization,
         schema:Person ;
     schema:rangeIncludes schema:Place ;
@@ -7118,7 +7118,7 @@ schema:incentives a rdf:Property ;
 
 schema:includedComposition a rdf:Property ;
     rdfs:label "includedComposition" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicComposition ;
     schema:rangeIncludes schema:MusicComposition ;
     rdfs:comment "Smaller compositions included in this work (e.g. a movement in a symphony)." .
@@ -7132,7 +7132,7 @@ schema:includedDataCatalog a rdf:Property ;
 
 schema:includesObject a rdf:Property ;
     rdfs:label "includesObject" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer ;
     schema:rangeIncludes schema:TypeAndQuantityNode ;
@@ -7202,7 +7202,7 @@ schema:interactivityType a rdf:Property ;
 
 schema:interestRate a rdf:Property ;
     rdfs:label "interestRate" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     schema:domainIncludes schema:FinancialProduct ;
     schema:rangeIncludes schema:Number,
         schema:QuantitativeValue ;
@@ -7210,7 +7210,7 @@ schema:interestRate a rdf:Property ;
 
 schema:inventoryLevel a rdf:Property ;
     rdfs:label "inventoryLevel" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer,
         schema:SomeProducts ;
@@ -7225,7 +7225,7 @@ schema:involvedInBP a rdf:Property ;
 
 schema:isAccessoryOrSparePartFor a rdf:Property ;
     rdfs:label "isAccessoryOrSparePartFor" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Product ;
     schema:rangeIncludes schema:Product ;
     rdfs:comment "A pointer to another product (or multiple products) for which this product is an accessory or spare part." .
@@ -7247,7 +7247,7 @@ schema:isBasisFor a rdf:Property ;
 
 schema:isConsumableFor a rdf:Property ;
     rdfs:label "isConsumableFor" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Product ;
     schema:rangeIncludes schema:Product ;
     rdfs:comment "A pointer to another product (or multiple products) for which this product is a consumable." .
@@ -7277,7 +7277,7 @@ schema:isPartOfBioChemEntity a rdf:Property ;
 
 schema:isRelatedTo a rdf:Property ;
     rdfs:label "isRelatedTo" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Product,
         schema:Service ;
     schema:rangeIncludes schema:Product,
@@ -7286,7 +7286,7 @@ schema:isRelatedTo a rdf:Property ;
 
 schema:isSimilarTo a rdf:Property ;
     rdfs:label "isSimilarTo" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Product,
         schema:Service ;
     schema:rangeIncludes schema:Product,
@@ -7301,7 +7301,7 @@ schema:isTranscribedInto a rdf:Property ;
 schema:isVariantOf a rdf:Property ;
     rdfs:label "Use this property to express when a gene is a variant of any other gene. SIO: 000272 (is variant of). ",
         "isVariantOf" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Gene,
         schema:ProductModel ;
     schema:rangeIncludes schema:BioChemEntity,
@@ -7315,11 +7315,11 @@ schema:isbn a rdf:Property ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The ISBN of the book." ;
     rdfs:subPropertyOf schema:identifier ;
-    ns2:equivalentProperty <http://purl.org/ontology/bibo/isbn> .
+    ns1:equivalentProperty <http://purl.org/ontology/bibo/isbn> .
 
 schema:isicV4 a rdf:Property ;
     rdfs:label "isicV4" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Organization,
         schema:Person,
         schema:Place ;
@@ -7328,14 +7328,14 @@ schema:isicV4 a rdf:Property ;
 
 schema:isrcCode a rdf:Property ;
     rdfs:label "isrcCode" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicRecording ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The International Standard Recording Code for the recording." .
 
 schema:issn a rdf:Property ;
     rdfs:label "issn" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
     schema:domainIncludes schema:Blog,
         schema:CreativeWorkSeries,
         schema:Dataset,
@@ -7343,17 +7343,17 @@ schema:issn a rdf:Property ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication." ;
     rdfs:subPropertyOf schema:identifier ;
-    ns2:equivalentProperty <http://purl.org/ontology/bibo/issn> .
+    ns1:equivalentProperty <http://purl.org/ontology/bibo/issn> .
 
 schema:issueNumber a rdf:Property ;
     rdfs:label "issueNumber" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
     schema:domainIncludes schema:PublicationIssue ;
     schema:rangeIncludes schema:Integer,
         schema:Text ;
     rdfs:comment "Identifies the issue of publication; for example, \"iii\" or \"2\"." ;
     rdfs:subPropertyOf schema:position ;
-    ns2:equivalentProperty <http://purl.org/ontology/bibo/issue> .
+    ns1:equivalentProperty <http://purl.org/ontology/bibo/issue> .
 
 schema:issuedBy a rdf:Property ;
     rdfs:label "issuedBy" ;
@@ -7370,7 +7370,7 @@ schema:issuedThrough a rdf:Property ;
 
 schema:iswcCode a rdf:Property ;
     rdfs:label "iswcCode" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicComposition ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The International Standard Musical Work Code for the composition." .
@@ -7444,7 +7444,7 @@ schema:keywords a rdf:Property ;
 
 schema:knownVehicleDamages a rdf:Property ;
     rdfs:label "knownVehicleDamages" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "A textual description of known damages, both repaired and unrepaired." .
@@ -7493,14 +7493,14 @@ schema:learningResourceType a rdf:Property ;
 
 schema:legalName a rdf:Property ;
     rdfs:label "legalName" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Organization ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The official name of the organization, e.g. the registered company name." .
 
 schema:leiCode a rdf:Property ;
     rdfs:label "leiCode" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO>,
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO>,
         <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#GLEIF> ;
     schema:domainIncludes schema:Organization ;
     schema:rangeIncludes schema:Text ;
@@ -7517,14 +7517,14 @@ schema:lender a rdf:Property ;
 
 schema:lesser a rdf:Property ;
     rdfs:label "lesser" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:QualitativeValue ;
     schema:rangeIncludes schema:QualitativeValue ;
     rdfs:comment "This ordering relation for qualitative values indicates that the subject is lesser than the object." .
 
 schema:lesserOrEqual a rdf:Property ;
     rdfs:label "lesserOrEqual" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:QualitativeValue ;
     schema:rangeIncludes schema:QualitativeValue ;
     rdfs:comment "This ordering relation for qualitative values indicates that the subject is lesser than or equal to the object." .
@@ -7550,7 +7550,7 @@ schema:liveBlogUpdate a rdf:Property ;
 
 schema:loanTerm a rdf:Property ;
     rdfs:label "loanTerm" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     schema:domainIncludes schema:LoanOrCredit ;
     schema:rangeIncludes schema:QuantitativeValue ;
     rdfs:comment "The duration of the loan or credit agreement." ;
@@ -7577,7 +7577,7 @@ schema:lodgingUnitType a rdf:Property ;
 
 schema:logo a rdf:Property ;
     rdfs:label "logo" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Brand,
         schema:Organization,
         schema:Place,
@@ -7619,14 +7619,14 @@ Usage guidelines:<br/><br/>
 
 schema:lyricist a rdf:Property ;
     rdfs:label "lyricist" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicComposition ;
     schema:rangeIncludes schema:Person ;
     rdfs:comment "The person who wrote the words." .
 
 schema:lyrics a rdf:Property ;
     rdfs:label "lyrics" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicComposition ;
     schema:rangeIncludes schema:CreativeWork ;
     rdfs:comment "The words in the song." .
@@ -7667,14 +7667,14 @@ schema:maps a rdf:Property ;
 
 schema:maxPrice a rdf:Property ;
     rdfs:label "maxPrice" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:PriceSpecification ;
     schema:rangeIncludes schema:Number ;
     rdfs:comment "The highest price if the price is a range." .
 
 schema:maxValue a rdf:Property ;
     rdfs:label "maxValue" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:MonetaryAmount,
         schema:PropertyValue,
         schema:PropertyValueSpecification,
@@ -7703,7 +7703,7 @@ schema:measurementTechnique a rdf:Property ;
 
 schema:median a rdf:Property ;
     rdfs:label "median" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:QuantitativeValueDistribution ;
     schema:rangeIncludes schema:Number ;
@@ -7748,7 +7748,7 @@ schema:menu a rdf:Property ;
 
 schema:menuAddOn a rdf:Property ;
     rdfs:label "menuAddOn" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1541> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1541> ;
     schema:category "issue-1541" ;
     schema:domainIncludes schema:MenuItem ;
     schema:rangeIncludes schema:MenuItem,
@@ -7771,7 +7771,7 @@ schema:messageAttachment a rdf:Property ;
 
 schema:mileageFromOdometer a rdf:Property ;
     rdfs:label "mileageFromOdometer" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:QuantitativeValue ;
     rdfs:comment """The total distance travelled by the particular vehicle since its initial production, as read from its odometer.<br/><br/>
@@ -7780,14 +7780,14 @@ Typical unit code(s): KMT for kilometers, SMI for statute miles""" .
 
 schema:minPrice a rdf:Property ;
     rdfs:label "minPrice" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:PriceSpecification ;
     schema:rangeIncludes schema:Number ;
     rdfs:comment "The lowest price if the price is a range." .
 
 schema:minValue a rdf:Property ;
     rdfs:label "minValue" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:MonetaryAmount,
         schema:PropertyValue,
         schema:PropertyValueSpecification,
@@ -7817,7 +7817,7 @@ schema:modifiedTime a rdf:Property ;
 
 schema:mpn a rdf:Property ;
     rdfs:label "mpn" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer,
         schema:Product ;
@@ -7832,7 +7832,7 @@ schema:multipleValues a rdf:Property ;
 
 schema:musicArrangement a rdf:Property ;
     rdfs:label "musicArrangement" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicComposition ;
     schema:rangeIncludes schema:MusicComposition ;
     rdfs:comment "An arrangement derived from the composition." .
@@ -7854,7 +7854,7 @@ schema:musicBy a rdf:Property ;
 
 schema:musicCompositionForm a rdf:Property ;
     rdfs:label "musicCompositionForm" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicComposition ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The type of composition (e.g. overture, sonata, symphony, etc.)." .
@@ -7868,21 +7868,21 @@ schema:musicGroupMember a rdf:Property ;
 
 schema:musicReleaseFormat a rdf:Property ;
     rdfs:label "musicReleaseFormat" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicRelease ;
     schema:rangeIncludes schema:MusicReleaseFormatType ;
     rdfs:comment "Format of this release (the type of recording media used, ie. compact disc, digital media, LP, etc.)." .
 
 schema:musicalKey a rdf:Property ;
     rdfs:label "musicalKey" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicComposition ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The key, mode, or scale this composition uses." .
 
 schema:naics a rdf:Property ;
     rdfs:label "naics" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Organization,
         schema:Person ;
     schema:rangeIncludes schema:Text ;
@@ -7896,7 +7896,7 @@ schema:name a rdf:Property ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The name of the item." ;
     rdfs:subPropertyOf rdfs:label ;
-    ns2:equivalentProperty ns1:title .
+    ns1:equivalentProperty ns2:title .
 
 schema:namedPosition a rdf:Property ;
     rdfs:label "namedPosition" ;
@@ -7927,7 +7927,7 @@ schema:nextItem a rdf:Property ;
 
 schema:nonEqual a rdf:Property ;
     rdfs:label "nonEqual" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:QualitativeValue ;
     schema:rangeIncludes schema:QualitativeValue ;
     rdfs:comment "This ordering relation for qualitative values indicates that the subject is not equal to the object." .
@@ -7954,7 +7954,7 @@ schema:numTracks a rdf:Property ;
 
 schema:numberOfAirbags a rdf:Property ;
     rdfs:label "numberOfAirbags" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Number,
         schema:Text ;
@@ -7962,7 +7962,7 @@ schema:numberOfAirbags a rdf:Property ;
 
 schema:numberOfAxles a rdf:Property ;
     rdfs:label "numberOfAxles" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Number,
         schema:QuantitativeValue ;
@@ -7972,14 +7972,14 @@ Typical unit code(s): C62""" .
 
 schema:numberOfBeds a rdf:Property ;
     rdfs:label "numberOfBeds" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     schema:domainIncludes schema:BedDetails ;
     schema:rangeIncludes schema:Number ;
     rdfs:comment "The quantity of the given bed type available in the HotelRoom, Suite, House, or Apartment." .
 
 schema:numberOfDoors a rdf:Property ;
     rdfs:label "numberOfDoors" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Number,
         schema:QuantitativeValue ;
@@ -8005,7 +8005,7 @@ schema:numberOfEpisodes a rdf:Property ;
 
 schema:numberOfForwardGears a rdf:Property ;
     rdfs:label "numberOfForwardGears" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Number,
         schema:QuantitativeValue ;
@@ -8034,7 +8034,7 @@ schema:numberOfPlayers a rdf:Property ;
 
 schema:numberOfPreviousOwners a rdf:Property ;
     rdfs:label "numberOfPreviousOwners" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Number,
         schema:QuantitativeValue ;
@@ -8044,7 +8044,7 @@ Typical unit code(s): C62""" .
 
 schema:numberOfRooms a rdf:Property ;
     rdfs:label "numberOfRooms" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     schema:domainIncludes schema:Accommodation,
         schema:Apartment,
         schema:House,
@@ -8079,7 +8079,7 @@ schema:nutrition a rdf:Property ;
 
 schema:occupancy a rdf:Property ;
     rdfs:label "occupancy" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     schema:domainIncludes schema:Apartment,
         schema:HotelRoom,
         schema:SingleFamilyResidence,
@@ -8090,7 +8090,7 @@ Typical unit code(s): C62 for person""" .
 
 schema:occupationLocation a rdf:Property ;
     rdfs:label "occupationLocation" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:Occupation ;
     schema:rangeIncludes schema:AdministrativeArea ;
@@ -8098,7 +8098,7 @@ schema:occupationLocation a rdf:Property ;
 
 schema:occupationalCategory a rdf:Property ;
     rdfs:label "occupationalCategory" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698>,
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698>,
         <https://github.com/schemaorg/schemaorg/issues/2192> ;
     schema:category "issue-1698",
         "issue-2192" ;
@@ -8145,14 +8145,14 @@ schema:openingHours a rdf:Property ;
 
 schema:openingHoursSpecification a rdf:Property ;
     rdfs:label "openingHoursSpecification" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Place ;
     schema:rangeIncludes schema:OpeningHoursSpecification ;
     rdfs:comment "The opening hours of a certain place." .
 
 schema:opens a rdf:Property ;
     rdfs:label "opens" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:OpeningHoursSpecification ;
     schema:rangeIncludes schema:Time ;
     rdfs:comment "The opening hour of the place or service on the given day(s) of the week." .
@@ -8248,21 +8248,21 @@ schema:originAddress a rdf:Property ;
 
 schema:ownedFrom a rdf:Property ;
     rdfs:label "ownedFrom" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:OwnershipInfo ;
     schema:rangeIncludes schema:DateTime ;
     rdfs:comment "The date and time of obtaining the product." .
 
 schema:ownedThrough a rdf:Property ;
     rdfs:label "ownedThrough" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:OwnershipInfo ;
     schema:rangeIncludes schema:DateTime ;
     rdfs:comment "The date and time of giving up ownership on the product." .
 
 schema:owns a rdf:Property ;
     rdfs:label "owns" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Organization,
         schema:Person ;
     schema:rangeIncludes schema:OwnershipInfo,
@@ -8271,7 +8271,7 @@ schema:owns a rdf:Property ;
 
 schema:pageEnd a rdf:Property ;
     rdfs:label "pageEnd" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
     schema:domainIncludes schema:Article,
         schema:Chapter,
         schema:PublicationIssue,
@@ -8279,11 +8279,11 @@ schema:pageEnd a rdf:Property ;
     schema:rangeIncludes schema:Integer,
         schema:Text ;
     rdfs:comment "The page on which the work ends; for example \"138\" or \"xvi\"." ;
-    ns2:equivalentProperty <http://purl.org/ontology/bibo/pageEnd> .
+    ns1:equivalentProperty <http://purl.org/ontology/bibo/pageEnd> .
 
 schema:pageStart a rdf:Property ;
     rdfs:label "pageStart" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
     schema:domainIncludes schema:Article,
         schema:Chapter,
         schema:PublicationIssue,
@@ -8291,18 +8291,18 @@ schema:pageStart a rdf:Property ;
     schema:rangeIncludes schema:Integer,
         schema:Text ;
     rdfs:comment "The page on which the work starts; for example \"135\" or \"xiii\"." ;
-    ns2:equivalentProperty <http://purl.org/ontology/bibo/pageStart> .
+    ns1:equivalentProperty <http://purl.org/ontology/bibo/pageStart> .
 
 schema:pagination a rdf:Property ;
     rdfs:label "pagination" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
     schema:domainIncludes schema:Article,
         schema:Chapter,
         schema:PublicationIssue,
         schema:PublicationVolume ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "Any description of pages that is not separated into pageStart and pageEnd; for example, \"1-6, 9, 55\" or \"10-12, 46-49\"." ;
-    ns2:equivalentProperty <http://purl.org/ontology/bibo/pages> .
+    ns1:equivalentProperty <http://purl.org/ontology/bibo/pages> .
 
 schema:parentItem a rdf:Property ;
     rdfs:label "parentItem" ;
@@ -8430,7 +8430,7 @@ schema:paymentUrl a rdf:Property ;
 
 schema:percentile10 a rdf:Property ;
     rdfs:label "percentile10" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:QuantitativeValueDistribution ;
     schema:rangeIncludes schema:Number ;
@@ -8438,7 +8438,7 @@ schema:percentile10 a rdf:Property ;
 
 schema:percentile25 a rdf:Property ;
     rdfs:label "percentile25" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:QuantitativeValueDistribution ;
     schema:rangeIncludes schema:Number ;
@@ -8446,7 +8446,7 @@ schema:percentile25 a rdf:Property ;
 
 schema:percentile75 a rdf:Property ;
     rdfs:label "percentile75" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:QuantitativeValueDistribution ;
     schema:rangeIncludes schema:Number ;
@@ -8454,7 +8454,7 @@ schema:percentile75 a rdf:Property ;
 
 schema:percentile90 a rdf:Property ;
     rdfs:label "percentile90" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:QuantitativeValueDistribution ;
     schema:rangeIncludes schema:Number ;
@@ -8494,14 +8494,14 @@ schema:permitAudience a rdf:Property ;
 
 schema:permittedUsage a rdf:Property ;
     rdfs:label "permittedUsage" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     schema:domainIncludes schema:Accommodation ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "Indications regarding the permitted usage of the accommodation." .
 
 schema:petsAllowed a rdf:Property ;
     rdfs:label "petsAllowed" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     schema:domainIncludes schema:Accommodation,
         schema:LodgingBusiness ;
     schema:rangeIncludes schema:Boolean,
@@ -8577,7 +8577,7 @@ schema:potentialAction a rdf:Property ;
 
 schema:predecessorOf a rdf:Property ;
     rdfs:label "predecessorOf" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:ProductModel ;
     schema:rangeIncludes schema:ProductModel ;
     rdfs:comment "A pointer from a previous, often discontinued variant of the product to its newer variant." .
@@ -8622,7 +8622,7 @@ Usage guidelines:<br/><br/>
 
 schema:priceComponent a rdf:Property ;
     rdfs:label "priceComponent" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:CompoundPriceSpecification ;
     schema:rangeIncludes schema:UnitPriceSpecification ;
     rdfs:comment "This property links to all <a class=\"localLink\" href=\"http://schema.org/UnitPriceSpecification\">UnitPriceSpecification</a> nodes that apply in parallel for the <a class=\"localLink\" href=\"http://schema.org/CompoundPriceSpecification\">CompoundPriceSpecification</a> node." .
@@ -8647,7 +8647,7 @@ schema:priceRange a rdf:Property ;
 
 schema:priceSpecification a rdf:Property ;
     rdfs:label "priceSpecification" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer,
         schema:TradeAction ;
@@ -8656,7 +8656,7 @@ schema:priceSpecification a rdf:Property ;
 
 schema:priceType a rdf:Property ;
     rdfs:label "priceType" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:UnitPriceSpecification ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "A short text or acronym indicating multiple price specifications for the same offer, e.g. SRP for the suggested retail price or INVOICE for the invoice price, mostly used in the car industry." .
@@ -8752,7 +8752,7 @@ schema:productionCompany a rdf:Property ;
 
 schema:productionDate a rdf:Property ;
     rdfs:label "productionDate" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Product,
         schema:Vehicle ;
     schema:rangeIncludes schema:Date ;
@@ -8855,7 +8855,7 @@ While such policies are most typically expressed in natural language, sometimes 
 
 schema:purchaseDate a rdf:Property ;
     rdfs:label "purchaseDate" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Product,
         schema:Vehicle ;
     schema:rangeIncludes schema:Date ;
@@ -8954,15 +8954,15 @@ schema:recipeYield a rdf:Property ;
 
 schema:recordLabel a rdf:Property ;
     rdfs:label "recordLabel" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicRelease ;
     schema:rangeIncludes schema:Organization ;
     rdfs:comment "The label that issued the release." ;
-    ns2:equivalentProperty <http://purl.org/ontology/mo/label> .
+    ns1:equivalentProperty <http://purl.org/ontology/mo/label> .
 
 schema:referenceQuantity a rdf:Property ;
     rdfs:label "referenceQuantity" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsProperties>,
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsProperties>,
         <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:UnitPriceSpecification ;
     schema:rangeIncludes schema:QuantitativeValue ;
@@ -8994,7 +8994,7 @@ schema:relatedTo a rdf:Property ;
 
 schema:releaseDate a rdf:Property ;
     rdfs:label "releaseDate" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Product ;
     schema:rangeIncludes schema:Date ;
     rdfs:comment "The release date of a product or product model. This can be used to distinguish the exact variant of a product." .
@@ -9014,7 +9014,7 @@ schema:releasedEvent a rdf:Property ;
 
 schema:relevantOccupation a rdf:Property ;
     rdfs:label "relevantOccupation" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:JobPosting ;
     schema:rangeIncludes schema:Occupation ;
@@ -9060,7 +9060,7 @@ schema:representativeOfPage a rdf:Property ;
 
 schema:requiredCollateral a rdf:Property ;
     rdfs:label "requiredCollateral" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
     schema:domainIncludes schema:LoanOrCredit ;
     schema:rangeIncludes schema:Text,
         schema:Thing ;
@@ -9102,7 +9102,7 @@ schema:requirements a rdf:Property ;
 
 schema:requiresSubscription a rdf:Property ;
     rdfs:label "requiresSubscription" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
     schema:category "issue-1741" ;
     schema:domainIncludes schema:ActionAccessSpecification,
         schema:MediaObject ;
@@ -9136,7 +9136,7 @@ schema:reservedTicket a rdf:Property ;
 
 schema:responsibilities a rdf:Property ;
     rdfs:label "responsibilities" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:JobPosting,
         schema:Occupation ;
@@ -9160,7 +9160,7 @@ schema:resultReview a rdf:Property ;
 
 schema:reviewAspect a rdf:Property ;
     rdfs:label "reviewAspect" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1689> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1689> ;
     schema:category "issue-1689" ;
     schema:domainIncludes schema:Rating,
         schema:Review ;
@@ -9330,7 +9330,7 @@ schema:seeAlso a rdf:Property ;
 
 schema:seeks a rdf:Property ;
     rdfs:label "seeks" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Organization,
         schema:Person ;
     schema:rangeIncludes schema:Demand ;
@@ -9435,7 +9435,7 @@ schema:significantLinks a rdf:Property ;
 
 schema:skills a rdf:Property ;
     rdfs:label "skills" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:JobPosting,
         schema:Occupation ;
@@ -9444,7 +9444,7 @@ schema:skills a rdf:Property ;
 
 schema:sku a rdf:Property ;
     rdfs:label "sku" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer,
         schema:Product ;
@@ -9464,7 +9464,7 @@ schema:slogan a rdf:Property ;
 
 schema:smokingAllowed a rdf:Property ;
     rdfs:label "smokingAllowed" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     schema:domainIncludes schema:Place ;
     schema:rangeIncludes schema:Boolean ;
     rdfs:comment "Indicates whether it is allowed to smoke in the place, e.g. in the restaurant, hotel or hotel room." .
@@ -9505,7 +9505,7 @@ schema:spatial a rdf:Property ;
     schema:rangeIncludes schema:Place ;
     rdfs:comment """The "spatial" property can be used in cases when more specific properties
 (e.g. <a class="localLink" href="http://schema.org/locationCreated">locationCreated</a>, <a class="localLink" href="http://schema.org/spatialCoverage">spatialCoverage</a>, <a class="localLink" href="http://schema.org/contentLocation">contentLocation</a>) are not known to be appropriate.""" ;
-    ns2:equivalentProperty ns1:spatial .
+    ns1:equivalentProperty ns2:spatial .
 
 schema:spatialCoverage a rdf:Property ;
     rdfs:label "spatialCoverage" ;
@@ -9515,11 +9515,11 @@ schema:spatialCoverage a rdf:Property ;
       contentLocation intended primarily for more technical and detailed materials. For example with a Dataset, it indicates
       areas that the dataset describes: a dataset of New York weather would have spatialCoverage which was the place: the state of New York.""" ;
     rdfs:subPropertyOf schema:contentLocation ;
-    ns2:equivalentProperty ns1:spatial .
+    ns1:equivalentProperty ns2:spatial .
 
 schema:speakable a rdf:Property ;
     rdfs:label "speakable" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1389> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1389> ;
     schema:category "issue-1389" ;
     schema:domainIncludes schema:Article,
         schema:WebPage ;
@@ -9594,7 +9594,7 @@ schema:spouse a rdf:Property ;
 
 schema:starRating a rdf:Property ;
     rdfs:label "starRating" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     schema:domainIncludes schema:FoodEstablishment,
         schema:LodgingBusiness ;
     schema:rangeIncludes schema:Rating ;
@@ -9624,7 +9624,7 @@ Note that Event uses startDate/endDate instead of startTime/endTime, even when d
 
 schema:steeringPosition a rdf:Property ;
     rdfs:label "steeringPosition" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:SteeringPositionValue ;
     rdfs:comment "The position of the steering wheel or similar device (mostly for cars)." .
@@ -9682,7 +9682,7 @@ schema:subtitleLanguage a rdf:Property ;
 
 schema:successorOf a rdf:Property ;
     rdfs:label "successorOf" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:ProductModel ;
     schema:rangeIncludes schema:ProductModel ;
     rdfs:comment "A pointer from a newer variant of a product  to its previous, often discontinued predecessor." .
@@ -9776,7 +9776,7 @@ schema:targetUrl a rdf:Property ;
 
 schema:taxID a rdf:Property ;
     rdfs:label "taxID" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Organization,
         schema:Person ;
     schema:rangeIncludes schema:Text ;
@@ -9931,7 +9931,7 @@ schema:totalTime a rdf:Property ;
 
 schema:touristType a rdf:Property ;
     rdfs:label "touristType" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#IIT-CNR.it>,
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#IIT-CNR.it>,
         <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Tourism> ;
     schema:category "issue-1810" ;
     schema:domainIncludes schema:TouristAttraction,
@@ -10009,7 +10009,7 @@ schema:translator a rdf:Property ;
 
 schema:typeOfBed a rdf:Property ;
     rdfs:label "typeOfBed" ;
-    ns1:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
+    ns2:source <https://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#STI_Accommodation_Ontology> ;
     schema:domainIncludes schema:BedDetails ;
     schema:rangeIncludes schema:BedType,
         schema:Text ;
@@ -10017,7 +10017,7 @@ schema:typeOfBed a rdf:Property ;
 
 schema:typeOfGood a rdf:Property ;
     rdfs:label "typeOfGood" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:OwnershipInfo,
         schema:TypeAndQuantityNode ;
     schema:rangeIncludes schema:Product,
@@ -10042,7 +10042,7 @@ schema:underName a rdf:Property ;
 schema:unitCode a rdf:Property ;
     rdfs:label "The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL",
         "unitCode" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:PropertyValue,
         schema:QuantitativeValue,
         schema:TypeAndQuantityNode,
@@ -10103,7 +10103,7 @@ schema:userInteractionCount a rdf:Property ;
 
 schema:validFor a rdf:Property ;
     rdfs:label "validFor" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1779> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1779> ;
     schema:category "issue-1779" ;
     schema:domainIncludes schema:EducationalOccupationalCredential,
         schema:Permit ;
@@ -10112,7 +10112,7 @@ schema:validFor a rdf:Property ;
 
 schema:validFrom a rdf:Property ;
     rdfs:label "validFrom" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:LocationFeatureSpecification,
         schema:MonetaryAmount,
@@ -10126,7 +10126,7 @@ schema:validFrom a rdf:Property ;
 
 schema:validIn a rdf:Property ;
     rdfs:label "validIn" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1779> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1779> ;
     schema:category "issue-1779" ;
     schema:domainIncludes schema:EducationalOccupationalCredential,
         schema:Permit ;
@@ -10135,7 +10135,7 @@ schema:validIn a rdf:Property ;
 
 schema:validThrough a rdf:Property ;
     rdfs:label "validThrough" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:JobPosting,
         schema:LocationFeatureSpecification,
@@ -10155,7 +10155,7 @@ schema:validUntil a rdf:Property ;
 
 schema:value a rdf:Property ;
     rdfs:label "value" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:MonetaryAmount,
         schema:PropertyValue,
         schema:QuantitativeValue ;
@@ -10175,7 +10175,7 @@ schema:value a rdf:Property ;
 
 schema:valueAddedTaxIncluded a rdf:Property ;
     rdfs:label "valueAddedTaxIncluded" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:PriceSpecification ;
     schema:rangeIncludes schema:Boolean ;
     rdfs:comment "Specifies whether the applicable value-added tax (VAT) is included in the price specification or not." .
@@ -10207,7 +10207,7 @@ schema:valuePattern a rdf:Property ;
 schema:valueReference a rdf:Property ;
     rdfs:label "A pointer to a secondary value with additional information",
         "valueReference" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:PropertyValue,
         schema:QualitativeValue,
         schema:QuantitativeValue ;
@@ -10233,7 +10233,7 @@ schema:variableMeasured a rdf:Property ;
 
 schema:vatID a rdf:Property ;
     rdfs:label "vatID" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Organization,
         schema:Person ;
     schema:rangeIncludes schema:Text ;
@@ -10241,21 +10241,21 @@ schema:vatID a rdf:Property ;
 
 schema:vehicleConfiguration a rdf:Property ;
     rdfs:label "vehicleConfiguration" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'." .
 
 schema:vehicleEngine a rdf:Property ;
     rdfs:label "vehicleEngine" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:EngineSpecification ;
     rdfs:comment "Information about the engine or engines of the vehicle." .
 
 schema:vehicleIdentificationNumber a rdf:Property ;
     rdfs:label "vehicleIdentificationNumber" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles." ;
@@ -10263,28 +10263,28 @@ schema:vehicleIdentificationNumber a rdf:Property ;
 
 schema:vehicleInteriorColor a rdf:Property ;
     rdfs:label "vehicleInteriorColor" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The color or color combination of the interior of the vehicle." .
 
 schema:vehicleInteriorType a rdf:Property ;
     rdfs:label "vehicleInteriorType" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.). While most interior types are characterized by the material used, an interior type can also be based on vehicle usage or target audience." .
 
 schema:vehicleModelDate a rdf:Property ;
     rdfs:label "vehicleModelDate" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Date ;
     rdfs:comment "The release date of a vehicle model (often used to differentiate versions of the same make and model)." .
 
 schema:vehicleSeatingCapacity a rdf:Property ;
     rdfs:label "vehicleSeatingCapacity" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:Number,
         schema:QuantitativeValue ;
@@ -10294,7 +10294,7 @@ Typical unit code(s): C62 for persons.""" .
 
 schema:vehicleTransmission a rdf:Property ;
     rdfs:label "vehicleTransmission" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Automotive_Ontology_Working_Group> ;
     schema:domainIncludes schema:Vehicle ;
     schema:rangeIncludes schema:QualitativeValue,
         schema:Text,
@@ -10346,13 +10346,13 @@ schema:videoQuality a rdf:Property ;
 
 schema:volumeNumber a rdf:Property ;
     rdfs:label "volumeNumber" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
     schema:domainIncludes schema:PublicationVolume ;
     schema:rangeIncludes schema:Integer,
         schema:Text ;
     rdfs:comment "Identifies the volume of publication or multi-part work; for example, \"iii\" or \"2\"." ;
     rdfs:subPropertyOf schema:position ;
-    ns2:equivalentProperty <http://purl.org/ontology/bibo/volume> .
+    ns1:equivalentProperty <http://purl.org/ontology/bibo/volume> .
 
 schema:warrantyPromise a rdf:Property ;
     rdfs:label "warrantyPromise" ;
@@ -10364,7 +10364,7 @@ schema:warrantyPromise a rdf:Property ;
 
 schema:warrantyScope a rdf:Property ;
     rdfs:label "warrantyScope" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:WarrantyPromise ;
     schema:rangeIncludes schema:WarrantyScope ;
     rdfs:comment "The scope of the warranty promise." .
@@ -10377,7 +10377,7 @@ schema:webCheckinTime a rdf:Property ;
 
 schema:weight a rdf:Property ;
     rdfs:label "weight" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Person,
         schema:Product ;
     schema:rangeIncludes schema:QuantitativeValue ;
@@ -10448,7 +10448,7 @@ schema:worstRating a rdf:Property ;
 
 schema:xpath a rdf:Property ;
     rdfs:label "xpath" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1389> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1389> ;
     schema:category "issue-1389" ;
     schema:domainIncludes schema:SpeakableSpecification,
         schema:WebPageElement ;
@@ -10638,7 +10638,7 @@ schema:description a rdf:Property ;
     schema:domainIncludes schema:Thing ;
     schema:rangeIncludes schema:Text ;
     rdfs:comment "A description of the item." ;
-    ns2:equivalentProperty ns1:description .
+    ns1:equivalentProperty ns2:description .
 
 schema:director a rdf:Property ;
     rdfs:label "director" ;
@@ -10658,7 +10658,7 @@ schema:director a rdf:Property ;
 
 schema:duration a rdf:Property ;
     rdfs:label "duration" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1698> ;
     schema:category "issue-1698" ;
     schema:domainIncludes schema:Audiobook,
         schema:Event,
@@ -10719,7 +10719,7 @@ schema:event a rdf:Property ;
 
 schema:exampleOfWork a rdf:Property ;
     rdfs:label "exampleOfWork" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
     schema:domainIncludes schema:CreativeWork ;
     schema:inverseOf schema:workExample ;
     schema:rangeIncludes schema:CreativeWork ;
@@ -10760,7 +10760,7 @@ schema:gameServer a rdf:Property ;
 
 schema:hasBroadcastChannel a rdf:Property ;
     rdfs:label "hasBroadcastChannel" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1004> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1004> ;
     schema:category "issue-1004" ;
     schema:domainIncludes schema:BroadcastService ;
     schema:inverseOf schema:providesBroadcastService ;
@@ -10839,7 +10839,7 @@ schema:mainEntityOfPage a rdf:Property ;
 
 schema:makesOffer a rdf:Property ;
     rdfs:label "makesOffer" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Organization,
         schema:Person ;
     schema:inverseOf schema:offeredBy ;
@@ -10927,7 +10927,7 @@ schema:recipeIngredient a rdf:Property ;
 
 schema:recordedAs a rdf:Property ;
     rdfs:label "recordedAs" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicComposition ;
     schema:inverseOf schema:recordingOf ;
     schema:rangeIncludes schema:MusicRecording ;
@@ -10949,7 +10949,7 @@ schema:recordedIn a rdf:Property ;
 
 schema:recordingOf a rdf:Property ;
     rdfs:label "recordingOf" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicRecording ;
     schema:inverseOf schema:recordedAs ;
     schema:rangeIncludes schema:MusicComposition ;
@@ -10957,7 +10957,7 @@ schema:recordingOf a rdf:Property ;
 
 schema:releaseOf a rdf:Property ;
     rdfs:label "releaseOf" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicRelease ;
     schema:inverseOf schema:albumRelease ;
     schema:rangeIncludes schema:MusicAlbum ;
@@ -11001,7 +11001,7 @@ schema:season a rdf:Property ;
 
 schema:serialNumber a rdf:Property ;
     rdfs:label "serialNumber" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:IndividualProduct,
         schema:Offer ;
@@ -11067,7 +11067,7 @@ schema:subOrganization a rdf:Property ;
 schema:subjectOf a rdf:Property ;
     rdfs:label "Links to resources for (meta)data about this sample record.",
         "subjectOf" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1670> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1670> ;
     schema:category "issue-1670" ;
     schema:domainIncludes schema:Sample,
         schema:Thing ;
@@ -11109,11 +11109,11 @@ schema:temporalCoverage a rdf:Property ;
       Written works such as books may sometimes have precise temporal coverage too, e.g. a work set in 1939 - 1945 can be indicated in ISO 8601 interval format format via "1939/1945".<br/><br/>
 
 Open-ended date ranges can be written with ".." in place of the end date. For example, "2015-11/.." indicates a range beginning in November 2015 and with no specified final date. This is tentative and might be updated in future when ISO 8601 is officially updated.""" ;
-    ns2:equivalentProperty ns1:temporal .
+    ns1:equivalentProperty ns2:temporal .
 
 schema:track a rdf:Property ;
     rdfs:label "track" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#MBZ> ;
     schema:domainIncludes schema:MusicGroup,
         schema:MusicPlaylist ;
     schema:rangeIncludes schema:ItemList,
@@ -11122,7 +11122,7 @@ schema:track a rdf:Property ;
 
 schema:warranty a rdf:Property ;
     rdfs:label "warranty" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     schema:domainIncludes schema:Demand,
         schema:Offer ;
     schema:rangeIncludes schema:WarrantyPromise ;
@@ -11130,7 +11130,7 @@ schema:warranty a rdf:Property ;
 
 schema:workExample a rdf:Property ;
     rdfs:label "workExample" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
     schema:domainIncludes schema:CreativeWork ;
     schema:inverseOf schema:exampleOfWork ;
     schema:rangeIncludes schema:CreativeWork ;
@@ -11145,7 +11145,7 @@ schema:yield a rdf:Property ;
 
 schema:about a rdf:Property ;
     rdfs:label "about" ;
-    ns1:source <https://github.com/schemaorg/schemaorg/issues/1670> ;
+    ns2:source <https://github.com/schemaorg/schemaorg/issues/1670> ;
     schema:category "issue-1670" ;
     schema:domainIncludes schema:CommunicateAction,
         schema:CreativeWork,
@@ -11314,7 +11314,7 @@ schema:recipient a rdf:Property ;
 
 schema:hasPart a rdf:Property ;
     rdfs:label "hasPart" ;
-    ns1:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
+    ns2:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_bibex> ;
     schema:domainIncludes schema:CreativeWork ;
     schema:inverseOf schema:isPartOf ;
     schema:rangeIncludes schema:CreativeWork ;
@@ -11371,5 +11371,5 @@ schema:identifier a rdf:Property ;
         schema:Text,
         schema:URL ;
     rdfs:comment "The identifier property represents any kind of identifier for any kind of <a class=\"localLink\" href=\"http://schema.org/Thing\">Thing</a>, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See <a href=\"/docs/datamodel.html#identifierBg\">background notes</a> for more details." ;
-    ns2:equivalentProperty ns1:identifier .
+    ns1:equivalentProperty ns2:identifier .
 
