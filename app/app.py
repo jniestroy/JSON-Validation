@@ -50,6 +50,7 @@ def jsonvalidate():
         schacl_validator = validate.ShaclValidator(testjson)
         schacl_validator.validate()
 
+
         if schacl_validator.valid:
             app.logger.info('%s passed shacl validation', testjson.get('name'))
             result['error'] = ''

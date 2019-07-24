@@ -19,8 +19,9 @@ class RDFSValidator(object):
 
         try:
 
-            self.g = rdflib.Graph()
-            self.g.parse(path + "g.txt", format="turtle")
+            #self.g = rdflib.Graph()
+            #self.g.parse(path + "g.txt", format="turtle")
+            self.superclasses = pickle.load( open(path +  "superclasses.p", "rb" ) )
             self.schema_properties = pickle.load( open(path +  "schema_properties.p", "rb" ) )
             self.schema_property_ranges = pickle.load( open(path +  "schema_property_ranges.p", "rb" ) )
 
@@ -51,14 +52,15 @@ class RDFSValidator(object):
             #Creates list of all properites for each class
             #including those which are inherited from classes above
             self.schema_properties = {}
+            self.superclasses = {}
             for clas in classes:
                 self.schema_properties[clas] = []
 
-                superClasses = [f for f in self.g.transitive_objects(
+                self.superclasses[clas] = [f for f in self.g.transitive_objects(
                     rdflib.term.URIRef(clas),
                     rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'))]
 
-                for superClass in superClasses:
+                for superClass in self.superclasses[clas]:
 
                     self.schema_properties[clas].extend([str(found)
                         for found in self.g.transitive_subjects(
@@ -194,11 +196,11 @@ class RDFSValidator(object):
     #if given class is subclass of acceptable class
     def check_super_classes(self,prop,given_class):
 
-        superClasses = [str(f) for f in self.g.transitive_objects(
-                rdflib.term.URIRef(given_class),
-                rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'))]
+        # superClasses = [str(f) for f in self.g.transitive_objects(
+        #         rdflib.term.URIRef(given_class),
+        #         rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'))]
 
-        for superclass in superClasses:
+        for superclass in self.superclasses[given_class]:
 
             if superclass in self.schema_property_ranges[prop]:
                 return True

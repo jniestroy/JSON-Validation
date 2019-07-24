@@ -27,14 +27,15 @@ properties.extend([ elem.get("@id") for elem in bio_rdfs['@graph'] if elem.get("
 #Creates list of all properites for each class
 #including those which are inherited from classes above
 schema_properties = {}
+superclasses = {}
 for clas in classes:
     schema_properties[clas] = []
 
-    superClasses = [f for f in g.transitive_objects(
+    superclasses[clas] = [f for f in g.transitive_objects(
         rdflib.term.URIRef(clas),
         rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'))]
 
-    for superClass in superClasses:
+    for superClass in superclasses[clas]:
 
         schema_properties[clas].extend([str(found)
             for found in g.transitive_subjects(
@@ -50,5 +51,5 @@ for prop in properties:
                 rdflib.term.URIRef("http://schema.org/rangeIncludes"))]
 
 pickle.dump(schema_properties, open(path + "schema_properties.p", "wb" ) )
-g.serialize(destination=path + 'g.txt', format='turtle')
+pickle.dump(schema_properties, open(path + "superclasses.p", "wb" ) )
 pickle.dump(schema_property_ranges, open( path + "schema_property_ranges.p", "wb" ) )
