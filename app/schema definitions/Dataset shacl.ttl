@@ -96,3 +96,83 @@ schema:AuthorShape
         sh:datatype xsd:string ;
         sh:minCount 1;
     ] ) .
+schema:PersonShape
+  a sh:NodeShape ;
+  sh:targetClass schema:Person ;
+  sh:property [
+      sh:path schema:name ;
+      sh:datatype xsd:string ;
+      sh:minCount 1 ;
+      sh:maxCount 1;
+  ] ;
+  sh:property [
+    sh:path schema:email;
+    sh:datatype xsd:string ;
+    sh:minCount 1;
+  ] ;
+  sh:property [
+    sh:path schema:memberOf ;
+    sh:minCount 1 ;
+    sh:or (
+      sh:class schema:Organization
+      sh:class schema:Project
+      sh:class schema:Consortium
+    ) ;
+  ] ;
+  sh:property[
+    sh:path schema:identifier ;
+    sh:severity sh:Violation ;
+    sh:minCount 1 ;
+    sh:or(
+      sh:datatype xsd:string
+      sh:class schema:PropertyValue
+      sh:nodeKind sh:IRI
+      ) ;
+  ] .
+schema:ProjectShape
+  a sh:NodeShape ;
+  sh:targetClass schema:Project ;
+  sh:property [
+    sh:path schema:name ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1;
+  ];
+  sh:property[
+    sh:path schema:identifier ;
+    sh:severity sh:Violation ;
+    sh:minCount 1 ;
+    sh:or(
+      sh:datatype xsd:string
+      sh:class schema:PropertyValue
+      sh:nodeKind sh:IRI
+      ) ;
+  ] .
+schema:OrganizationShape
+  a sh:NodeShape ;
+  sh:targetClass schema:Organization ;
+  sh:property [
+    sh:path schema:name ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1;
+  ];
+  sh:property [
+    sh:path schema:memberOf ;
+    sh:minCount 1 ;
+    sh:or (
+      sh:class schema:Organization
+      sh:class schema:Project
+      sh:class schema:Consortium
+    ) ;
+  ] ;
+  sh:property[
+    sh:path schema:identifier ;
+    sh:severity sh:Violation ;
+    sh:minCount 1 ;
+    sh:or(
+      sh:datatype xsd:string
+      sh:class schema:PropertyValue
+      sh:nodeKind sh:IRI
+      ) ;
+  ] .

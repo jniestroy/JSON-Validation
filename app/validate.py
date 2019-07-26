@@ -276,7 +276,7 @@ class ShaclValidator(object):
     def __init__(self, data):
 
         if 'app' in os.listdir():
-            f = open("app/schema definitions/shacl definitions.txt", "r")
+            f = open("app/schema definitions/Dataset shacl.ttl", "r")
         else:
             f = open("./schema definitions/Dataset shacl.ttl", "r")
 
