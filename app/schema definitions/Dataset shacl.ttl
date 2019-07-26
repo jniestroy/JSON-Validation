@@ -159,7 +159,6 @@ schema:OrganizationShape
   ];
   sh:property [
     sh:path schema:memberOf ;
-    sh:minCount 1 ;
     sh:or (
       sh:class schema:Organization
       sh:class schema:Project
@@ -169,7 +168,6 @@ schema:OrganizationShape
   sh:property[
     sh:path schema:identifier ;
     sh:severity sh:Violation ;
-    sh:minCount 1 ;
     sh:or(
       sh:datatype xsd:string
       sh:class schema:PropertyValue
