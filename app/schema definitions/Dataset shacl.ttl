@@ -1,0 +1,98 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+schema:DataCatalogShape
+  a sh:NodeShape ;
+  sh:targetClass schema:DataCatalog ;
+  sh:property [
+    sh:path schema:name ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property[
+    sh:path schema:identifier ;
+    sh:minCount 1 ;
+    sh:or(
+      sh:datatype xsd:string
+      sh:class schema:PropertyValue
+      sh:nodeKind sh:IRI
+      ) ;
+  ];
+  sh:property [
+    sh:path schema:Dataset ;
+    sh:nodeKind sh:IRI ;
+    sh:class schema:Dataset;
+  ] ;
+  sh:property [
+    sh:path schema:author ;
+    sh:or(
+      sh:datatype xsd:string
+      sh:node sh:AuthorShape
+    ) ;
+    sh:minCount 1;
+  ] ;
+  sh:property[
+    sh:path schema:sourceOrganization ;
+    sh:minCount 1;
+    sh:maxCount 1 ;
+  ];
+  sh:property [
+    sh:path schema:sdDatePublished ;
+    sh:or(
+      sh:class schema:Date
+      sh:datatype xsd:date
+      sh:datatype xsd:dateTime
+    ) ;
+    sh:minCount 1;
+  ] ;
+  sh:property [
+    sh:path schema:sdPublisher;
+    sh:or(
+      sh:class schema:Person
+      sh:class schema:Organization
+    ) ;
+    sh:minCount 1 ;
+  ] .
+
+
+schema:DatasetShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Dataset ;
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1;
+    ] ;
+    sh:property[
+      sh:path schema:identifier ;
+      sh:severity sh:Violation ;
+      sh:minCount 1 ;
+      sh:or(
+        sh:datatype xsd:string
+        sh:class schema:PropertyValue
+        sh:nodeKind sh:IRI
+        ) ;
+    ] .
+schema:AuthorShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Author ;
+    sh:property [
+        sh:path schema:url ;
+    ] ;
+    sh:or (
+    sh:property [
+        sh:path schema:name ;
+        sh:datatype xsd:string ;
+        sh:minCount 1;
+    ]
+    sh:property [
+        sh:path schema:givenName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1;
+    ] ) .

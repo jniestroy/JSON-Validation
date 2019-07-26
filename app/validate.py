@@ -278,7 +278,7 @@ class ShaclValidator(object):
         if 'app' in os.listdir():
             f = open("app/schema definitions/shacl definitions.txt", "r")
         else:
-            f = open("./schema definitions/shacl definitions.txt", "r")
+            f = open("./schema definitions/Dataset shacl.ttl", "r")
 
         self.data = data
         self.shapes_file = f.read()

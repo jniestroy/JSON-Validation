@@ -1,0 +1,186 @@
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+schema:ProjectShape
+    a sh:NodeShape ;
+    sh:targetClass schema:Project ;
+    sh:property [
+        sh:path schema:name ;
+        sh:severity sh:Violation ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path schema:identifier ;
+        sh:severity sh:Violation ;
+        sh:minCount 1 ;
+        sh:or(
+          sh:datatype xsd:string
+          sh:class schema:PropertyValue
+          sh:nodeKind sh:IRI
+        ) ;
+    ] ;
+    sh:property [
+      sh:path schema:url ;
+      sh:severity sh:Violation ;
+      sh:minCount 1 ;
+      sh:datatype xsd:anyURL ;
+    ] ;
+    sh:property[
+      sh:path schema:member ;
+      sh:severity sh:Violation ;
+      sh:minCount 1 ;
+      sh:class schema:Person ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property[
+      sh:path schema:memberOf ;
+      sh:severity sh:Violation ;
+      sh:class schema:Organization ;
+      sh:minCount 1 ;
+      sh: maxCount 1;
+      sh:nodeKind sh:IRI ;
+    ].
+schema:OrganizationShape
+  a sh:NodeShape ;
+  sh:targetClass schema:Organization ;
+  sh:property [
+    sh:path schema:name ;
+    sh:severity sh:Violation ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property[
+    sh:path schema:email ;
+    sh:severity sh:Violation ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+      sh:path schema:memberOf ;
+      sh:severity sh:Violation ;
+      sh:minCount 1 ;
+      sh:or(
+        sh:datatype xsd:Organization
+        sh:class schema:Project
+        sh:nodeKind sh:Consortium
+      ) ;
+  ] ;
+  sh:property [
+      sh:path schema:identifier ;
+      sh:severity sh:Violation ;
+      sh:minCount 1 ;
+      sh:or(
+        sh:datatype xsd:string
+        sh:class schema:PropertyValue
+        sh:nodeKind sh:IRI
+      ) ;
+  ] .
+schema:DataCatalogShape
+  a sh:NodeShape ;
+  sh:targetClass schema:DataCatalog ;
+  sh:property [
+    sh:path schema:name ;
+    sh:severity sh:Violation ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ]
+  sh:property[
+    sh:path schema:identifier ;
+    sh:severity sh:Violation ;
+    sh:minCount 1 ;
+    sh:or(
+      sh:datatype xsd:string
+      sh:class schema:PropertyValue
+      sh:nodeKind sh:IRI
+      ) ;
+  ];
+  sh:property [
+    sh:path schema:url ;
+    sh:severity sh:Violation ;
+    sh:minCount 1 ;
+    sh:datatype xsd:anyURL ;
+  ] ;
+  sh:property [
+    sh:path schema:Dataset ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:IRI ;
+    sh:class schema:Dataset;
+  ] ;
+  sh:property [
+    sh:path schema:author ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1;
+    sh:or(
+      sh:class schema:Organization
+      sh:class schema:Person
+    );
+  ];
+  sh:property[
+    sh:path schema:sourceOrganization ;
+    sh:severity sh:Violation ;
+    sh:nodeKind sh:Violation ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property[
+    sh:path schema:sdDatePublished ;
+    sh:severity sh:Violation ;
+    sh:minCount 1;
+    sh:maxCount 1;
+    sh:or (
+      sh:class schema:Date
+      sh:datatype xsd:date
+      sh:datatype xsd:dateTime
+    ) ;
+  ];
+  sh:property [
+    sh:path schema:sdPublisher ;
+    sh:severity sh:Violation ;
+    sh:or (
+      sh:class schema:Person
+      sh:class schema:Organization
+    ) ;
+    sh:minCount 1;
+  ] ;
+  sh:property [
+    sh:path schema:sdLicense ;
+    sh:or (
+      sh:nodeKind sh:IRI
+      sh:datatype xsd:string
+    ) ;
+  ].
+schema:DatasetShape
+  a sh:NodeShape ;
+  sh:targetClass schema:Dataset ;
+  sh:property [
+    sh:path schema:name ;
+    sh:severity sh:Violation ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+  ]
+  sh:property[
+    sh:path schema:identifier ;
+    sh:severity sh:Violation ;
+    sh:minCount 1 ;
+    sh:or(
+      sh:datatype xsd:string
+      sh:class schema:PropertyValue
+      sh:nodeKind sh:IRI
+      ) ;
+  ];
+  sh:property [
+    sh:path schema:url ;
+    sh:severity sh:Violation ;
+    sh:minCount 1 ;
+    sh:datatype xsd:anyURL ;
+  ] .

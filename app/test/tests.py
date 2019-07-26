@@ -68,16 +68,16 @@ class test_bioschemas_jsons(unittest.TestCase):
     def setUp(self):
         self.app = app.app.test_client()
 
-    def test_passing_jsons(self):
-        with open('./test/valid_jsons.json') as json_file:
-            data = json.load(json_file)
-        test = True
-        for js in data:
-            req = self.app.post('/validatejson',json = js)
-            result = req.json
-            if not result['valid']:
-                test = False
-        self.assertTrue(test)
+    # def test_passing_jsons(self):
+    #     with open('./test/valid_jsons.json') as json_file:
+    #         data = json.load(json_file)
+    #     test = True
+    #     for js in data:
+    #         req = self.app.post('/validatejson',json = js)
+    #         result = req.json
+    #         if not result['valid']:
+    #             test = False
+    #     self.assertTrue(test)
 
     def test_failing_jsons(self):
         with open('./test/invalid_jsons.json') as json_file:
@@ -120,10 +120,6 @@ class Testflaskapp(unittest.TestCase):
         "telephone":"+1-828-271-4800",
         "email":"ncei.orders@noaa.gov"
      }
-  },
-  "includedInDataCatalog":{
-     "@type":"DataCatalog",
-     "name":"data.gov"
   },
   "distribution":[
      {
@@ -169,10 +165,6 @@ class Testflaskapp(unittest.TestCase):
         "telephone":"+1-828-271-4800",
         "email":"ncei.orders@noaa.gov"
      }
-  },
-  "includedInDataCatalog":{
-     "@type":"DataCatalog",
-     "name":"data.gov"
   },
   "distribution":[
      {
